@@ -1,0 +1,204 @@
+\documentclass[
+	%german,   % titles for a thesis in German, A4 paper
+	a4paper,   % forces A4 format even if <german> is not selected (useful for printing)
+	hints,     % shows instructions on how to write the thesis
+	%draft,    % omit title page, listings, and particular chapters selected below using include only
+	%print,    % the printed version does not use colored links
+	%final,    % removes all TODOs
+]{_config/ttthesis}
+
+\input{_config/colorscheme}
+\input{_config/lststyles}
+\input{_config/tikzstyles}
+\input{_config/macros}
+
+%*********************************************************************%
+% META                                                                %
+%*********************************************************************%
+
+
+% SP Template (currently the only option)
+\input{_config/profiles/dhbw-hdh/profile}
+
+% banner image for the title page (uncomment for none)
+\newcommand{\titleBannerImage}{img/title-banner-image}
+
+% custom options (e.g., trim, clip, angle) for includegraphics can be set here (uncomment for none)
+\edef\titleBannerImageOptions{angle=90}
+
+% This is the license attribution of the titles banner image (uncomment for none)
+\newcommand{\titleBannerImageAttribution}{\footnotesize\href{https://geek-and-poke.com/}{Geek \& Poke} under \href{https://creativecommons.org/licenses/by/3.0/}{CC BY 3.0}}
+
+% TODO: Enter your advisor
+\newcommand{\advisorone}{\todo{Titel \ifgerman{Vorname}{Forename} \ifgerman{Nachname}{Surname}}}
+\newcommand{\departmentone}{\ifgerman{Firma}{Corp}\todots}
+
+% uncomment to add a second advisor / reviewer
+%\newcommand{\advisortwo}{}
+%\newcommand{\departmenttwo}{}
+
+% TODO: Uncomment thesis kind to use
+\ifgerman{\newcommand{\thesiskind}{Studienarbeit}}{\newcommand{\thesiskind}{Studienarbeit}}
+% \ifgerman{\newcommand{\thesiskind}{Masterarbeit}}{\newcommand{\thesiskind}{Master's Thesis}}
+%\ifgerman{\newcommand{\thesiskind}{Doktorarbeit}}{\newcommand{\thesiskind}{Dissertation}}
+
+% TODO: Enter details
+\ifgerman{
+	\newcommand{\theforename}{\todo{Vorname}}
+	\newcommand{\thesurname}{\todo{Nachname}}
+	\newcommand{\thetitle}{\todo{Titel der Arbeit}}
+	\newcommand{\thedate}{\todo{13. Monat 2014}}
+}{
+	\newcommand{\theforename}{\todo{Forename}}
+	\newcommand{\thesurname}{\todo{Surname}}
+	\newcommand{\thetitle}{\todo{The Title of the Thesis}}
+	\newcommand{\thedate}{\todo{Month 13, 2014}}
+}
+\newcommand{\theyear}{\todo{2014}}
+
+%*********************************************************************%
+% SETUP                                                               %
+%*********************************************************************%
+
+% meta informations of the document
+\hypersetup{
+ pdfauthor={\theforename\ \thesurname},
+ pdftitle={\thetitle}
+}
+
+% open index file
+\ifnotdraft{\makeindex}
+
+%*********************************************************************%
+% ACRONYMS                                                            %
+%*********************************************************************%
+
+% HOWTO: \gls{IDE} for singular or \glspl{IDE} for plural with 's
+%\makeglossaries
+\newacronym{IDE}{IDE}{Integrated Development Environment}
+%\glsaddall % use only if you have acronyms that occur only in graphics
+
+%*********************************************************************%
+% THE DOCUMENT                                                        %
+%*********************************************************************%
+
+\begin{document}
+
+% Uncomment for classic lmodern font:
+%\fontfamily{lmr}\selectfont
+
+% Uncomment for lmodern sans serif font:
+%\fontfamily{lmss}\selectfont
+
+% Ucomment for libertine font:
+\libertine
+
+\ifgerman{
+	\labelformat{lstlisting}{Quelltext~#1}
+	\renewcommand{\lstlistingname}{Quelltext}
+}{
+	\labelformat{lstlisting}{Listing~#1}
+}
+
+% set the path where graphics are located
+\graphicspath{{pics/}}
+\ifnotdraft{
+	\frontmatter
+	\pagenumbering{roman}
+	\include{\titlepagesrc}
+	\include{chapters/abstract}
+	\blankpage
+
+	%\chapter*{Acknowledgements}
+	%\ldots
+	%\blankpage
+}
+
+
+%*********************************************************************%
+% LISTINGS                                                            %
+%*********************************************************************%
+
+\ifnotdraft{
+	{\parskip 0pt \pdfbookmark{\contentsname}{\contentsname}\chapterheadfont \tableofcontents} % toc bitte einzeilig
+	\blankpage
+
+	\ifgerman{
+		\listoffigures
+		\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+
+		\listoftables
+		\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
+
+		\renewcommand{\lstlistlistingname}{Quelltextverzeichnis}
+		\blankpage
+		\lstlistoflistings
+		\addcontentsline{toc}{chapter}{\lstlistlistingname}
+
+		%\renewcommand*{\firstacronymfont}[1]{\emph{#1}}
+		%\printglossary[type=acronym,title=List of Acronyms,toctitle=Abkürzungsverzeichnis]
+	}{
+		\listoffigures
+		\addcontentsline{toc}{chapter}{List of Figures}
+
+		\listoftables
+		\addcontentsline{toc}{chapter}{List of Tables}
+
+		\renewcommand{\lstlistlistingname}{List of Code Listings}
+		\blankpage
+		\lstlistoflistings
+		\addcontentsline{toc}{chapter}{\lstlistlistingname}
+
+		%\renewcommand*{\firstacronymfont}[1]{\emph{#1}}
+		%\printglossary[type=acronym,title=List of Acronyms,toctitle=List of Acronyms]
+	}
+}
+
+%*********************************************************************%
+% CHAPTERS                                                            %
+%*********************************************************************%
+
+\mainmatter
+\pagenumbering{arabic}
+
+% TODO: Drop chapters you don't need (e.g., no tooling) or add additional chapters
+
+\include{chapters/introduction}
+\include{chapters/background}
+\include{chapters/example}
+\include{chapters/implementation}
+\include{chapters/evaluation}
+\include{chapters/relatedwork}
+\include{chapters/conclusion}
+%\include{chapters/futurework}
+
+%*********************************************************************%
+% APPENDIX                                                            %
+%*********************************************************************%
+
+\appendix
+\include{chapters/appendix}
+
+%*********************************************************************%
+% LITERATURE                                                          %
+%*********************************************************************%
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{\bibname} % 
+\bibliographystyle{alpha} % plain gerplain abbrvnat unsrtnat alphag alpha
+% in a paper, space is limited. use abreviations
+\bibliography{literature/IEEEabrv,literature/MYabrv,literature/literature}
+
+%*********************************************************************%
+% ERKLÄRUNG                                                           %
+%*********************************************************************%
+
+\ifnotdraft{
+	\cleardoublepage
+	\phantomsection
+	\printindex
+	\include{_config/authorship}
+}
+
+\end{document}

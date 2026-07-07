@@ -1,0 +1,70 @@
+\begin{titlepage}
+	\firabook
+    \thispagestyle{empty}
+
+    \begin{tikzpicture}[overlay, remember picture, node distance = 0pt, every node/.style={inner sep = 0, outer sep = 0}]
+        \node[fill = gray!25, anchor = north west] at ([xshift = 1.5cm, yshift = -2.25cm]current page.north west) {\includegraphics[width = .325\paperwidth]{_config/profiles/uulm-sp/img/logo_sp}};
+        \node[anchor = north east] at ([xshift = -1.5cm, yshift = -2cm]current page.north east) {\includegraphics[width = 73mm]{_config/profiles/uulm-sp/img/logo_uulm}};
+		
+		\begin{scope}[on background layer]
+			\node[minimum width = \paperwidth, fill = white, anchor = north, minimum height = 285pt, inner sep=0pt] (banner) at ([yshift = -166pt]current page.north) {
+				\ifx\titleBannerImage\undefined%      
+				%
+				\else
+					\ifx\titleBannerImageOptions\undefined
+						\includegraphics[height = 285pt]{\titleBannerImage}
+					\else
+						\expandafter\includegraphics\expandafter[\titleBannerImageOptions, height = 285pt]{\titleBannerImage}
+					\fi
+					
+				\fi   			 
+			};
+		
+			\node [above left = of banner.south east, anchor=south east, inner sep=2pt] {
+				\ifx\titleBannerImageAttribution\undefined
+				%
+				\else					
+					\titleBannerImageAttribution
+				\fi
+			};    
+		\end{scope}        
+
+        \node[below = 0pt of banner, minimum width = \paperwidth, minimum height = 28pt, fill = csRed] (sep) {};
+        \node[below = 0pt of sep, minimum width = \paperwidth, minimum height = 90pt, fill = lightgray!25, text width = 0.86\paperwidth, align = right] (title_banner) {\LARGE \thetitle};
+        \node[below = 0pt of title_banner, minimum width = \paperwidth, minimum height = 90pt, text width = 0.86\paperwidth, align = right] (name_banner) {\color{uulmBlue}\LARGE \theforename{} \thesurname};
+
+        \node[above = 0pt of current page.south, minimum width = \paperwidth, minimum height = 90pt, fill = lightgray!25, text width = 0.86\paperwidth] (footer) {};
+
+        \node[above = 32pt of footer.south, minimum width = \paperwidth, text width = 0.86\paperwidth, align = right]{\large \school};
+
+        \node[left = 0pt of footer.north east, minimum width = 180pt, minimum height = 28pt, fill = csRed] {\color{white}\Large\thesiskind};
+
+    \end{tikzpicture}
+
+\end{titlepage}
+\newpage
+{\firabook
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{minipage}{15.0cm}
+\textbf{\theforename{} \thesurname:}\\
+\emph{\thetitle\\[1ex]}
+\ifx\advisortwo\undefined
+	\ifgerman{Gutachter:}{Advisor:}
+	\vspace{-5pt}
+	\begin{itemize}
+		\item[] \advisorone\\\emph{\departmentone}
+	\end{itemize}
+	\vspace{5pt}
+\else
+	\ifgerman{Gutachter:}{Advisors:}
+	\vspace{-5pt}
+	\begin{itemize}
+		\item[] \advisorone\\\emph{\departmentone}
+		\item[] \advisortwo\\\emph{\departmenttwo}
+	\end{itemize}
+	\vspace{5pt}
+\fi
+\thesiskind, \university, \theyear.
+\end{minipage}
+}
