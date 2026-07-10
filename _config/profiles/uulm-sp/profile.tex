@@ -1,0 +1,15 @@
+% Font for title page
+\usepackage{FiraSans}
+
+\definecolor{uulmBlue}{RGB}{125,154,170}
+\definecolor{csRed}{HTML}{A32638}
+
+\renewcommand{\titlepagesrc}{_config/profiles/uulm-sp/titlepage}
+
+\ifgerman{
+	\newcommand{\university}{Universität Ulm}
+	\newcommand{\school}{Institut für Softwaretechnik und Programmiersprachen}
+}{
+	\newcommand{\university}{University of Ulm}
+	\newcommand{\school}{Institute of Software Engineering and Programming Languages}
+}
