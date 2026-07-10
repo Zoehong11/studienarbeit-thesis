@@ -538,11 +538,6 @@ INPUT ./_config/profiles/dhbw-hdh/img/logo-dhbw.pdf
 INPUT ./_config/profiles/dhbw-hdh/img/logo-dhbw.pdf
 INPUT ./_config/profiles/dhbw-hdh/img/logo-dhbw.pdf
 INPUT ./_config/profiles/dhbw-hdh/img/logo-dhbw.pdf
-INPUT ./img/title-banner-image.jpg
-INPUT ./img/title-banner-image.jpg
-INPUT ./img/title-banner-image.jpg
-INPUT ./img/title-banner-image.jpg
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/fira/FiraSans-Book-osf-t1.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/fira/FiraSans-Book-osf-t1.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/fira/FiraSans-BookItalic-osf-t1.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/fira/FiraSans-Book-osf-t1.tfm
@@ -551,8 +546,6 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/fira/FiraSans-Book-osf-
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/fira/FiraSans-Book-osf-t1--base.tfm
 INPUT /usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/fira/fir_iln36p.enc
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/fira/FiraSans-Book-osf-t1.vf
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/fira/FiraSans-Book-osf-t1--base.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/fira/FiraSans-BookItalic-osf-t1.vf
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/fira/FiraSans-BookItalic-osf-t1--base.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/vf/public/fira/FiraSans-Book-osf-t1.vf

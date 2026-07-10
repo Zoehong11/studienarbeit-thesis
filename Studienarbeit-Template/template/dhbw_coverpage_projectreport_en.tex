@@ -1,0 +1,70 @@
+%!TEX root = ../main.tex
+
+%% ========================================================================
+%%%% Information
+%% ========================================================================
+%% Titelseite für Projektarbeiten an der DHBW zusammen mit einem Unternehmen.
+%% Die anzuzeigenden Daten werden in der Datei main.tex festgelegt.
+
+\begin{titlepage}
+
+    %% Company Logo
+    \AddToShipoutPicture*{
+        \AtPageUpperLeft{
+            \hspace{\paperwidth}
+            \raisebox{-50mm}{
+                \makebox[-129mm][r]{\includegraphics[width=42mm]{template/figures/University_Logo.png}}
+                % \makebox[-39mm][r]{\input{template/figures/logo_cas.pdf_tex}}
+            }
+        }
+    }
+
+    %% University Logo
+    \AddToShipoutPicture*{
+        \AtPageUpperLeft{
+            \hspace{\paperwidth}
+            \raisebox{-52mm}{
+                \makebox[-39mm][r]{\includegraphics[width=42mm]{template/figures/Company_Logo.png}}
+            }
+        }
+    }
+
+    \begin{center}
+        ~
+        \vfill\vfill\vfill \vfill\vfill
+
+        \sffamily
+
+        {\LARGE\bfseries\mytitle}
+
+        {\large\mysubtitle}
+
+        \vfill\vfill
+        {\normalsize\bfseries\myworktype~\myworktitle}\\
+
+        \vfill \vfill
+        for the \mystudy ~Department at the\\
+        \myuniversity
+
+        \vfill
+        by\\
+        \textbf{\myauthor}
+
+        \vfill
+        \mysubmissionday. \mysubmissionmonth~\mysubmissionyear
+
+        \vfill\vfill\vfill
+    \end{center}
+
+    \sffamily{
+        \begin{tabular}{ll}
+            Student ID & \myid                  \\
+            Company    & \mydualpartner         \\
+                       & \mydualpartnerLocation \\
+            Supervisor & \mysupervisor          \\
+        \end{tabular}
+    }
+
+\end{titlepage}
+
+\newpage

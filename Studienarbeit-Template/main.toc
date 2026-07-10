@@ -1,0 +1,10 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {paragraph}{\nonumberline Goal of this Thesis}{1}{paragraph*.5}%
+\contentsline {paragraph}{\nonumberline Structure of the Thesis}{1}{paragraph*.7}%
+\contentsline {chapter}{\numberline {2}Background and Related Work}{2}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Experimental Design and Implementation}{3}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Evaluation and Discussion}{4}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Experiments}{4}{section.4.1}%
+\contentsline {chapter}{\numberline {5}Conclusion and Future Work}{5}{chapter.5}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

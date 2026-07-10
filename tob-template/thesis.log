@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  10 JUL 2026 15:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  10 JUL 2026 17:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1103,15 +1103,6 @@ File: _config/profiles/dhbw-hdh/img/logo-dhbw.pdf Graphic file (type pdf)
 <use _config/profiles/dhbw-hdh/img/logo-dhbw.pdf>
 Package pdftex.def Info: _config/profiles/dhbw-hdh/img/logo-dhbw.pdf  used on input line 8.
 (pdftex.def)             Requested size: 219.08621pt x 91.51303pt.
-<img/title-banner-image.jpg, id=104, 401.5pt x 595.22375pt>
-File: img/title-banner-image.jpg Graphic file (type jpg)
-<use img/title-banner-image.jpg>
-Package pdftex.def Info: img/title-banner-image.jpg  used on input line 19.
-(pdftex.def)             Requested size: 401.49901pt x 595.2223pt.
-LaTeX Font Info:    Font shape `T1/FiraSans-OsF/sl/n' in size <10> not available
-(Font)              Font shape `T1/FiraSans-OsF/book/n' tried instead on input line 29.
-LaTeX Font Info:    Font shape `T1/FiraSans-OsF/book/n' will be
-(Font)              scaled to size 10.0pt on input line 29.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/sl/n' in size <20.74> not available
 (Font)              Font shape `T1/FiraSans-OsF/book/n' tried instead on input line 35.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/book/n' will be
@@ -1122,12 +1113,12 @@ LaTeX Font Info:    Font shape `T1/FiraSans-OsF/book/it' will be
 (Font)              scaled to size 20.74pt on input line 35.
 
 Underfull \hbox (badness 10000) in paragraph at lines 35--35
- [][][]\T1/FiraSans-OsF/book/it/20.74 [The Ti-tle of the The-sis][]
+ [][][]\T1/FiraSans-OsF/book/it/20.74 [Connections AI Solver][]
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 36--36
- [][][][]\T1/FiraSans-OsF/book/it/20.74 [Forename][] [][Sur-name][][]
+ [][][][]\T1/FiraSans-OsF/book/it/20.74 [Ziyi][] [][Hong][][]
  []
 
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/sl/n' in size <14.4> not available
@@ -1150,7 +1141,7 @@ LaTeX Font Info:    Font shape `T1/FiraSans-OsF/book/n' will be
 
 
 
-{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/fira/fir_iln36p.enc} <./_config/profiles/dhbw-hdh/img/logo-dhbw.pdf> <./img/title-banner-image.jpg>]
+{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/fira/fir_iln36p.enc} <./_config/profiles/dhbw-hdh/img/logo-dhbw.pdf>]
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/b/n' in size <12> not available
 (Font)              Font shape `T1/FiraSans-OsF/bold/n' tried instead on input line 52.
 LaTeX Font Info:    Font shape `T1/FiraSans-OsF/bold/n' will be
@@ -1346,7 +1337,7 @@ Package natbib Warning: Citation `R:MT09' on page 5 undefined on input line 21.
 
 
 [5{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}]
-<img/example.pdf, id=233, 174.41159pt x 112.2062pt>
+<img/example.pdf, id=230, 174.41159pt x 112.2062pt>
 File: img/example.pdf Graphic file (type pdf)
 <use img/example.pdf>
 Package pdftex.def Info: img/example.pdf  used on input line 54.
@@ -1481,18 +1472,18 @@ Package rerunfilecheck Info: File `thesis.brf' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 46360 strings out of 473190
- 1044712 string characters out of 5715801
- 1799606 words of memory out of 5000000
- 68613 multiletter control sequences out of 15000+600000
- 789922 words of font info for 136 fonts, out of 8000000 for 9000
+ 46341 strings out of 473190
+ 1044158 string characters out of 5715801
+ 1799296 words of memory out of 5000000
+ 68595 multiletter control sequences out of 15000+600000
+ 775206 words of font info for 134 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  105i,12n,107p,2487b,1366s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/fira/FiraSans-Bold.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/fira/FiraSans-BoldItalic.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/fira/FiraSans-Book.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/fira/FiraSans-BookItalic.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/libertine/LinLibertineTB.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmb10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on thesis.pdf (33 pages, 686159 bytes).
+Output written on thesis.pdf (33 pages, 629770 bytes).
 PDF statistics:
- 477 PDF objects out of 1000 (max. 8388607)
- 364 compressed objects within 4 object streams
+ 474 PDF objects out of 1000 (max. 8388607)
+ 362 compressed objects within 4 object streams
  79 named destinations out of 1000 (max. 500000)
- 268 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 263 words of extra memory for PDF output out of 10000 (max. 10000000)
 

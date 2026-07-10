@@ -1,0 +1,110 @@
+%% ========================================================================
+%%%% Document settings
+%% ========================================================================
+\newcommand{\myfontsize}{12pt}
+\newcommand{\myparskip}{half}
+\newcommand{\myBCOR}{0mm}
+\newcommand{\mytwoside}{false}
+\newcommand{\mydispositioncolor}{0,0,0}
+\newcommand{\mylinespread}{1.5}
+\newcommand{\mycolorlinks}{false}
+\newcommand{\mylanguage}{ngerman,english}
+
+%% ========================================================================
+%%%% Document metadata
+%% ========================================================================
+
+%% Student:
+\newcommand{\myauthor}{Ziyi Hong}
+\newcommand{\myhomestreet}{Marienstraße 20}
+\newcommand{\myhomepostalnumber}{89518}
+\newcommand{\myhometown}{Heidenheim an der Brenz}
+\newcommand{\myid}{2694933}
+
+%% Titel
+\newcommand{\myworktype}{Studienarbeit}
+\newcommand{\mytitle}{Connections AI Solver}
+\newcommand{\mysubtitle}{}
+\newcommand{\mysubject}{Studienarbeit von Ziyi Hong}
+\newcommand{\mykeywords}{Connections, AI, Embedding, LLM}
+
+%% Duale Hochschule
+\newcommand{\myuniversity}{DHBW Heidenheim}
+\newcommand{\mycourse}{Allgemeine Informatik}
+\newcommand{\mystudy}{Informatik}
+\newcommand{\myevaluator}{Tobias Heß}
+
+%% Datum
+\newcommand{\mysubmissionday}{TODO}
+\newcommand{\mysubmissionmonth}{TODO}
+\newcommand{\mysubmissionyear}{2026}
+
+\newcommand{\myprocessingperiodbegin}{January -- March 2026}
+\newcommand{\myprocessingperiodend}{July -- September 2026}
+
+%% ========================================================================
+%%%% Other settings
+%% ========================================================================
+
+\input{template/preamble}
+\input{etc/hyphenation}
+\input{template/pdf_settings}
+
+%% ========================================================================
+%%%% begin{document}
+%% ========================================================================
+\begin{document}
+\rmfamily
+\frontmatter
+\pagenumbering{Roman}
+
+%% Titelseite
+\input{template/dhbw_coverpage_study_en}
+
+%% Eidesstattliche Erklärung
+\input{template/declaration_affidavit_en}
+
+%% Abstract
+\include{chapters/chap0_abstract}
+
+%% Inhaltsverzeichnis
+\tableofcontents
+\newpage
+
+%% Abkürzungen
+\input{etc/acronyms}
+
+%% Abbildungsverzeichnis
+\iftotalfigures
+    \cleardoublepage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{\listfigurename}
+    \listoffigures
+\fi
+
+%% Tabellenverzeichnis
+\iftotaltables
+    \cleardoublepage
+    \phantomsection
+    \addcontentsline{toc}{chapter}{\listtablename}
+    \listoftables
+\fi
+
+\mainmatter
+\pagenumbering{arabic}
+
+%% Kapitel hier einfügen
+\input{chapters/chap1_introduction}
+\input{chapters/chap2_background}
+\input{chapters/chap3_implementation}
+\input{chapters/chap4_evaluation}
+\input{chapters/chap5_conclusion}
+
+\backmatter
+\pagenumbering{Roman}
+\setcounter{page}{4}
+
+\printbibliography[notkeyword=online]
+\printbibliography[keyword=online, heading=subbibliography, title={Online-Quellen}]
+
+\end{document}
