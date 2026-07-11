@@ -1,20 +1,623 @@
-% !TEX root = ../main.tex
-\chapter{Background and Related Work}
-\label{ch:background}
+% =============================================================
+% Kapitel 2 -- Foundations and Related Work
+% Draft chapter, standalone content only (no preamble/title page).
+% =============================================================
+%
+% STYLE GUIDE COMPLIANCE PASS (this revision):
+%   Applied directly (format/structural, per style guide workflow rule):
+%     - All \cite{} calls now use ~\cite{} (non-breaking space).
+%     - \ref{} -> \autoref{} for all MID-SENTENCE cross-references.
+%     - Bibliography entries corrected to proper types (@online for web
+%       pages, @techreport for the Stanford course report) with url +
+%       urldate restored from the original Exposé reference list.
+%   NOT applied yet (content-level, needs your review first per the
+%   style guide's "content changes" rule):
+%     - Colons before lists (1 instance: "Three considerations motivate
+%       this focus:").
+%     - Semicolons joining independent clauses (4 instances).
+%     - Em/en dashes used as parenthetical markers (~18 instances --
+%       this chapter's prose leans on that construction throughout and
+%       needs a real rewrite pass, not a mechanical swap).
+%     - "these" as a bare pronoun -- none found on inspection, but worth
+%       a re-check once other prose edits land.
+%   See docs/thesis_writing_notes.md for the full itemized list with line
+%   numbers, and confirm before I touch the wording.
+%
+% OPEN QUESTIONS (need your input, not just mine to decide):
+%   1. Section~\ref{} / Chapter~\ref{} at the START of a sentence (all in
+%      the roadmap paragraph below) were left as-is rather than converted
+%      to \autoref, because \autoref renders lowercase "section"/"chapter"
+%      and would read wrong at a sentence start unless your template
+%      defines a capitalized wrapper (e.g. \Autoref, or you use cleveref's
+%      \Cref). Tell me which applies, or I will restructure those
+%      sentences so the reference is no longer sentence-initial.
+%   2. The style guide asks for \citeauthor{key} "when referring to an
+%      author by name in running text." I left the manually-typed author
+%      lists (e.g. "Loredo Lopez, McDonald, and Emami") as-is rather than
+%      swapping to \citeauthor{loredolopez2025}, because the rendered
+%      output depends on your bib style's maxnames/name-list settings and
+%      I cannot verify it matches without compiling against your
+%      template. Confirm whether \citeauthor{} in your setup prints the
+%      full three-author list, and I will make the swap.
+%
+% OTHER ASSUMPTIONS (unchanged from previous revision):
+%   - Heading level: "Kapitel 2" = \chapter{}, "2.1" etc. = \section{}.
+%     If your template is flat, demote \chapter -> \section and
+%     \section -> \subsection.
+%   - "% TODO:" / "% NOTE:" comments are process notes, invisible in the
+%     compiled PDF. Resolve and delete before submission.
+% =============================================================
 
-% - General knowledge foundations of the field
-% - Specific fundamentals required for understanding
-% - Boundary conditions for the thesis
-% - State of the art / state of knowledge
-% Guiding principle: only mention information that is
-% - needed later, or
-% - necessary to understand the thesis or its motivation
-% In particular, avoid textbook content unless it is needed to define the
-% problem statement or the solution approach.
+\chapter{Foundations and Related Work}
+\label{ch:foundations}
 
-% TODO
+This chapter establishes the conceptual and technical foundation for this thesis. Section~\ref{sec:connections-puzzle} introduces
+the NYT Connections puzzle and its rules. Section~\ref{sec:relation-types}
+develops a taxonomy of the semantic relations underlying puzzle categories
+and links it to the puzzle's difficulty structure.
+Section~\ref{sec:challenges} discusses why the puzzle is difficult for
+automated solvers in general. Section~\ref{sec:small-models} motivates the
+focus on small, locally deployable language models. Sections
+\ref{sec:embeddings-clustering} and \ref{sec:prompting} cover the two
+technical building blocks of the proposed solver -- text
+embeddings/clustering and LLM prompting strategies.
+Section~\ref{sec:related-work} reviews prior solver designs for
+Connections and positions this thesis relative to them.
 
-Connections. What is Connections, and why build a Connections AI solver
-(the meaning of building a Connections AI solver)? The goal of the
-Connections AI solver, motivation. Problem statement: what this study is
-going to answer.
+% TODO: once your new literature is sorted by section, tell me which
+% items go where and I will fold them into the corresponding \section
+% below, including new \cite{} keys and matching BibTeX entries.
+
+% =============================================================
+\section{The NYT Connections Puzzle}
+\label{sec:connections-puzzle}
+
+NYT Connections is a daily word puzzle in which players must partition a
+set of sixteen words into four disjoint groups of four. Each correct
+group is assigned one of four color-coded difficulty labels -- yellow
+(easiest), green, blue, and purple (hardest) -- reflecting the puzzle's
+intended difficulty in recognizing the underlying grouping relation.
+
+Two evaluation protocols are relevant for this thesis and are used
+interchangeably across the experiments described in
+\autoref{ch:methodology}\footnote{Adjust the chapter label
+\texttt{ch:methodology} once your methodology chapter exists.}:
+
+\begin{itemize}
+  \item An \textbf{interactive setting} with a limited number of attempts
+  (four in the original game) and ``one-away'' feedback: after each
+  submitted group, the player learns whether the group was fully correct,
+  wrong, or contained exactly three correct words (``one away'').
+  \item An \textbf{all-at-once setting} that requires predicting the
+  complete $4\times4$ partition in a single submission, without
+  intermediate feedback.
+\end{itemize}
+
+Solver communities have also adopted self-imposed variants to increase
+difficulty, such as attempting the purple category first
+(``purple-first''), which reverses the typical order of play by
+prioritizing the most abstract relation before the easier categories are
+identified. This practice illustrates that even human solvers treat the
+difficulty ordering yellow~$\rightarrow$~green~$\rightarrow$~blue~$\rightarrow$~purple
+as a meaningful, exploitable structure rather than an arbitrary label --
+a point taken up again in \autoref{sec:relation-types}.
+
+% =============================================================
+\section{Relation Types and the Structure of Difficulty}
+\label{sec:relation-types}
+
+The categories in a Connections puzzle are not homogeneous in the kind of
+linguistic or world knowledge they require. Following the taxonomy
+summarized in \autoref{tab:relation-types}, four broad relation types
+can be distinguished, with a fifth ``mixed'' category covering cases that
+combine more than one type.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Relation types in NYT Connections, with illustrative examples.}
+  \label{tab:relation-types}
+  \begin{tabular}{@{}p{0.28\textwidth}p{0.60\textwidth}@{}}
+    \toprule
+    \textbf{Relation type} & \textbf{Example category and words} \\
+    \midrule
+    Semantic similarity &
+      \textit{FURTHEST POINT}: END, EXTREME, OPPOSITE, POLE~\cite{nyt-puzzle-2026-01-05} \\
+    Semantic relatedness &
+      \textit{THINGS YOU CAN DO ON SOCIAL MEDIA}: COMMENT, LIKE, LURK, POST~\cite{nyt-puzzle-2026-01-05} \\
+    Form- or rule-based relations &
+      \textit{ART MOVEMENTS, WITH ``-ISM''}: BRUTAL, IMPRESSION, MANNER, REAL~\cite{nyt-puzzle-2026-01-05} \\
+    Referential relations &
+      \textit{RIHANNA \#1 HITS}: DIAMONDS, SOS, UMBRELLA, WORK~\cite{nyt-puzzle-2026-01-03} \\
+    Mixed categories &
+      \textit{CAR BRAND HOMOPHONES}: INFINITY, MINNIE, OPAL, OUTIE~\cite{nyt-puzzle-2025-12-29} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Semantic similarity relations rest on near-synonymy or shared hypernymy
+(e.g., ``types of flowers''); semantic relatedness relations hold between
+words that are not strictly similar but co-occur within a common theme or
+script; form- or rule-based relations are determined by surface
+regularities such as spelling, morphology, or conventional symbol
+meanings; referential relations require external world knowledge about
+named entities or factual lists. The hardest (purple) categories draw
+disproportionately on the less standard relation types -- word and letter
+patterns such as rhymes, homophones, anagrams, or palindromes, unmarked
+fill-in-the-blank phrases, and pop-culture or proper-noun knowledge -- and
+frequently combine more than one relation type at once~\cite{nyt-tips-tricks-2023}.
+% STYLE GUIDE: this paragraph has 3 semicolons and needs restructuring
+% into separate sentences -- flagged in docs/thesis_writing_notes.md,
+% not rewritten here pending your review.
+
+\paragraph{Working hypothesis adopted in this thesis.}
+The color-coded difficulty ordering correlates, at least approximately,
+with this relation-type taxonomy: yellow and green categories tend toward
+semantic similarity and relatedness, which are directly addressable by
+distributional/embedding-based methods, whereas blue and purple
+categories skew toward form-based, referential, and mixed relations,
+which embeddings alone are ill-suited to capture and which instead
+require either symbolic pattern matching or LLM-internal world knowledge.
+This mapping is not drawn from a specific external source but is proposed
+here as an explanatory lens; it is revisited in
+\autoref{ch:results}\footnote{Adjust once your results chapter
+exists.} as the basis for the per-tier error analysis.
+% NOTE: if your new literature includes an empirical study confirming or
+% refining this correlation, cite it in this paragraph.
+
+% =============================================================
+\section{Challenges for Automated Solvers}
+\label{sec:challenges}
+
+The relation-type diversity described above already indicates why
+Connections is difficult for automated approaches: a single puzzle may
+combine semantic similarity, semantic relatedness, form- or rule-based
+cues, and referential knowledge. Consequently, the task spans multiple
+NLP subproblems simultaneously -- distributional semantics and sense
+disambiguation for similarity/relatedness categories, pattern matching
+for form-based categories, and retrieval of external, often culturally
+specific knowledge for referential categories -- so that no single notion
+of similarity is sufficient across all groups.
+
+The puzzle is also difficult by design. Categories frequently overlap in
+plausibility, creating red herrings: words that appear to fit one
+candidate grouping but ultimately belong elsewhere. Context clues are
+consequently critical for disambiguating individual words, and because
+the four groups must jointly partition all sixteen words, early
+(incorrect) commitments constrain what remains achievable for the rest of
+the puzzle~\cite{nyt-tips-tricks-2023}.
+
+Loredo Lopez, McDonald, and Emami~\cite{loredolopez2025} explicitly design
+their Connections benchmark to penalize fast, superficial-cue-driven
+(``System-1'') guesses. This framing aligns with the shortcut-learning
+perspective: models can succeed by exploiting easy-to-use regularities
+rather than recovering the intended global grouping structure, a behavior
+expected whenever the data distribution offers shortcut opportunities and
+the evaluation objective rewards whatever features are most locally
+predictive~\cite{geirhos2020}. Connections' daily release cadence
+additionally supports robust, leakage-resistant model comparison, since
+each day's puzzle is unseen at evaluation time relative to a model's
+training cutoff~\cite{loredolopez2025}.
+% NOTE: robison2025medium (blog post) can illustrate this point
+% informally but should not carry the argument alone -- see bibliography
+% comment at the end of this file. Prefer a peer-reviewed source on
+% shortcut learning in puzzle-solving / constrained-generation LLM tasks
+% if your new literature offers one.
+
+% =============================================================
+\section{Small and Resource-Constrained Language Models as Solving Agents}
+\label{sec:small-models}
+
+% TODO: this entire section currently argues from first principles /
+% project rationale rather than from literature. This is very likely
+% the right place for your new references -- see inline TODOs below.
+
+Most reported LLM results on Connections-style benchmarks use large,
+cloud-hosted models~\cite{toddetal2024,loredolopez2025,zhangetal-connections}.
+This thesis instead centers on small, locally executable models in the
+7--8B parameter range (e.g., Mistral~7B, Llama~3.1~8B), run through a
+local inference server (Ollama) rather than a hosted API. Three
+considerations motivate this focus:
+% STYLE GUIDE: colon before the enumerate list below is prohibited
+% ("The dimensions are:" is the guide's own example of what to avoid).
+% Not restructured here pending your review -- see notes doc.
+
+\begin{enumerate}
+  \item \textbf{Deployment constraints.} Local execution removes
+  dependence on external API availability, per-token cost, and data
+  egress, which is relevant whenever a solver is meant to run on
+  constrained or offline infrastructure.
+  % TODO: cite a reference on resource-constrained / on-device LLM
+  % deployment to support this point.
+  \item \textbf{The capability gap as the actual object of study.}
+  Because small models trail larger ones on complex reasoning tasks,
+  % TODO: cite evidence that reasoning/compositional performance scales
+  % with model size, or that small models are disproportionately prone
+  % to shortcut/heuristic solutions.
+  they expose failure modes -- shortcut reliance, weak constraint
+  tracking across a 16-word global partition, limited world knowledge for
+  referential categories -- more readily than large models do. This makes
+  small models a more informative testbed for evaluating whether
+  \emph{external scaffolding} (embeddings, clustering, structured
+  verification) can substitute for missing model-internal capability,
+  which is the central question this thesis investigates.
+  \item \textbf{Comparability to prior work.} Loredo Lopez, McDonald, and
+  Emami~\cite{loredolopez2025} already evaluate multiple LLMs of varying
+  size under different prompting schemes on Connections, which provides a
+  point of comparison for the relative performance of the small models
+  used here (\autoref{sec:related-work}).
+\end{enumerate}
+
+% TODO: this section needs at least 1-2 supporting citations:
+%   (a) general evidence that reasoning/compositional performance scales
+%       with model size, or conversely that small models are
+%       disproportionately prone to shortcut/heuristic solutions;
+%   (b) if available, existing work specifically on small/local LLMs for
+%       constrained combinatorial or puzzle-style tasks.
+% If your new literature covers either, this is where it goes.
+
+% =============================================================
+\section{Text Embeddings and Clustering for Lexical Grouping}
+\label{sec:embeddings-clustering}
+
+At the representation level, Connections is closely tied to text
+embeddings, semantic similarity, and clustering. Early work on
+distributed word representations introduced dense word vectors capturing
+lexical regularities through co-occurrence statistics~\cite{mikolov2013}.
+Subsequent surveys trace the shift from such static word vectors to
+contextualized representations, including sentence-level embeddings
+optimized for semantic similarity~\cite{chandrasekaran2021};
+transformer-based embedding models are now the standard approach for
+encoding context-dependent lexical and semantic relations
+\cite{incitti2023}, and a broader survey perspective summarizes
+representation choices and their implications for similarity modeling
+across NLP tasks more generally~\cite{patil2023}.
+% STYLE GUIDE: 1 semicolon in this paragraph, not restructured yet --
+% see notes doc.
+
+Classical clustering algorithms -- k-means, k-means++, and DBSCAN,
+together with keyword-clustering techniques -- group items based on
+distances within such embedding spaces~\cite{ester1996dbscan,
+arthur2007kmeanspp}. More recent work shows that LLM-derived embeddings
+can improve resulting cluster structure, and that clustering itself can
+be reframed as an in-context classification problem solved directly by an
+LLM rather than by a separate distance-based algorithm
+\cite{huang2025textclustering, petukhova2025}.
+
+This thesis uses SentenceTransformer-style encoders (specifically
+\texttt{BAAI/bge-large-en-v1.5}, alongside comparison runs with other
+encoder families such as the E5 series and MiniLM) as the embedding
+backbone for the non-LLM baseline and for the clustering pre-processing
+stage of the hybrid pipeline (\autoref{ch:methodology}). The choice of
+embedding family is treated as an experimental variable rather than fixed
+a priori, following the observation in \autoref{sec:related-work}
+that prior work on Connections instantiates broadly comparable solver
+structures with substantially different embedding families, without
+directly comparing them under a controlled setup.
+
+% =============================================================
+\section{Prompting Strategies for LLM Reasoning}
+\label{sec:prompting}
+
+Chain-of-thought (CoT) prompting elicits intermediate reasoning steps
+from an LLM before it commits to a final answer and has been shown to
+improve performance on complex, multi-step tasks~\cite{wei2022cot}.
+Prompting-technique reference guides collect CoT and related variants in
+a practitioner-oriented form~\cite{promptguide-cot}.
+% NOTE: the Tree-of-Thought guide is intentionally not cited here --
+% only reinstate it if ToT is actually discussed; it is not implemented
+% in the current prompt.py.
+
+The solver pipelines evaluated in this thesis instantiate several points
+along this spectrum: a zero-shot condition, a few-shot condition using a
+single worked example, and a CoT condition that decomposes reasoning into
+an explicit analyze--group--verify sequence (see \texttt{system\_prompt()}
+in the implementation). A self-consistency variant, which samples
+multiple reasoning traces and aggregates over them rather than committing
+to a single greedy completion, is evaluated as an additional condition.
+% TODO: add the self-consistency citation here once confirmed (commonly
+% Wang et al., "Self-Consistency Improves Chain of Thought Reasoning in
+% Language Models," ICLR 2023, arXiv:2203.11171 -- verify before citing).
+Loredo Lopez, McDonald, and Emami~\cite{loredolopez2025} similarly
+contrast direct input--output prompting against CoT and self-consistency
+variants on Connections specifically, which this thesis uses as a point
+of reference in \autoref{sec:related-work} and
+\autoref{ch:methodology}.
+
+% =============================================================
+\section{Related Work on NYT Connections Solvers}
+\label{sec:related-work}
+
+Three prior studies directly inform the solver design used in this
+thesis.
+
+\paragraph{Todd et al.~\cite{toddetal2024}} study Connections using both
+embedding-based heuristics and prompted LLMs. Their non-LLM baseline
+encodes words with SentenceTransformer-style models, exhaustively scores
+all $\binom{16}{4}$ candidate four-word groups by within-group
+cosine-similarity cohesion, and constructs a solution iteratively; they
+also consider an all-at-once variant that ranks complete $4\times4$
+partitions by summed cohesion.
+% STYLE GUIDE: 1 semicolon in this paragraph, not restructured yet.
+
+\paragraph{Loredo Lopez, McDonald, and Emami~\cite{loredolopez2025}}
+propose a ``System-1-like'' heuristic baseline using
+Multilingual-E5-Large-Instruct embeddings, scoring candidate groups with
+a discriminative function
+\begin{equation}
+  S = G - P,
+  \label{eq:loredolopez-score}
+\end{equation}
+where $G$ aggregates multiple within-group cohesion signals and $P$
+penalizes groups that are insufficiently distinctive from the remaining
+words. Full solutions are assembled via beam search. They evaluate
+multiple LLMs under direct, chain-of-thought, and self-consistency
+prompting schemes.
+
+\begin{quote}
+\noindent\textbf{Correspondence to this project's implementation.} The
+\texttt{score\_group()} function in \texttt{herustic\_solver.py} computes
+\[
+  G = 0.4 \cdot I + 0.3 \cdot s + 0.3 \cdot V
+\]
+(a weighted combination of negative inertia, minimum pairwise cosine
+similarity, and a mean/variance cohesion term) and a final score
+$S = G - P$, assembled via a beam-search procedure over group choices --
+structurally identical to the scoring function in
+\autoref{eq:loredolopez-score} as described by Loredo Lopez et
+al.~\cite{loredolopez2025}. \textbf{This correspondence must be stated
+explicitly in the methodology chapter} as the basis for the reproduced
+baseline, both to satisfy the ``solides Fundament'' principle of the
+DHBW guideline and to avoid any appearance of an unattributed structural
+borrowing.
+\end{quote}
+
+\paragraph{Zhang, Jiang, and Ye~\cite{zhangetal-connections}} frame the
+task as equal-size constrained clustering and apply Balanced k-means on
+static word embeddings (GloVe/word2vec), with an alternative
+KMeans-plus-rebalancing baseline to enforce the four-groups-of-four
+partition. They additionally explore LLM-based pipelines including
+in-context learning, parameter-efficient fine-tuning (QLoRA), rationale
+distillation from a larger teacher model, and feedback-driven refinement.
+
+\paragraph{Synthesis and positioning of this thesis.}
+These three studies converge on a common structural insight -- that a
+Connections solver decomposes into (a) a representation/scoring stage
+over candidate groups and (b) an assignment stage that resolves the
+equal-size global partition -- while differing substantially in how each
+stage is instantiated: embedding family (E5~\cite{loredolopez2025} vs.\
+SentenceTransformer/MPNet~\cite{toddetal2024} vs.\ static
+word2vec/GloVe~\cite{zhangetal-connections}), scoring function, and
+assignment method (iterative greedy construction~\cite{toddetal2024},
+beam search~\cite{loredolopez2025}, balanced/rebalanced k-means
+\cite{zhangetal-connections}). None of the three directly compares
+embedding families under an otherwise fixed solver structure, and only
+Zhang, Jiang, and Ye~\cite{zhangetal-connections} treat the assignment
+stage as an explicitly constrained combinatorial problem -- but resolve
+it with a clustering heuristic rather than an exact method.
+
+This thesis addresses both gaps directly. First, it reproduces the
+\cite{loredolopez2025} scoring function as a fixed non-LLM baseline and
+instantiates it with multiple embedding families under an otherwise
+controlled setup (\autoref{ch:methodology}), extending the
+embedding-family comparison that \cite{toddetal2024, loredolopez2025,
+zhangetal-connections} motivate but do not themselves carry out. Second,
+building on the constrained-clustering framing of
+\cite{zhangetal-connections}, it replaces the balanced/rebalanced
+clustering heuristic with exact and near-exact constrained-assignment
+methods (dynamic programming and integer linear programming via
+OR-Tools) applied to LLM- and embedding-scored candidate groups, combined
+with an explicit LLM-based trap/red-herring verification stage --
+directly addressing the red-herring challenge identified in
+\autoref{sec:challenges}~\cite{nyt-tips-tricks-2023}. Third, unlike
+\cite{toddetal2024, loredolopez2025, zhangetal-connections}, which
+evaluate primarily at the level of overall puzzle success, this thesis
+evaluates performance separately per difficulty tier
+(\autoref{sec:relation-types}), which is necessary to assess the
+specific research question of whether the proposed hybrid pipeline
+improves solving accuracy on the easier (yellow/green) categories
+relative to the small-model baselines established in
+\autoref{sec:small-models}.
+
+% =============================================================
+% BibTeX entries for the citations used above.
+% Merge into your .bib file, or rename these keys to match entries you
+% already have. Author-list / venue / url / urldate details are restored
+% from the January 2026 Exposé's reference list where available.
+% Double-check against the original sources before final submission.
+% =============================================================
+%
+% @inproceedings{ester1996dbscan,
+%   author    = {Ester, Martin and Kriegel, Hans-Peter and Sander, J{\"o}rg and Xu, Xiaowei},
+%   title     = {A density-based algorithm for discovering clusters in large spatial databases with noise},
+%   booktitle = {Proceedings of the Second International Conference on Knowledge Discovery and Data Mining (KDD'96)},
+%   year      = {1996},
+%   pages     = {226--231},
+%   address   = {Portland, Oregon},
+%   publisher = {AAAI Press}
+%   % No direct url given in the source Exposé entry (visited 2025-11-20 per that document, but no URL was printed) -- do not fabricate one.
+% }
+%
+% @inproceedings{arthur2007kmeanspp,
+%   author    = {Arthur, David and Vassilvitskii, Sergei},
+%   title     = {k-means++: the advantages of careful seeding},
+%   booktitle = {Proceedings of the Eighteenth Annual ACM-SIAM Symposium on Discrete Algorithms (SODA '07)},
+%   year      = {2007},
+%   pages     = {1027--1035},
+%   isbn      = {978-0-89871-624-5}
+%   % No direct url given in the source Exposé entry (visited 2025-12-15 per that document, but no URL was printed) -- do not fabricate one.
+% }
+%
+% @online{mikolov2013,
+%   author  = {Mikolov, Tomas and Sutskever, Ilya and Chen, Kai and Corrado, Greg and Dean, Jeffrey},
+%   title   = {Distributed Representations of Words and Phrases and their Compositionality},
+%   year    = {2013},
+%   eprint  = {1310.4546},
+%   archivePrefix = {arXiv},
+%   primaryClass  = {cs},
+%   url     = {http://arxiv.org/abs/1310.4546},
+%   urldate = {2025-11-23}
+% }
+%
+% @article{geirhos2020,
+%   author  = {Geirhos, Robert and Jacobsen, J{\"o}rn-Henrik and Michaelis, Claudio and Zemel, Richard and Brendel, Wieland and Bethge, Matthias and Wichmann, Felix A.},
+%   title   = {Shortcut learning in deep neural networks},
+%   journal = {Nature Machine Intelligence},
+%   volume  = {2},
+%   number  = {11},
+%   pages   = {665--673},
+%   year    = {2020},
+%   doi     = {10.1038/s42256-020-00257-z},
+%   url     = {https://www.nature.com/articles/s42256-020-00257-z},
+%   urldate = {2025-11-18}
+% }
+%
+% @article{chandrasekaran2021,
+%   author  = {Chandrasekaran, Dhivya and Mago, Vijay},
+%   title   = {Evolution of Semantic Similarity---A Survey},
+%   journal = {ACM Computing Surveys},
+%   volume  = {54},
+%   number  = {2},
+%   pages   = {41:1--41:37},
+%   year    = {2021},
+%   doi     = {10.1145/3440755},
+%   url     = {https://doi.org/10.1145/3440755},
+%   urldate = {2025-11-18}
+% }
+%
+% @article{incitti2023,
+%   author  = {Incitti, Francesca and Urli, Federico and Snidaro, Lauro},
+%   title   = {Beyond word embeddings: A survey},
+%   journal = {Information Fusion},
+%   volume  = {89},
+%   pages   = {418--436},
+%   year    = {2023},
+%   doi     = {10.1016/j.inffus.2022.08.024},
+%   url     = {https://www.sciencedirect.com/science/article/pii/S1566253522001233},
+%   urldate = {2025-11-20}
+% }
+%
+% @article{patil2023,
+%   author  = {Patil, Rajvardhan and others},
+%   title   = {A Survey of Text Representation and Embedding Techniques in NLP},
+%   journal = {IEEE Access},
+%   year    = {2023},
+%   doi     = {10.1109/ACCESS.2023.3266377}
+%   % No url/urldate given in the source Exposé entry -- do not fabricate one.
+% }
+%
+% @online{nyt-tips-tricks-2023,
+%   author  = {{The New York Times}},
+%   title   = {Connections Tips and Tricks},
+%   year    = {2023},
+%   month   = {11},
+%   url     = {https://www.nytimes.com/2023/11/06/crosswords/connections-tips-and-tricks.html},
+%   urldate = {2026-01-09}
+% }
+%
+% @online{wei2022cot,
+%   author  = {Wei, Jason and others},
+%   title   = {Chain-of-Thought Prompting Elicits Reasoning in Large Language Models},
+%   year    = {2023},
+%   eprint  = {2201.11903},
+%   archivePrefix = {arXiv},
+%   primaryClass  = {cs},
+%   url     = {http://arxiv.org/abs/2201.11903},
+%   urldate = {2025-11-18}
+% }
+%
+% @inproceedings{toddetal2024,
+%   author    = {Todd, Graham and others},
+%   title     = {Missed Connections: Lateral Thinking Puzzles for Large Language Models},
+%   booktitle = {2024 IEEE Conference on Games (CoG)},
+%   year      = {2024},
+%   pages     = {1--8},
+%   doi       = {10.1109/CoG60054.2024.10645557},
+%   url       = {https://ieeexplore.ieee.org/document/10645557},
+%   urldate   = {2026-01-05}
+% }
+%
+% @online{huang2025textclustering,
+%   author  = {Huang, Chen and He, Guoxiu},
+%   title   = {Text Clustering as Classification with LLMs},
+%   year    = {2025},
+%   eprint  = {2410.00927},
+%   archivePrefix = {arXiv},
+%   primaryClass  = {cs},
+%   url     = {http://arxiv.org/abs/2410.00927},
+%   urldate = {2025-11-18}
+% }
+%
+% @inproceedings{loredolopez2025,
+%   author    = {Loredo Lopez, Angel Yahir and McDonald, Tyler and Emami, Ali},
+%   title     = {NYT-Connections: A Deceptively Simple Text Classification Task that Stumps System-1 Thinkers},
+%   booktitle = {Proceedings of the 31st International Conference on Computational Linguistics (COLING 2025)},
+%   year      = {2025},
+%   pages     = {1952--1963},
+%   address   = {Abu Dhabi, UAE},
+%   publisher = {Association for Computational Linguistics},
+%   url       = {https://aclanthology.org/2025.coling-main.134/},
+%   urldate   = {2025-12-17}
+% }
+%
+% @article{petukhova2025,
+%   author  = {Petukhova, Alina and Matos-Carvalho, Jo{\~a}o P. and Fachada, Nuno},
+%   title   = {Text clustering with large language model embeddings},
+%   journal = {International Journal of Cognitive Computing in Engineering},
+%   volume  = {6},
+%   pages   = {100--108},
+%   year    = {2025},
+%   doi     = {10.1016/j.ijcce.2024.11.004},
+%   url     = {https://www.sciencedirect.com/science/article/pii/S2666307424000482},
+%   urldate = {2025-11-18}
+% }
+%
+% @online{robison2025medium,
+%   author  = {Robison, Greg},
+%   title   = {Thinking in Steps: What NY Times Connections Tells Us About AI's Reasoning Evolution},
+%   year    = {2025},
+%   month   = {2},
+%   url     = {https://gregrobison.medium.com/thinking-in-steps-what-ny-times-connections-tells-us-about-ais-reasoning-evolution-ab4540a6304c},
+%   urldate = {2025-11-18},
+%   note    = {Borderline source -- Medium blog post, not peer-reviewed; see draft note at top of this file}
+% }
+%
+% @online{nyt-puzzle-2025-12-29,
+%   author  = {{The New York Times}},
+%   title   = {Connections (2025-12-29)},
+%   year    = {2025},
+%   url     = {https://www.nytimes.com/games/connections/2025-12-29},
+%   urldate = {2026-01-09}
+% }
+%
+% @online{nyt-puzzle-2026-01-03,
+%   author  = {{The New York Times}},
+%   title   = {Connections (2026-01-03)},
+%   year    = {2026},
+%   url     = {https://www.nytimes.com/games/connections/2026-01-03},
+%   urldate = {2026-01-09}
+% }
+%
+% @online{nyt-puzzle-2026-01-05,
+%   author  = {{The New York Times}},
+%   title   = {Connections (2026-01-05)},
+%   year    = {2026},
+%   url     = {https://www.nytimes.com/games/connections/2026-01-05},
+%   urldate = {2026-01-09}
+% }
+%
+% @online{promptguide-cot,
+%   title   = {Prompt Engineering Guide -- Chain-of-Thought},
+%   url     = {https://www.promptingguide.ai/techniques/cot},
+%   urldate = {2025-11-23}
+% }
+%
+% @techreport{zhangetal-connections,
+%   author      = {Zhang, Emily and Jiang, Yanan and Ye, Peixuan},
+%   title       = {Learning Semantic Complexities of NYT Connections},
+%   institution = {Stanford University},
+%   type        = {CS224n course final report},
+%   url         = {https://web.stanford.edu/class/cs224n/final-reports/256847963.pdf}
+%   % No year or urldate given in the source Exposé entry -- do not
+%   % fabricate; ask the user or check the PDF directly for a submission
+%   % year before final use.
+% }

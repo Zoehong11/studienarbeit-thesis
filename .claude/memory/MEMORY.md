@@ -1,0 +1,3 @@
+- [Thesis project overview](project_thesis_overview.md) — DHBW Studienarbeit structure, chapters, current stage
+- [Style guide rules](feedback_style_guide.md) — mandatory academic writing/LaTeX/bib rules, draft-before-edit workflow
+- [Reference sources](reference_thesis_sources.md) — Leitlinien PDF path + style guide artifact URL
