@@ -16,5 +16,307 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{toddMissedConnectionsLateral2024}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=fc9c46cc0807547b221e93ef062030a4}{%
+           family={Todd},
+           familyi={T\bibinitperiod},
+           given={Graham},
+           giveni={G\bibinitperiod}}}%
+        {{hash=b413859bafc8f38ee21acab4eb071a7a}{%
+           family={Merino},
+           familyi={M\bibinitperiod},
+           given={Tim},
+           giveni={T\bibinitperiod}}}%
+        {{hash=495f1f7321ab1541320d57f92a26ae86}{%
+           family={Earle},
+           familyi={E\bibinitperiod},
+           given={Sam},
+           giveni={S\bibinitperiod}}}%
+        {{hash=cbd110b21df9b90cd72ce148aa04de7f}{%
+           family={Togelius},
+           familyi={T\bibinitperiod},
+           given={Julian},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{9a7628e4f40411cca901fb740339ef73}
+      \strng{fullhash}{f038d49bc5b63c5a40c7ced74f52ab61}
+      \strng{fullhashraw}{f038d49bc5b63c5a40c7ced74f52ab61}
+      \strng{bibnamehash}{9a7628e4f40411cca901fb740339ef73}
+      \strng{authorbibnamehash}{9a7628e4f40411cca901fb740339ef73}
+      \strng{authornamehash}{9a7628e4f40411cca901fb740339ef73}
+      \strng{authorfullhash}{f038d49bc5b63c5a40c7ced74f52ab61}
+      \strng{authorfullhashraw}{f038d49bc5b63c5a40c7ced74f52ab61}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{The Connections puzzle published each day by the New York Times tasks players with dividing a bank of sixteen words into four groups of four words that each relate to a common theme. Solving the puzzle requires both common linguistic knowledge (i.e. definitions and typical usage) as well as, in many cases, lateral or abstract thinking. This is because the four categories ascend in complexity, with the most challenging category often requiring thinking about words in uncommon ways or as parts of larger phrases. We investigate the capacity for automated AI systems to play Connections and explore the game’s potential as an automated benchmark for abstract reasoning and a way to measure the semantic information encoded by data-driven linguistic systems. In particular, we study both a sentence-embedding baseline and modern large language models (LLMs). We report their accuracy on the task, measure the impacts of chain-of-thought prompting, and discuss their failure modes. Overall, we find that the Connections task is challenging yet feasible, and a strong test-bed for future work.}
+      \field{booktitle}{2024 {{IEEE Conference}} on {{Games}} ({{CoG}})}
+      \field{eventtitle}{2024 {{IEEE Conference}} on {{Games}} ({{CoG}})}
+      \field{issn}{2325-4289}
+      \field{month}{8}
+      \field{shorttitle}{Missed {{Connections}}}
+      \field{title}{Missed {{Connections}}: {{Lateral Thinking Puzzles}} for {{Large Language Models}}}
+      \field{urlday}{5}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{1\bibrangedash 8}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/CoG60054.2024.10645557
+      \endverb
+      \verb{file}
+      \verb /Users/hong/Zotero/storage/FWZDMJPU/Todd et al. - 2024 - Missed Connections Lateral Thinking Puzzles for Large Language Models.pdf;/Users/hong/Zotero/storage/8A6XIPPK/10645557.html
+      \endverb
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org/document/10645557
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org/document/10645557
+      \endverb
+      \keyw{AI,Atmospheric measurements,Benchmark testing,evaluation,Games,Language models,Large language models,Linguistics,Particle measurements,reasoning,Semantics}
+    \endentry
+    \entry{samadarshiConnectingDotsEvaluating2024}{online}{}{}
+      \name{author}{6}{}{%
+        {{hash=c251e6cc1e028ab837822a91ed17c7d8}{%
+           family={Samadarshi},
+           familyi={S\bibinitperiod},
+           given={Prisha},
+           giveni={P\bibinitperiod}}}%
+        {{hash=b432e7ea0c3af967746a64db3ac3fe44}{%
+           family={Mustafa},
+           familyi={M\bibinitperiod},
+           given={Mariam},
+           giveni={M\bibinitperiod}}}%
+        {{hash=ff514f2b0995a1ea1c7dbc62a4f74649}{%
+           family={Kulkarni},
+           familyi={K\bibinitperiod},
+           given={Anushka},
+           giveni={A\bibinitperiod}}}%
+        {{hash=f34cd2996fb75bb5e37b9a23be96326e}{%
+           family={Rothkopf},
+           familyi={R\bibinitperiod},
+           given={Raven},
+           giveni={R\bibinitperiod}}}%
+        {{hash=e7063a72c4042a4352d7951f20945aac}{%
+           family={Chakrabarty},
+           familyi={C\bibinitperiod},
+           given={Tuhin},
+           giveni={T\bibinitperiod}}}%
+        {{hash=d0bc8f5f636cd15bd288897f91468b6e}{%
+           family={Muresan},
+           familyi={M\bibinitperiod},
+           given={Smaranda},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{83f9f7ee58d43fbb5106be968684f898}
+      \strng{fullhash}{eafa11943c91320fa07ad4b2234f8814}
+      \strng{fullhashraw}{eafa11943c91320fa07ad4b2234f8814}
+      \strng{bibnamehash}{83f9f7ee58d43fbb5106be968684f898}
+      \strng{authorbibnamehash}{83f9f7ee58d43fbb5106be968684f898}
+      \strng{authornamehash}{83f9f7ee58d43fbb5106be968684f898}
+      \strng{authorfullhash}{eafa11943c91320fa07ad4b2234f8814}
+      \strng{authorfullhashraw}{eafa11943c91320fa07ad4b2234f8814}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{The New York Times Connections game has emerged as a popular and challenging pursuit for word puzzle enthusiasts. We collect 438 Connections games to evaluate the performance of state-of-the-art large language models (LLMs) against expert and novice human players. Our results show that even the best performing LLM, Claude 3.5 Sonnet, which has otherwise shown impressive reasoning abilities on a wide variety of benchmarks, can only fully solve 18\% of the games. Novice and expert players perform better than Claude 3.5 Sonnet, with expert human players significantly outperforming it. We create a taxonomy of the knowledge types required to successfully cluster and categorize words in the Connections game. We find that while LLMs perform relatively well on categorizing words based on semantic relations they struggle with other types of knowledge such as Encyclopedic Knowledge, Multiword Expressions or knowledge that combines both Word Form and Meaning. Our results establish the New York Times Connections game as a challenging benchmark for evaluating abstract reasoning capabilities in AI systems.}
+      \field{day}{14}
+      \field{eprintclass}{cs.CL}
+      \field{eprinttype}{arXiv}
+      \field{month}{10}
+      \field{pubstate}{prepublished}
+      \field{shorttitle}{Connecting the {{Dots}}}
+      \field{title}{Connecting the {{Dots}}: {{Evaluating Abstract Reasoning Capabilities}} of {{LLMs Using}} the {{New York Times Connections Word Game}}}
+      \field{urlday}{2}
+      \field{urlmonth}{7}
+      \field{urlyear}{2026}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.2406.11012
+      \endverb
+      \verb{eprint}
+      \verb 2406.11012
+      \endverb
+      \verb{file}
+      \verb /Users/hong/Zotero/storage/6UXJ4JGS/Samadarshi et al. - 2024 - Connecting the Dots Evaluating Abstract Reasoning Capabilities of LLMs Using the New York Times Con.pdf;/Users/hong/Zotero/storage/39RUR8X5/2406.html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/2406.11012
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/2406.11012
+      \endverb
+      \keyw{Computer Science - Artificial Intelligence,Computer Science - Computation and Language}
+    \endentry
+    \entry{loredolopezNYTConnectionsDeceptivelySimple2025}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{hash=b052d9c51fa4350b266d277b65831fcc}{%
+           family={Loredo\bibnamedelima Lopez},
+           familyi={L\bibinitperiod\bibinitdelim L\bibinitperiod},
+           given={Angel\bibnamedelima Yahir},
+           giveni={A\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+        {{hash=09e4a6b7f00a88be876cf9d434a9a6a2}{%
+           family={McDonald},
+           familyi={M\bibinitperiod},
+           given={Tyler},
+           giveni={T\bibinitperiod}}}%
+        {{hash=cd68fc8e722b8e5be2d270cbf63b48f5}{%
+           family={Emami},
+           familyi={E\bibinitperiod},
+           given={Ali},
+           giveni={A\bibinitperiod}}}%
+      }
+      \name{editor}{6}{}{%
+        {{hash=50e8b13f09de6a4c5cb0f209843877e4}{%
+           family={Rambow},
+           familyi={R\bibinitperiod},
+           given={Owen},
+           giveni={O\bibinitperiod}}}%
+        {{hash=55f279e017bd585b710d78e5098cdb0a}{%
+           family={Wanner},
+           familyi={W\bibinitperiod},
+           given={Leo},
+           giveni={L\bibinitperiod}}}%
+        {{hash=b0bf0fa4f634ecbebcf453cde5b02df9}{%
+           family={Apidianaki},
+           familyi={A\bibinitperiod},
+           given={Marianna},
+           giveni={M\bibinitperiod}}}%
+        {{hash=9bf3d74523ad71f3cd87991dcc3d9b00}{%
+           family={Al-Khalifa},
+           familyi={A\bibinithyphendelim K\bibinitperiod},
+           given={Hend},
+           giveni={H\bibinitperiod}}}%
+        {{hash=4f51bbb62297b137bee0f2dd16388c31}{%
+           family={Eugenio},
+           familyi={E\bibinitperiod},
+           given={Barbara\bibnamedelima Di},
+           giveni={B\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=b66c934ea85e43f75cae6e977ceaca03}{%
+           family={Schockaert},
+           familyi={S\bibinitperiod},
+           given={Steven},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Abu Dhabi, UAE}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computational Linguistics}%
+      }
+      \strng{namehash}{0f587bc40f413a2e4e95355982e9d253}
+      \strng{fullhash}{0f587bc40f413a2e4e95355982e9d253}
+      \strng{fullhashraw}{0f587bc40f413a2e4e95355982e9d253}
+      \strng{bibnamehash}{0f587bc40f413a2e4e95355982e9d253}
+      \strng{authorbibnamehash}{0f587bc40f413a2e4e95355982e9d253}
+      \strng{authornamehash}{0f587bc40f413a2e4e95355982e9d253}
+      \strng{authorfullhash}{0f587bc40f413a2e4e95355982e9d253}
+      \strng{authorfullhashraw}{0f587bc40f413a2e4e95355982e9d253}
+      \strng{editorbibnamehash}{5c4cb696904ac98f403b04594891ef70}
+      \strng{editornamehash}{5c4cb696904ac98f403b04594891ef70}
+      \strng{editorfullhash}{6475404b12259beb64e8893b0ff8a24c}
+      \strng{editorfullhashraw}{6475404b12259beb64e8893b0ff8a24c}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Large Language Models (LLMs) have shown impressive performance on various benchmarks, yet their ability to engage in deliberate reasoning remains questionable. We present NYT-Connections, a collection of 358 simple word classification puzzles derived from the New York Times Connections game. This benchmark is designed to penalize quick, intuitive “System 1” thinking, isolating fundamental reasoning skills. We evaluated six recent LLMs, a simple machine learning heuristic, and humans across three configurations: single-attempt, multiple attempts without hints, and multiple attempts with contextual hints. Our findings reveal a significant performance gap: even top-performing LLMs like GPT-4 fall short of human performance by nearly 30\%. Notably, advanced prompting techniques such as Chain-of-Thought and Self-Consistency show diminishing returns as task difficulty increases. NYT-Connections uniquely combines linguistic isolation, resistance to intuitive shortcuts, and regular updates to mitigate data leakage, offering a novel tool for assessing LLM reasoning capabilities.}
+      \field{booktitle}{Proceedings of the 31st {{International Conference}} on {{Computational Linguistics}}}
+      \field{eventtitle}{{{COLING}} 2025}
+      \field{month}{1}
+      \field{shorttitle}{{{NYT-Connections}}}
+      \field{title}{{{NYT-Connections}}: {{A Deceptively Simple Text Classification Task}} That {{Stumps System-1 Thinkers}}}
+      \field{urlday}{17}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{1952\bibrangedash 1963}
+      \range{pages}{12}
+      \verb{file}
+      \verb /Users/hong/Zotero/storage/I9VUDFLW/Loredo Lopez et al. - 2025 - NYT-Connections A Deceptively Simple Text Classification Task that Stumps System-1 Thinkers.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://aclanthology.org/2025.coling-main.134/
+      \endverb
+      \verb{url}
+      \verb https://aclanthology.org/2025.coling-main.134/
+      \endverb
+    \endentry
+    \entry{zhangLearningSemanticComplexities}{report}{}{}
+      \name{author}{3}{}{%
+        {{hash=3ff597a78eb8588dfd5a18cf4ab202e0}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Emily},
+           giveni={E\bibinitperiod}}}%
+        {{hash=930aa10efa3b094c1a61b304c952e007}{%
+           family={Jiang},
+           familyi={J\bibinitperiod},
+           given={Yanan},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=677f84e09183133c1bf6d6997a107e80}{%
+           family={Ye},
+           familyi={Y\bibinitperiod},
+           given={Peixuan},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{6f6b3d2a6e89759fae2bf6a36e371508}
+      \strng{fullhash}{6f6b3d2a6e89759fae2bf6a36e371508}
+      \strng{fullhashraw}{6f6b3d2a6e89759fae2bf6a36e371508}
+      \strng{bibnamehash}{6f6b3d2a6e89759fae2bf6a36e371508}
+      \strng{authorbibnamehash}{6f6b3d2a6e89759fae2bf6a36e371508}
+      \strng{authornamehash}{6f6b3d2a6e89759fae2bf6a36e371508}
+      \strng{authorfullhash}{6f6b3d2a6e89759fae2bf6a36e371508}
+      \strng{authorfullhashraw}{6f6b3d2a6e89759fae2bf6a36e371508}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{While modern NLP models are adept at handling syntactically rich prose and sentence structure, they still struggle with the flexible problem solving and general reasoning ability that humans exhibit. In this paper, we apply diverse NLP methods to one example of a semantically complex reasoning task, The New York Times Connections game. We explore baseline methods that are specific to the semantic grouping task, such as K-Means clustering on various word embeddings. Then, we benchmark in-context learning on a large LLM as well as finetune a smaller LLM using existing examples of solved puzzles. We also explore unique methods of introducing complex linguistic and metalinguistic reasoning capabilities of a larger LLM into a smaller LLM, through methods like fine-tuning with distilled rationales and Verbal Reinforcement Learning. We found promising results with Verbal RL, as the smaller model was able to absorb critique from a larger language model and improve on previous answers, similar to how human solvers approach language puzzles.}
+      \field{langid}{english}
+      \field{title}{Learning {{Semantic Complexities}} of {{NYT Connections}}}
+      \verb{file}
+      \verb /Users/hong/Zotero/storage/TKJUGQUB/Zhang et al. - Learning Semantic Complexities of NYT Connections.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://web.stanford.edu/class/cs224n/final-reports/256847963.pdf
+      \endverb
+      \verb{url}
+      \verb https://web.stanford.edu/class/cs224n/final-reports/256847963.pdf
+      \endverb
+    \endentry
+  \enddatalist
+  \missing{arthur2007kmeanspp}
+  \missing{chandrasekaran2021}
+  \missing{ester1996dbscan}
+  \missing{geirhos2020}
+  \missing{huang2025textclustering}
+  \missing{incitti2023}
+  \missing{loredolopez2025}
+  \missing{mikolov2013}
+  \missing{nyt-puzzle-2025-12-29}
+  \missing{nyt-puzzle-2026-01-03}
+  \missing{nyt-puzzle-2026-01-05}
+  \missing{nyt-tips-tricks-2023}
+  \missing{patil2023}
+  \missing{petukhova2025}
+  \missing{promptguide-cot}
+  \missing{toddetal2024}
+  \missing{wei2022cot}
+  \missing{zhangetal-connections}
+\endrefsection
 \endinput
 

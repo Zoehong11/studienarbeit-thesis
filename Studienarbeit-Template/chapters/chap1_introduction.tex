@@ -25,7 +25,8 @@
 % 1.3"it reproduces the group-scoring baseline of Loredo Lopez..." → 引loredolopez2025
 
 Existing solvers for NYT Connections from fromer works rely heavily on large LLMs (see Section \autoref{related-work}). They are limited by the cost or resources required to run large LLMs. 
-And since this study is a student project with limited resources and budget, it focuses on small language models that can run locally. Small language models are more accessible and cost-effective, but they also struggle with reasoning tasks that require tracking global constraints across multiple words like solving Connections. This thesis investigates whether this reasoning gap can be narrowed not by scaling up the model, but by giving a small model additional, task-specific support.
+
+This thesis instead focuses on small language models that can run locally. Small language models are more accessible and cost-effective, but they also struggle with reasoning tasks that require tracking global constraints across multiple words, such as solving Connections. This thesis investigates whether this reasoning gap can be narrowed not by scaling up the model, but by giving a small model additional, task-specific support.
 
 % \section{About Connections}
 % NYT Connections asks players to sort sixteen words into four groups of four. Each group carries one of four difficulty labels, ranging from yellow (easiest) to purple (hardest). The puzzle is published daily and has become a popular benchmark for testing whether language models can group words the way people do.
@@ -34,30 +35,12 @@ And since this study is a student project with limited resources and budget, it 
 
 % Solving Connections requires several distinct kinds of language understanding at once. Some groups are based on synonymy, while others may depend on wordplay, or knowledge of pop culture and named entities. The words given can be polysemy, which means words containing more than one meaning. Players need to use other words as the context to determine the meaning of the word. A single puzzle consists of several relation types and deliberately includes words that fit more than one plausible group, which is called ``red herrings``. Thus, it is not just about understanding the words themselves, but also about understanding how they relate to each other in a global context.
 
-\section{Motivation}
-Solving Connections requires several distinct kinds of language understanding at once. Some groups are based on synonymy, while others may depend on wordplay, or knowledge of pop culture and named entities. The words given can be polysemy, which means words containing more than one meaning. Players need to use other words as the context to determine the meaning of the word. A single puzzle consists of several relation types and deliberately includes words that fit more than one plausible group, which is called ``red herrings``. Thus, it is not just about understanding the words themselves, but also about understanding how they relate to each other in a global context.
-
-Large language models already achieve strong results on many natural language understanding tasks, but they are expensive to run and usually depends on cloud access. Small models are more accessible and cost-effective, but because of their limited capacity, they struggle with complicated reasoning tasks like solving Connections. Thus, using small models requires a good design of breaking down the big task into small tasks, and providing task specific support and prompting to the model, in oder to improve its performance. This study trys to analyze the possibility of solving Connections with a hybrid approach of llm and non-llm.
-
-
 \section{Problem Statement}
-Prior work on Connections solvers establishes two building blocks that this thesis builds on directly. Non-LLM baselines score candidate groups of four words using text embeddings and assemble a full solution through search or clustering. LLM-based approaches prompt a language model directly, sometimes guided by chain-of-thought or self-consistency prompting. Existing studies differ substantially in which embedding family they use and do not compare these choices under an otherwise fixed solver design.
+Solving Connections requires several distinct kinds of language understanding at once. Some groups are based on synonymy, while others may depend on wordplay, or knowledge of pop culture and named entities. The words given can be polysemy, which means words containing more than one meaning. Players need to use other words as the context to determine the meaning of the word. A single puzzle consists of several relation types and deliberately includes words that fit more than one plausible group, which is called ``red herrings``. Thus, it is not just about understanding the words themselves, but also about understanding how they relate to each other in a global context. This mix of relation types makes Connections a compact but demanding test case for the kind of task-specific support this thesis investigates.
 
-They also treat the final assignment step with heuristics such as balanced clustering rather than an exact method. This step requires the sixteen words to split into exactly four groups of four. Finally, none of them evaluate solving accuracy separately for each difficulty tier. The puzzle's own difficulty labels suggest that categories differ systematically in the kind of reasoning they demand, a point discussed further in Chapter 2.
+Large language models already achieve strong results on solving connections, but they are expensive to run and usually depends on cloud access. Small models are more accessible and cost-effective, but because of their limited capacity, they struggle with complicated reasoning tasks like solving Connections. Thus, using small models requires a good design of breaking down the big task into small tasks, and providing task specific support and prompting to the model, in oder to improve its performance. This study trys to analyze the possibility of solving Connections with a hybrid approach of llm and non-llm.
 
-This thesis addresses this gap for a specific and practically relevant case. It centers on a small language model in the seven to eight billion parameter range, run locally rather than through a hosted API. It asks two research questions.
-
-RQ1. To what extent does combining a small language model with embedding-based clustering and an exact constrained assignment step improve puzzle-solving accuracy compared to the same model used on its own?
-
-RQ2. Does this improvement differ across difficulty tiers, in particular between the easier (yellow and green) and harder (blue and purple) categories?
-
-% ----
-
-
-It develops a hybrid solver that combines embedding-based clustering with LLM-based reasoning, relying only on small language models, for example Mistral 7b. The hybrid design combines the strengths of both methods to improve solving accuracy. The resulting solver aims to provide a lower-cost, more efficient alternative to large-model-dependent approaches.
-
-The solver is evaluated on puzzles of varying difficulty levels, and the results are analyzed to assess the effectiveness of the hybrid approach. This thesis aims to show that even a puzzle as demanding as Connections can be solved with small language models when combined with embeddings, providing insight into the challenges that natural language processing and reasoning pose in the context of word puzzles. 
-% 分别使用各自的强项
+It centers on a small language model in the seven to eight billion parameter range, run locally rather than through a hosted API. It asks two research questions. To what extent does giving the small language model task-specific support improve puzzle-solving accuracy compared to the model used on its own? What tasks are more suitable for LLM to solve and what tasks can be solved without it?
 
 \section{Contribution}
 
