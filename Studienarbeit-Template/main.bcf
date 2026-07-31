@@ -2426,6 +2426,15 @@
     <bcf:citekey order="42" intorder="1">loredolopezNYTConnectionsDeceptivelySimple2025</bcf:citekey>
     <bcf:citekey order="43" intorder="1">zhangLearningSemanticComplexities</bcf:citekey>
     <bcf:citekey order="44" intorder="1">zhangLearningSemanticComplexities</bcf:citekey>
+    <bcf:citekey order="45" intorder="1">ConstraintSatisfactionProblem2026</bcf:citekey>
+    <bcf:citekey order="46" intorder="1">brailsfordConstraintSatisfactionProblems1999</bcf:citekey>
+    <bcf:citekey order="47" intorder="1">ConstraintSatisfactionProblem2026</bcf:citekey>
+    <bcf:citekey order="48" intorder="1">gallardoSolvingWeightedConstraint2009</bcf:citekey>
+    <bcf:citekey order="49" intorder="1">ginsbergDrFillCrosswordsImplemented2014</bcf:citekey>
+    <bcf:citekey order="50" intorder="1">ginsbergDrFillCrosswordsImplemented2014</bcf:citekey>
+    <bcf:citekey order="51" intorder="1">PartitionSet2026</bcf:citekey>
+    <bcf:citekey order="52" intorder="1">muellerSolvingSetPartitioning1998</bcf:citekey>
+    <bcf:citekey order="53" intorder="1">muellerSolvingSetPartitioning1998</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

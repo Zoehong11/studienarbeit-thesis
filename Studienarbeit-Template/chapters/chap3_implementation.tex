@@ -10,3 +10,11 @@
 % tool's architecture so it can be extended later.
 
 % TODO
+
+
+Connections maps onto this triple directly. Let $W = \{w_1, \dots, w_{16}\}$ be the sixteen puzzle words. Each word gets its own variable, so $X = \{x_1, \dots, x_{16}\}$, and $x_i$ is the group assigned to word $w_i$. Every variable has the same domain, $D_i = \{1, 2, 3, 4\}$, one value for each of the four groups. The constraint set $C$ requires each group to contain exactly four words:
+\begin{equation}
+C: \quad |\{i : x_i = g\}| = 4 \quad \text{for every } g \in \{1,2,3,4\}.
+\label{eq:csp-constraint}
+\end{equation}
+Each $x_i$ can only take one value, so every word already ends up in exactly one group, and the added requirement that each group have exactly four members is what turns this into a partition of $W$ into four groups of four. One detail matters here: this setup labels the four groups, so assigning $\{w_1,w_2,w_3,w_4\}$ to group 1 and $\{w_5,\dots,w_8\}$ to group 2 counts as a different assignment from swapping those two labels, even though both describe the same grouping of words. The number of assignments satisfying $C$ is therefore $16!/(4!)^4 = 63{,}063{,}000$, but the puzzle itself does not care which number a group is called, so the number of genuinely distinct groupings is smaller: dividing out the $4!$ ways to relabel the four groups gives $16!/((4!)^4 \cdot 4!) = 2{,}627{,}625$, the number used later in this thesis.
