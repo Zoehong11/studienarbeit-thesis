@@ -19,6 +19,38 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global/global}
+    \entry{3blue1brownSolvingWordleUsing2022}{video}{}{}
+      \name{namea}{1}{}{%
+        {{hash=682352d7b7d88f46edac62cd97b58db1}{%
+           family={{3Blue1Brown}},
+           familyi={3\bibinitperiod}}}%
+      }
+      \strng{nameabibnamehash}{682352d7b7d88f46edac62cd97b58db1}
+      \strng{nameanamehash}{682352d7b7d88f46edac62cd97b58db1}
+      \strng{nameafullhash}{682352d7b7d88f46edac62cd97b58db1}
+      \strng{nameafullhashraw}{682352d7b7d88f46edac62cd97b58db1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{abstract}{An excuse to teach a lesson on information theory and entropy. These lessons are funded by viewers: ~~/~3blue1brown~~ Special thanks to these supporters: https://3b1b.co/lessons/wordle\#thanks}
+      \field{day}{6}
+      \field{entrysubtype}{video}
+      \field{month}{2}
+      \field{nameatype}{collaborator}
+      \field{title}{Solving {{Wordle}} Using Information Theory}
+      \field{urlday}{30}
+      \field{urlmonth}{7}
+      \field{urlyear}{2026}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=v68zYyaEmEA
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=v68zYyaEmEA
+      \endverb
+    \endentry
     \entry{toddMissedConnectionsLateral2024}{inproceedings}{}{}
       \name{author}{4}{}{%
         {{hash=fc9c46cc0807547b221e93ef062030a4}{%

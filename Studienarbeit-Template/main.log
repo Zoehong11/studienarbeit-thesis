@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  30 JUL 2026 00:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  30 JUL 2026 16:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1597,30 +1597,25 @@ Overfull \hbox (11.74713pt too wide) in paragraph at lines 15--19
 
 ] (./chapters/chap1_introduction.tex
 chapter 1.
-
-LaTeX Warning: Reference `related-work' on page 1 undefined on input line 27.
-
-
+) (./chapters/chap2_background.tex
 
 [1
 
 
 
-]) (./chapters/chap2_background.tex
-
-[2]
+]
 chapter 2.
 
-LaTeX Warning: Reference `ch:methodology' on page 3 undefined on input line 83.
+LaTeX Warning: Reference `ch:methodology' on page 2 undefined on input line 83.
 
 
 
-[3
+[2
 
 
 {/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 
-LaTeX Warning: Citation 'nyt-puzzle-2026-01-05' on page 4 undefined on input line 124.
+LaTeX Warning: Citation 'nyt-puzzle-2026-01-05' on page 3 undefined on input line 124.
 
 
 Underfull \hbox (badness 1394) in paragraph at lines 124--125
@@ -1628,7 +1623,7 @@ Underfull \hbox (badness 1394) in paragraph at lines 124--125
  []
 
 
-LaTeX Warning: Citation 'nyt-puzzle-2026-01-05' on page 4 undefined on input line 126.
+LaTeX Warning: Citation 'nyt-puzzle-2026-01-05' on page 3 undefined on input line 126.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 126--127
@@ -1641,7 +1636,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 126--127
  []
 
 
-LaTeX Warning: Citation 'nyt-puzzle-2026-01-05' on page 4 undefined on input line 128.
+LaTeX Warning: Citation 'nyt-puzzle-2026-01-05' on page 3 undefined on input line 128.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 128--129
@@ -1654,7 +1649,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 128--129
  []
 
 
-LaTeX Warning: Citation 'nyt-puzzle-2026-01-03' on page 4 undefined on input line 130.
+LaTeX Warning: Citation 'nyt-puzzle-2026-01-03' on page 3 undefined on input line 130.
 
 
 Underfull \hbox (badness 2970) in paragraph at lines 130--131
@@ -1662,43 +1657,43 @@ Underfull \hbox (badness 2970) in paragraph at lines 130--131
  []
 
 
-LaTeX Warning: Citation 'nyt-puzzle-2025-12-29' on page 4 undefined on input line 132.
+LaTeX Warning: Citation 'nyt-puzzle-2025-12-29' on page 3 undefined on input line 132.
 
 
-LaTeX Warning: Citation 'nyt-tips-tricks-2023' on page 4 undefined on input line 147.
+LaTeX Warning: Citation 'nyt-tips-tricks-2023' on page 3 undefined on input line 147.
+
+
+
+[3]
+
+LaTeX Warning: Reference `ch:results' on page 4 undefined on input line 162.
+
+
+LaTeX Warning: Citation 'nyt-tips-tricks-2023' on page 4 undefined on input line 187.
+
+
+LaTeX Warning: Citation 'loredolopez2025' on page 4 undefined on input line 189.
+
+
+LaTeX Warning: Citation 'geirhos2020' on page 4 undefined on input line 196.
+
+
+LaTeX Warning: Citation 'loredolopez2025' on page 4 undefined on input line 199.
 
 
 
 [4]
 
-LaTeX Warning: Reference `ch:results' on page 5 undefined on input line 162.
+LaTeX Warning: Citation 'toddetal2024' on page 5 undefined on input line 215.
 
 
-LaTeX Warning: Citation 'nyt-tips-tricks-2023' on page 5 undefined on input line 187.
+LaTeX Warning: Citation 'loredolopez2025' on page 5 undefined on input line 215.
 
 
-LaTeX Warning: Citation 'loredolopez2025' on page 5 undefined on input line 189.
+LaTeX Warning: Citation 'zhangetal-connections' on page 5 undefined on input line 215.
 
 
-LaTeX Warning: Citation 'geirhos2020' on page 5 undefined on input line 196.
-
-
-LaTeX Warning: Citation 'loredolopez2025' on page 5 undefined on input line 199.
-
-
-
-[5]
-
-LaTeX Warning: Citation 'toddetal2024' on page 6 undefined on input line 215.
-
-
-LaTeX Warning: Citation 'loredolopez2025' on page 6 undefined on input line 215.
-
-
-LaTeX Warning: Citation 'zhangetal-connections' on page 6 undefined on input line 215.
-
-
-LaTeX Warning: Citation 'loredolopez2025' on page 6 undefined on input line 244.
+LaTeX Warning: Citation 'loredolopez2025' on page 5 undefined on input line 244.
 
 
 Overfull \hbox (41.1812pt too wide) in paragraph at lines 243--248
@@ -1706,16 +1701,16 @@ Overfull \hbox (41.1812pt too wide) in paragraph at lines 243--248
  []
 
 
-LaTeX Warning: Citation 'mikolov2013' on page 6 undefined on input line 265.
+LaTeX Warning: Citation 'mikolov2013' on page 5 undefined on input line 265.
 
 
-LaTeX Warning: Citation 'chandrasekaran2021' on page 6 undefined on input line 268.
+LaTeX Warning: Citation 'chandrasekaran2021' on page 5 undefined on input line 268.
 
 
-LaTeX Warning: Citation 'incitti2023' on page 6 undefined on input line 271.
+LaTeX Warning: Citation 'incitti2023' on page 5 undefined on input line 271.
 
 
-LaTeX Warning: Citation 'patil2023' on page 6 undefined on input line 273.
+LaTeX Warning: Citation 'patil2023' on page 5 undefined on input line 273.
 
 
 Overfull \hbox (2.53278pt too wide) in paragraph at lines 262--276
@@ -1729,18 +1724,18 @@ Overfull \hbox (82.12303pt too wide) in paragraph at lines 262--276
 
 
 
-[6]
+[5]
 
-LaTeX Warning: Citation 'ester1996dbscan' on page 7 undefined on input line 280.
-
-
-LaTeX Warning: Citation 'arthur2007kmeanspp' on page 7 undefined on input line 280.
+LaTeX Warning: Citation 'ester1996dbscan' on page 6 undefined on input line 280.
 
 
-LaTeX Warning: Citation 'huang2025textclustering' on page 7 undefined on input line 284.
+LaTeX Warning: Citation 'arthur2007kmeanspp' on page 6 undefined on input line 280.
 
 
-LaTeX Warning: Citation 'petukhova2025' on page 7 undefined on input line 284.
+LaTeX Warning: Citation 'huang2025textclustering' on page 6 undefined on input line 284.
+
+
+LaTeX Warning: Citation 'petukhova2025' on page 6 undefined on input line 284.
 
 
 Overfull \hbox (1.75253pt too wide) in paragraph at lines 277--285
@@ -1748,7 +1743,7 @@ Overfull \hbox (1.75253pt too wide) in paragraph at lines 277--285
  []
 
 
-LaTeX Warning: Reference `ch:methodology' on page 7 undefined on input line 290.
+LaTeX Warning: Reference `ch:methodology' on page 6 undefined on input line 290.
 
 
 Overfull \hbox (11.54802pt too wide) in paragraph at lines 286--296
@@ -1756,124 +1751,128 @@ Overfull \hbox (11.54802pt too wide) in paragraph at lines 286--296
  []
 
 
-LaTeX Warning: Citation 'wei2022cot' on page 7 undefined on input line 303.
+LaTeX Warning: Citation 'wei2022cot' on page 6 undefined on input line 303.
 
 
-LaTeX Warning: Citation 'promptguide-cot' on page 7 undefined on input line 305.
+LaTeX Warning: Citation 'promptguide-cot' on page 6 undefined on input line 305.
 
 
-LaTeX Warning: Citation 'loredolopez2025' on page 7 undefined on input line 320.
+LaTeX Warning: Citation 'loredolopez2025' on page 6 undefined on input line 320.
 
 
-LaTeX Warning: Reference `ch:methodology' on page 7 undefined on input line 324.
+LaTeX Warning: Reference `ch:methodology' on page 6 undefined on input line 324.
+
+
+
+[6]
+
+LaTeX Warning: Citation 'toddetal2024' on page 7 undefined on input line 333.
+
+
+LaTeX Warning: Citation 'loredolopez2025' on page 7 undefined on input line 343.
+
+
+LaTeX Warning: Citation 'loredolopez2025' on page 7 undefined on input line 367.
 
 
 
 [7]
 
-LaTeX Warning: Citation 'toddetal2024' on page 8 undefined on input line 333.
+LaTeX Warning: Citation 'zhangetal-connections' on page 8 undefined on input line 374.
 
 
-LaTeX Warning: Citation 'loredolopez2025' on page 8 undefined on input line 343.
+LaTeX Warning: Citation 'loredolopez2025' on page 8 undefined on input line 387.
 
 
-LaTeX Warning: Citation 'loredolopez2025' on page 8 undefined on input line 367.
+LaTeX Warning: Citation 'toddetal2024' on page 8 undefined on input line 388.
 
 
-
-[8]
-
-LaTeX Warning: Citation 'zhangetal-connections' on page 9 undefined on input line 374.
+LaTeX Warning: Citation 'zhangetal-connections' on page 8 undefined on input line 389.
 
 
-LaTeX Warning: Citation 'loredolopez2025' on page 9 undefined on input line 387.
+LaTeX Warning: Citation 'toddetal2024' on page 8 undefined on input line 390.
 
 
-LaTeX Warning: Citation 'toddetal2024' on page 9 undefined on input line 388.
+LaTeX Warning: Citation 'loredolopez2025' on page 8 undefined on input line 391.
 
 
-LaTeX Warning: Citation 'zhangetal-connections' on page 9 undefined on input line 389.
+LaTeX Warning: Citation 'zhangetal-connections' on page 8 undefined on input line 392.
 
 
-LaTeX Warning: Citation 'toddetal2024' on page 9 undefined on input line 390.
+LaTeX Warning: Citation 'zhangetal-connections' on page 8 undefined on input line 394.
 
 
-LaTeX Warning: Citation 'loredolopez2025' on page 9 undefined on input line 391.
+LaTeX Warning: Citation 'loredolopez2025' on page 8 undefined on input line 399.
 
 
-LaTeX Warning: Citation 'zhangetal-connections' on page 9 undefined on input line 392.
+LaTeX Warning: Reference `ch:methodology' on page 8 undefined on input line 401.
 
 
-LaTeX Warning: Citation 'zhangetal-connections' on page 9 undefined on input line 394.
+LaTeX Warning: Citation 'toddetal2024' on page 8 undefined on input line 403.
 
 
-LaTeX Warning: Citation 'loredolopez2025' on page 9 undefined on input line 399.
+LaTeX Warning: Citation 'loredolopez2025' on page 8 undefined on input line 403.
 
 
-LaTeX Warning: Reference `ch:methodology' on page 9 undefined on input line 401.
+LaTeX Warning: Citation 'zhangetal-connections' on page 8 undefined on input line 403.
 
 
-LaTeX Warning: Citation 'toddetal2024' on page 9 undefined on input line 403.
+LaTeX Warning: Citation 'zhangetal-connections' on page 8 undefined on input line 405.
 
 
-LaTeX Warning: Citation 'loredolopez2025' on page 9 undefined on input line 403.
+LaTeX Warning: Citation 'nyt-tips-tricks-2023' on page 8 undefined on input line 411.
 
 
-LaTeX Warning: Citation 'zhangetal-connections' on page 9 undefined on input line 403.
+LaTeX Warning: Citation 'toddetal2024' on page 8 undefined on input line 412.
 
 
-LaTeX Warning: Citation 'zhangetal-connections' on page 9 undefined on input line 405.
+LaTeX Warning: Citation 'loredolopez2025' on page 8 undefined on input line 412.
 
 
-LaTeX Warning: Citation 'nyt-tips-tricks-2023' on page 9 undefined on input line 411.
-
-
-LaTeX Warning: Citation 'toddetal2024' on page 9 undefined on input line 412.
-
-
-LaTeX Warning: Citation 'loredolopez2025' on page 9 undefined on input line 412.
-
-
-LaTeX Warning: Citation 'zhangetal-connections' on page 9 undefined on input line 412.
+LaTeX Warning: Citation 'zhangetal-connections' on page 8 undefined on input line 412.
 
 
 
-[9]) (./chapters/chap2_realated_work.tex
+[8]) (./chapters/chap2_realated_work.tex
 
-[10]
+[9]
 chapter 3.
 Package acronym Info: Label `acro:CoT' newly defined as it shall be overridden
-although it is yet undefined on input line 64.
+although it is yet undefined on input line 65.
 
 
-[11
+[10
 
 
 ]) (./chapters/chap3_implementation.tex
 
-[12]
+[11]
 chapter 4.
 ) (./chapters/chap4_evaluation.tex
 
-[13
+[12
 
 
 ]
 chapter 5.
 ) (./chapters/chap5_conclusion.tex
 
-[14
+[13
 
 
 ]
 chapter 6.
 )
 
-[15
+[14
 
 
 ]
 chapter without number
+
+Package biblatex Warning: No driver for 'video'.
+(biblatex)                Using fallback driver on input line 110.
+
 
 Package biblatex Warning: Keyword 'online' not found on input line 111.
 
@@ -1897,7 +1896,7 @@ l.113 \end{document}
 
 
 ]
-runsystem(latexminted cleantemp  --timestamp 20260730005010 FAD58DE7366495DB4650CFEFAC2FCD61)...executed safely (allowed).
+runsystem(latexminted cleantemp  --timestamp 20260730164819 FAD58DE7366495DB4650CFEFAC2FCD61)...executed safely (allowed).
 
  (./main.aux (./chapters/chap0_abstract.aux))
  ***********
@@ -1915,18 +1914,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 57324 strings out of 473190
- 1339070 string characters out of 5715801
- 2568272 words of memory out of 5000000
- 79643 multiletter control sequences out of 15000+600000
+ 57330 strings out of 473190
+ 1339431 string characters out of 5715801
+ 2570443 words of memory out of 5000000
+ 79651 multiletter control sequences out of 15000+600000
  575810 words of font info for 69 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  113i,12n,110p,11002b,2371s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsl1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on main.pdf (22 pages, 336065 bytes).
+Output written on main.pdf (21 pages, 336374 bytes).
 PDF statistics:
- 412 PDF objects out of 1000 (max. 8388607)
- 323 compressed objects within 4 object streams
- 69 named destinations out of 1000 (max. 500000)
- 322 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 404 PDF objects out of 1000 (max. 8388607)
+ 316 compressed objects within 4 object streams
+ 67 named destinations out of 1000 (max. 500000)
+ 306 words of extra memory for PDF output out of 10000 (max. 10000000)
 

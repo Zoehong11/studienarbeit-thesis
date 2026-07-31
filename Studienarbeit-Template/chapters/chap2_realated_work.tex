@@ -59,7 +59,8 @@
 
 This chapter provides an overview of prior work relevant to this thesis, including work that directly solves Connections using LLMs and work that inspired the methods used in this study. It first introduces prior work on solving Connections with AI. It then presents related work on the methods used, which serves as the knowledge base for this study.
 
-\section{Solving Connections with AI}
+\section{Prior Work on Connections Solving}
+\label{sec:prior-work-connections}
 
 Current work on this topic mainly uses LLMs as the main solution for solving Connections. These studies compare how well different models solve Connections. Some use Connections as a benchmark to test LLM capability, while others explore different prompting techniques and methods. \citeauthor{toddMissedConnectionsLateral2024} use three methods, namely a sentence-embedding baseline, a comparison between two LLMs (GPT-3.5-Turbo-1106 and GPT-4-1106-Preview), and \ac{CoT} prompting. Their experiments allow five incorrect and five invalid guesses per puzzle, which departs from the original game's rules. GPT-4 Turbo with \ac{CoT} achieves the highest success rate at 58.11\%. The best-performing sentence-embedding baseline (MPNet) reaches 11.6\%. LLMs are often stumped by categories that involve non-semantic word properties, abstract features, or context-dependent usage. They also report a finding relevant to this thesis. Puzzle order matters, since presenting puzzles in their original, grouped order achieves substantially higher accuracy than presenting them in randomized order~\cite{toddMissedConnectionsLateral2024}.
 
@@ -68,6 +69,7 @@ A similar work from \citeauthor{samadarshiConnectingDotsEvaluating2024} benchmar
 More recent work from \citeauthor{loredolopezNYTConnectionsDeceptivelySimple2025} compare three game configurations: single attempt, four trys without feedback (one away prompt) and four trys with feedback. Human solvers outperform LLM under all three configurations. The best performing model Claude 3.5 under full hints reaches 40.25\%, while the human full-hints score reaches 60.67\%. They also experiment on different prompting techniques. \ac{CoT} and self-consistency prompting yield diminishing or even negative returns as puzzle difficulty increases. Simple input-output prompting sometimes outperforms these more elaborate reasoning strategies. Their herustic (non-LLM) baseline, using Multilingual-E5-Large-Instruct embedding and beam search, reaches 13.25\% accuracy.
 
 \citeauthor{zhangLearningSemanticComplexities} compare in-context prompting of a large model (DBRX) against fine-tuning and distilling a smaller model (Mistral~7B) on solved puzzles. They found that fine-tuning a smaller model (Mistral 7B) directly on solved puzzles fails to capture the task itself, which underperformed even their clustering baseline. Their strongest result comes from Verbal Reinforcement Learning, in which a larger supervisor model critiques the fine-tuned model's output in natural language across three rounds, roughly doubling the average per-puzzle match rate relative to single-pass prompting \cite{zhangLearningSemanticComplexities}.
+
 
 % set partitioning
 
