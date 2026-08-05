@@ -2434,16 +2434,11 @@
     <bcf:citekey order="50" intorder="1">ginsbergDrFillCrosswordsImplemented2014</bcf:citekey>
     <bcf:citekey order="51" intorder="1">PartitionSet2026</bcf:citekey>
     <bcf:citekey order="52" intorder="1">muellerSolvingSetPartitioning1998</bcf:citekey>
-    <bcf:citekey order="53" intorder="1">InformationTheory2026</bcf:citekey>
-    <bcf:citekey order="54" intorder="1">shannonMathematicalTheoryCommunication1948</bcf:citekey>
+    <bcf:citekey order="53" intorder="1">shannonMathematicalTheoryCommunication1948</bcf:citekey>
+    <bcf:citekey order="54" intorder="1">pinkardVisualIntroductionInformation2026</bcf:citekey>
     <bcf:citekey order="55" intorder="1">pinkardVisualIntroductionInformation2026</bcf:citekey>
-    <bcf:citekey order="56" intorder="1">pinkardVisualIntroductionInformation2026</bcf:citekey>
-    <bcf:citekey order="57" intorder="1">aladailehSolvingWordleUsing2026</bcf:citekey>
-    <bcf:citekey order="58" intorder="1">3blue1brownSolvingWordleUsing2022</bcf:citekey>
-    <bcf:citekey order="59" intorder="1">aladailehSolvingWordleUsing2026</bcf:citekey>
-    <bcf:citekey order="60" intorder="1">aladailehSolvingWordleUsing2026</bcf:citekey>
-    <bcf:citekey order="61" intorder="1">cunananOptimalStrategiesWordle2023</bcf:citekey>
-    <bcf:citekey order="62" intorder="1">cunananOptimalStrategiesWordle2023</bcf:citekey>
+    <bcf:citekey order="56" intorder="1">aladailehSolvingWordleInformation2026</bcf:citekey>
+    <bcf:citekey order="57" intorder="1">bischoffInformationTheoryFinds2024</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

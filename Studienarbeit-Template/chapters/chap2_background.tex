@@ -69,7 +69,7 @@ Connections and positions this thesis relative to them.
 % below, including new \cite{} keys and matching BibTeX entries.
 
 % =============================================================
-\section{The NYT Connections Puzzle}
+\sectionnotoc{The NYT Connections Puzzle}
 \label{sec:connections-puzzle}
 
 NYT Connections is a daily word puzzle in which players must partition a
@@ -103,7 +103,7 @@ as a meaningful, exploitable structure rather than an arbitrary label --
 a point taken up again in \autoref{sec:relation-types}.
 
 % =============================================================
-\section{Relation Types and the Structure of Difficulty}
+\sectionnotoc{Relation Types and the Structure of Difficulty}
 \label{sec:relation-types}
 
 The categories in a Connections puzzle are not homogeneous in the kind of
@@ -165,7 +165,7 @@ exists.} as the basis for the per-tier error analysis.
 % refining this correlation, cite it in this paragraph.
 
 % =============================================================
-\section{Challenges for Automated Solvers}
+\sectionnotoc{Challenges for Automated Solvers}
 \label{sec:challenges}
 
 The relation-type diversity described above already indicates why
@@ -204,7 +204,7 @@ training cutoff~\cite{loredolopez2025}.
 % if your new literature offers one.
 
 % =============================================================
-\section{Small and Resource-Constrained Language Models as Solving Agents}
+\sectionnotoc{Small and Resource-Constrained Language Models as Solving Agents}
 \label{sec:small-models}
 
 % TODO: this entire section currently argues from first principles /
@@ -256,7 +256,7 @@ considerations motivate this focus:
 % If your new literature covers either, this is where it goes.
 
 % =============================================================
-\section{Text Embeddings and Clustering for Lexical Grouping}
+\sectionnotoc{Text Embeddings and Clustering for Lexical Grouping}
 \label{sec:embeddings-clustering}
 
 At the representation level, Connections is closely tied to text
@@ -295,7 +295,7 @@ structures with substantially different embedding families, without
 directly comparing them under a controlled setup.
 
 % =============================================================
-\section{Prompting Strategies for LLM Reasoning}
+\sectionnotoc{Prompting Strategies for LLM Reasoning}
 \label{sec:prompting}
 
 Chain-of-thought (CoT) prompting elicits intermediate reasoning steps
@@ -324,7 +324,7 @@ of reference in \autoref{sec:related-work} and
 \autoref{ch:methodology}.
 
 % =============================================================
-\section{Related Work on NYT Connections Solvers}
+\sectionnotoc{Related Work on NYT Connections Solvers}
 \label{sec:related-work}
 
 Three prior studies directly inform the solver design used in this
@@ -418,206 +418,3 @@ improves solving accuracy on the easier (yellow/green) categories
 relative to the small-model baselines established in
 \autoref{sec:small-models}.
 
-% =============================================================
-% BibTeX entries for the citations used above.
-% Merge into your .bib file, or rename these keys to match entries you
-% already have. Author-list / venue / url / urldate details are restored
-% from the January 2026 Exposé's reference list where available.
-% Double-check against the original sources before final submission.
-% =============================================================
-%
-% @inproceedings{ester1996dbscan,
-%   author    = {Ester, Martin and Kriegel, Hans-Peter and Sander, J{\"o}rg and Xu, Xiaowei},
-%   title     = {A density-based algorithm for discovering clusters in large spatial databases with noise},
-%   booktitle = {Proceedings of the Second International Conference on Knowledge Discovery and Data Mining (KDD'96)},
-%   year      = {1996},
-%   pages     = {226--231},
-%   address   = {Portland, Oregon},
-%   publisher = {AAAI Press}
-%   % No direct url given in the source Exposé entry (visited 2025-11-20 per that document, but no URL was printed) -- do not fabricate one.
-% }
-%
-% @inproceedings{arthur2007kmeanspp,
-%   author    = {Arthur, David and Vassilvitskii, Sergei},
-%   title     = {k-means++: the advantages of careful seeding},
-%   booktitle = {Proceedings of the Eighteenth Annual ACM-SIAM Symposium on Discrete Algorithms (SODA '07)},
-%   year      = {2007},
-%   pages     = {1027--1035},
-%   isbn      = {978-0-89871-624-5}
-%   % No direct url given in the source Exposé entry (visited 2025-12-15 per that document, but no URL was printed) -- do not fabricate one.
-% }
-%
-% @online{mikolov2013,
-%   author  = {Mikolov, Tomas and Sutskever, Ilya and Chen, Kai and Corrado, Greg and Dean, Jeffrey},
-%   title   = {Distributed Representations of Words and Phrases and their Compositionality},
-%   year    = {2013},
-%   eprint  = {1310.4546},
-%   archivePrefix = {arXiv},
-%   primaryClass  = {cs},
-%   url     = {http://arxiv.org/abs/1310.4546},
-%   urldate = {2025-11-23}
-% }
-%
-% @article{geirhos2020,
-%   author  = {Geirhos, Robert and Jacobsen, J{\"o}rn-Henrik and Michaelis, Claudio and Zemel, Richard and Brendel, Wieland and Bethge, Matthias and Wichmann, Felix A.},
-%   title   = {Shortcut learning in deep neural networks},
-%   journal = {Nature Machine Intelligence},
-%   volume  = {2},
-%   number  = {11},
-%   pages   = {665--673},
-%   year    = {2020},
-%   doi     = {10.1038/s42256-020-00257-z},
-%   url     = {https://www.nature.com/articles/s42256-020-00257-z},
-%   urldate = {2025-11-18}
-% }
-%
-% @article{chandrasekaran2021,
-%   author  = {Chandrasekaran, Dhivya and Mago, Vijay},
-%   title   = {Evolution of Semantic Similarity---A Survey},
-%   journal = {ACM Computing Surveys},
-%   volume  = {54},
-%   number  = {2},
-%   pages   = {41:1--41:37},
-%   year    = {2021},
-%   doi     = {10.1145/3440755},
-%   url     = {https://doi.org/10.1145/3440755},
-%   urldate = {2025-11-18}
-% }
-%
-% @article{incitti2023,
-%   author  = {Incitti, Francesca and Urli, Federico and Snidaro, Lauro},
-%   title   = {Beyond word embeddings: A survey},
-%   journal = {Information Fusion},
-%   volume  = {89},
-%   pages   = {418--436},
-%   year    = {2023},
-%   doi     = {10.1016/j.inffus.2022.08.024},
-%   url     = {https://www.sciencedirect.com/science/article/pii/S1566253522001233},
-%   urldate = {2025-11-20}
-% }
-%
-% @article{patil2023,
-%   author  = {Patil, Rajvardhan and others},
-%   title   = {A Survey of Text Representation and Embedding Techniques in NLP},
-%   journal = {IEEE Access},
-%   year    = {2023},
-%   doi     = {10.1109/ACCESS.2023.3266377}
-%   % No url/urldate given in the source Exposé entry -- do not fabricate one.
-% }
-%
-% @online{nyt-tips-tricks-2023,
-%   author  = {{The New York Times}},
-%   title   = {Connections Tips and Tricks},
-%   year    = {2023},
-%   month   = {11},
-%   url     = {https://www.nytimes.com/2023/11/06/crosswords/connections-tips-and-tricks.html},
-%   urldate = {2026-01-09}
-% }
-%
-% @online{wei2022cot,
-%   author  = {Wei, Jason and others},
-%   title   = {Chain-of-Thought Prompting Elicits Reasoning in Large Language Models},
-%   year    = {2023},
-%   eprint  = {2201.11903},
-%   archivePrefix = {arXiv},
-%   primaryClass  = {cs},
-%   url     = {http://arxiv.org/abs/2201.11903},
-%   urldate = {2025-11-18}
-% }
-%
-% @inproceedings{toddetal2024,
-%   author    = {Todd, Graham and others},
-%   title     = {Missed Connections: Lateral Thinking Puzzles for Large Language Models},
-%   booktitle = {2024 IEEE Conference on Games (CoG)},
-%   year      = {2024},
-%   pages     = {1--8},
-%   doi       = {10.1109/CoG60054.2024.10645557},
-%   url       = {https://ieeexplore.ieee.org/document/10645557},
-%   urldate   = {2026-01-05}
-% }
-%
-% @online{huang2025textclustering,
-%   author  = {Huang, Chen and He, Guoxiu},
-%   title   = {Text Clustering as Classification with LLMs},
-%   year    = {2025},
-%   eprint  = {2410.00927},
-%   archivePrefix = {arXiv},
-%   primaryClass  = {cs},
-%   url     = {http://arxiv.org/abs/2410.00927},
-%   urldate = {2025-11-18}
-% }
-%
-% @inproceedings{loredolopez2025,
-%   author    = {Loredo Lopez, Angel Yahir and McDonald, Tyler and Emami, Ali},
-%   title     = {NYT-Connections: A Deceptively Simple Text Classification Task that Stumps System-1 Thinkers},
-%   booktitle = {Proceedings of the 31st International Conference on Computational Linguistics (COLING 2025)},
-%   year      = {2025},
-%   pages     = {1952--1963},
-%   address   = {Abu Dhabi, UAE},
-%   publisher = {Association for Computational Linguistics},
-%   url       = {https://aclanthology.org/2025.coling-main.134/},
-%   urldate   = {2025-12-17}
-% }
-%
-% @article{petukhova2025,
-%   author  = {Petukhova, Alina and Matos-Carvalho, Jo{\~a}o P. and Fachada, Nuno},
-%   title   = {Text clustering with large language model embeddings},
-%   journal = {International Journal of Cognitive Computing in Engineering},
-%   volume  = {6},
-%   pages   = {100--108},
-%   year    = {2025},
-%   doi     = {10.1016/j.ijcce.2024.11.004},
-%   url     = {https://www.sciencedirect.com/science/article/pii/S2666307424000482},
-%   urldate = {2025-11-18}
-% }
-%
-% @online{robison2025medium,
-%   author  = {Robison, Greg},
-%   title   = {Thinking in Steps: What NY Times Connections Tells Us About AI's Reasoning Evolution},
-%   year    = {2025},
-%   month   = {2},
-%   url     = {https://gregrobison.medium.com/thinking-in-steps-what-ny-times-connections-tells-us-about-ais-reasoning-evolution-ab4540a6304c},
-%   urldate = {2025-11-18},
-%   note    = {Borderline source -- Medium blog post, not peer-reviewed; see draft note at top of this file}
-% }
-%
-% @online{nyt-puzzle-2025-12-29,
-%   author  = {{The New York Times}},
-%   title   = {Connections (2025-12-29)},
-%   year    = {2025},
-%   url     = {https://www.nytimes.com/games/connections/2025-12-29},
-%   urldate = {2026-01-09}
-% }
-%
-% @online{nyt-puzzle-2026-01-03,
-%   author  = {{The New York Times}},
-%   title   = {Connections (2026-01-03)},
-%   year    = {2026},
-%   url     = {https://www.nytimes.com/games/connections/2026-01-03},
-%   urldate = {2026-01-09}
-% }
-%
-% @online{nyt-puzzle-2026-01-05,
-%   author  = {{The New York Times}},
-%   title   = {Connections (2026-01-05)},
-%   year    = {2026},
-%   url     = {https://www.nytimes.com/games/connections/2026-01-05},
-%   urldate = {2026-01-09}
-% }
-%
-% @online{promptguide-cot,
-%   title   = {Prompt Engineering Guide -- Chain-of-Thought},
-%   url     = {https://www.promptingguide.ai/techniques/cot},
-%   urldate = {2025-11-23}
-% }
-%
-% @techreport{zhangetal-connections,
-%   author      = {Zhang, Emily and Jiang, Yanan and Ye, Peixuan},
-%   title       = {Learning Semantic Complexities of NYT Connections},
-%   institution = {Stanford University},
-%   type        = {CS224n course final report},
-%   url         = {https://web.stanford.edu/class/cs224n/final-reports/256847963.pdf}
-%   % No year or urldate given in the source Exposé entry -- do not
-%   % fabricate; ask the user or check the PDF directly for a submission
-%   % year before final use.
-% }

@@ -3,22 +3,15 @@
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Structure}{1}{section.1.1}%
 \contentsline {chapter}{\numberline {2}Foundations}{2}{chapter.2}%
-\contentsline {section}{\numberline {2.1}The NYT Connections Puzzle}{2}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Relation Types and the Structure of Difficulty}{3}{section.2.2}%
 \contentsline {paragraph}{\nonumberline Working hypothesis adopted in this thesis.}{4}{paragraph*.8}%
-\contentsline {section}{\numberline {2.3}Challenges for Automated Solvers}{4}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Small and Resource-Constrained Language Models as Solving Agents}{5}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Text Embeddings and Clustering for Lexical Grouping}{6}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Prompting Strategies for LLM Reasoning}{6}{section.2.6}%
-\contentsline {section}{\numberline {2.7}Related Work on NYT Connections Solvers}{7}{section.2.7}%
 \contentsline {paragraph}{\nonumberline Todd et al.~\blx@tocontentsinit {0}\cite {toddetal2024}}{7}{paragraph*.10}%
 \contentsline {paragraph}{\nonumberline Loredo Lopez, McDonald, and Emami~\blx@tocontentsinit {0}\cite {loredolopez2025}}{7}{paragraph*.12}%
 \contentsline {paragraph}{\nonumberline Zhang, Jiang, and Ye~\blx@tocontentsinit {0}\cite {zhangetal-connections}}{8}{paragraph*.14}%
 \contentsline {paragraph}{\nonumberline Synthesis and positioning of this thesis.}{8}{paragraph*.16}%
-\contentsline {chapter}{\numberline {3}Related Work}{10}{chapter.3}%
-\contentsline {chapter}{\numberline {4}Experimental Design and Implementation}{14}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Evaluation and Discussion}{15}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Experiments}{15}{section.5.1}%
-\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{16}{chapter.6}%
-\contentsline {chapter}{\nonumberline Bibliography}{IV}{chapter*.21}%
+\contentsline {chapter}{\numberline {3}Related Work}{9}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Experimental Design and Implementation}{15}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Evaluation and Discussion}{16}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Experiments}{16}{section.5.1}%
+\contentsline {chapter}{\numberline {6}Conclusion and Future Work}{17}{chapter.6}%
+\contentsline {chapter}{\nonumberline Bibliography}{IV}{chapter*.19}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

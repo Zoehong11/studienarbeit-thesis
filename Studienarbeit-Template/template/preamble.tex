@@ -246,6 +246,7 @@
 
 % Math
 \usepackage{amsmath}
+\usepackage{amssymb}
 
 %% LoF, LoT & LoL indentation
 \usepackage[titles]{tocloft}
@@ -291,6 +292,21 @@
 \def\equationautorefname{Equation}%
 \autoref{#1}%
 \endgroup%
+}
+
+%% Numbered sections/subsections that are kept out of the table of contents
+%% (heading still gets its number, e.g. "2.3", just no ToC entry).
+\newcommand{\sectionnotoc}[1]{%
+  \let\oldaddcontentsline\addcontentsline%
+  \renewcommand{\addcontentsline}[3]{}%
+  \section{#1}%
+  \let\addcontentsline\oldaddcontentsline%
+}
+\newcommand{\subsectionnotoc}[1]{%
+  \let\oldaddcontentsline\addcontentsline%
+  \renewcommand{\addcontentsline}[3]{}%
+  \subsection{#1}%
+  \let\addcontentsline\oldaddcontentsline%
 }
 
 %% SVG grafics

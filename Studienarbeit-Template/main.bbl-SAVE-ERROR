@@ -16,5 +16,726 @@
   {}
 \endgroup
 
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{3blue1brownSolvingWordleUsing2022}{video}{}{}
+      \name{namea}{1}{}{%
+        {{hash=682352d7b7d88f46edac62cd97b58db1}{%
+           family={{3Blue1Brown}},
+           familyi={3\bibinitperiod}}}%
+      }
+      \strng{nameabibnamehash}{682352d7b7d88f46edac62cd97b58db1}
+      \strng{nameanamehash}{682352d7b7d88f46edac62cd97b58db1}
+      \strng{nameafullhash}{682352d7b7d88f46edac62cd97b58db1}
+      \strng{nameafullhashraw}{682352d7b7d88f46edac62cd97b58db1}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{abstract}{An excuse to teach a lesson on information theory and entropy. These lessons are funded by viewers: ~~/~3blue1brown~~ Special thanks to these supporters: https://3b1b.co/lessons/wordle\#thanks}
+      \field{day}{6}
+      \field{entrysubtype}{video}
+      \field{month}{2}
+      \field{nameatype}{collaborator}
+      \field{title}{Solving {{Wordle}} Using Information Theory}
+      \field{urlday}{30}
+      \field{urlmonth}{7}
+      \field{urlyear}{2026}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=v68zYyaEmEA
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=v68zYyaEmEA
+      \endverb
+    \endentry
+    \entry{toddMissedConnectionsLateral2024}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=fc9c46cc0807547b221e93ef062030a4}{%
+           family={Todd},
+           familyi={T\bibinitperiod},
+           given={Graham},
+           giveni={G\bibinitperiod}}}%
+        {{hash=b413859bafc8f38ee21acab4eb071a7a}{%
+           family={Merino},
+           familyi={M\bibinitperiod},
+           given={Tim},
+           giveni={T\bibinitperiod}}}%
+        {{hash=495f1f7321ab1541320d57f92a26ae86}{%
+           family={Earle},
+           familyi={E\bibinitperiod},
+           given={Sam},
+           giveni={S\bibinitperiod}}}%
+        {{hash=cbd110b21df9b90cd72ce148aa04de7f}{%
+           family={Togelius},
+           familyi={T\bibinitperiod},
+           given={Julian},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{9a7628e4f40411cca901fb740339ef73}
+      \strng{fullhash}{f038d49bc5b63c5a40c7ced74f52ab61}
+      \strng{fullhashraw}{f038d49bc5b63c5a40c7ced74f52ab61}
+      \strng{bibnamehash}{9a7628e4f40411cca901fb740339ef73}
+      \strng{authorbibnamehash}{9a7628e4f40411cca901fb740339ef73}
+      \strng{authornamehash}{9a7628e4f40411cca901fb740339ef73}
+      \strng{authorfullhash}{f038d49bc5b63c5a40c7ced74f52ab61}
+      \strng{authorfullhashraw}{f038d49bc5b63c5a40c7ced74f52ab61}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{The Connections puzzle published each day by the New York Times tasks players with dividing a bank of sixteen words into four groups of four words that each relate to a common theme. Solving the puzzle requires both common linguistic knowledge (i.e. definitions and typical usage) as well as, in many cases, lateral or abstract thinking. This is because the four categories ascend in complexity, with the most challenging category often requiring thinking about words in uncommon ways or as parts of larger phrases. We investigate the capacity for automated AI systems to play Connections and explore the game’s potential as an automated benchmark for abstract reasoning and a way to measure the semantic information encoded by data-driven linguistic systems. In particular, we study both a sentence-embedding baseline and modern large language models (LLMs). We report their accuracy on the task, measure the impacts of chain-of-thought prompting, and discuss their failure modes. Overall, we find that the Connections task is challenging yet feasible, and a strong test-bed for future work.}
+      \field{booktitle}{2024 {{IEEE Conference}} on {{Games}} ({{CoG}})}
+      \field{eventtitle}{2024 {{IEEE Conference}} on {{Games}} ({{CoG}})}
+      \field{issn}{2325-4289}
+      \field{month}{8}
+      \field{shorttitle}{Missed {{Connections}}}
+      \field{title}{Missed {{Connections}}: {{Lateral Thinking Puzzles}} for {{Large Language Models}}}
+      \field{urlday}{5}
+      \field{urlmonth}{1}
+      \field{urlyear}{2026}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{1\bibrangedash 8}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/CoG60054.2024.10645557
+      \endverb
+      \verb{file}
+      \verb /Users/hong/Zotero/storage/FWZDMJPU/Todd et al. - 2024 - Missed Connections Lateral Thinking Puzzles for Large Language Models.pdf;/Users/hong/Zotero/storage/8A6XIPPK/10645557.html
+      \endverb
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org/document/10645557
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org/document/10645557
+      \endverb
+      \keyw{AI,Atmospheric measurements,Benchmark testing,evaluation,Games,Language models,Large language models,Linguistics,Particle measurements,reasoning,Semantics}
+    \endentry
+    \entry{samadarshiConnectingDotsEvaluating2024}{online}{}{}
+      \name{author}{6}{}{%
+        {{hash=c251e6cc1e028ab837822a91ed17c7d8}{%
+           family={Samadarshi},
+           familyi={S\bibinitperiod},
+           given={Prisha},
+           giveni={P\bibinitperiod}}}%
+        {{hash=b432e7ea0c3af967746a64db3ac3fe44}{%
+           family={Mustafa},
+           familyi={M\bibinitperiod},
+           given={Mariam},
+           giveni={M\bibinitperiod}}}%
+        {{hash=ff514f2b0995a1ea1c7dbc62a4f74649}{%
+           family={Kulkarni},
+           familyi={K\bibinitperiod},
+           given={Anushka},
+           giveni={A\bibinitperiod}}}%
+        {{hash=f34cd2996fb75bb5e37b9a23be96326e}{%
+           family={Rothkopf},
+           familyi={R\bibinitperiod},
+           given={Raven},
+           giveni={R\bibinitperiod}}}%
+        {{hash=e7063a72c4042a4352d7951f20945aac}{%
+           family={Chakrabarty},
+           familyi={C\bibinitperiod},
+           given={Tuhin},
+           giveni={T\bibinitperiod}}}%
+        {{hash=d0bc8f5f636cd15bd288897f91468b6e}{%
+           family={Muresan},
+           familyi={M\bibinitperiod},
+           given={Smaranda},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{83f9f7ee58d43fbb5106be968684f898}
+      \strng{fullhash}{eafa11943c91320fa07ad4b2234f8814}
+      \strng{fullhashraw}{eafa11943c91320fa07ad4b2234f8814}
+      \strng{bibnamehash}{83f9f7ee58d43fbb5106be968684f898}
+      \strng{authorbibnamehash}{83f9f7ee58d43fbb5106be968684f898}
+      \strng{authornamehash}{83f9f7ee58d43fbb5106be968684f898}
+      \strng{authorfullhash}{eafa11943c91320fa07ad4b2234f8814}
+      \strng{authorfullhashraw}{eafa11943c91320fa07ad4b2234f8814}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{The New York Times Connections game has emerged as a popular and challenging pursuit for word puzzle enthusiasts. We collect 438 Connections games to evaluate the performance of state-of-the-art large language models (LLMs) against expert and novice human players. Our results show that even the best performing LLM, Claude 3.5 Sonnet, which has otherwise shown impressive reasoning abilities on a wide variety of benchmarks, can only fully solve 18\% of the games. Novice and expert players perform better than Claude 3.5 Sonnet, with expert human players significantly outperforming it. We create a taxonomy of the knowledge types required to successfully cluster and categorize words in the Connections game. We find that while LLMs perform relatively well on categorizing words based on semantic relations they struggle with other types of knowledge such as Encyclopedic Knowledge, Multiword Expressions or knowledge that combines both Word Form and Meaning. Our results establish the New York Times Connections game as a challenging benchmark for evaluating abstract reasoning capabilities in AI systems.}
+      \field{day}{14}
+      \field{eprintclass}{cs.CL}
+      \field{eprinttype}{arXiv}
+      \field{month}{10}
+      \field{pubstate}{prepublished}
+      \field{shorttitle}{Connecting the {{Dots}}}
+      \field{title}{Connecting the {{Dots}}: {{Evaluating Abstract Reasoning Capabilities}} of {{LLMs Using}} the {{New York Times Connections Word Game}}}
+      \field{urlday}{2}
+      \field{urlmonth}{7}
+      \field{urlyear}{2026}
+      \field{year}{2024}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.2406.11012
+      \endverb
+      \verb{eprint}
+      \verb 2406.11012
+      \endverb
+      \verb{file}
+      \verb /Users/hong/Zotero/storage/6UXJ4JGS/Samadarshi et al. - 2024 - Connecting the Dots Evaluating Abstract Reasoning Capabilities of LLMs Using the New York Times Con.pdf;/Users/hong/Zotero/storage/39RUR8X5/2406.html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/2406.11012
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/2406.11012
+      \endverb
+      \keyw{Computer Science - Artificial Intelligence,Computer Science - Computation and Language}
+    \endentry
+    \entry{loredolopezNYTConnectionsDeceptivelySimple2025}{inproceedings}{}{}
+      \name{author}{3}{}{%
+        {{hash=b052d9c51fa4350b266d277b65831fcc}{%
+           family={Loredo\bibnamedelima Lopez},
+           familyi={L\bibinitperiod\bibinitdelim L\bibinitperiod},
+           given={Angel\bibnamedelima Yahir},
+           giveni={A\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+        {{hash=09e4a6b7f00a88be876cf9d434a9a6a2}{%
+           family={McDonald},
+           familyi={M\bibinitperiod},
+           given={Tyler},
+           giveni={T\bibinitperiod}}}%
+        {{hash=cd68fc8e722b8e5be2d270cbf63b48f5}{%
+           family={Emami},
+           familyi={E\bibinitperiod},
+           given={Ali},
+           giveni={A\bibinitperiod}}}%
+      }
+      \name{editor}{6}{}{%
+        {{hash=50e8b13f09de6a4c5cb0f209843877e4}{%
+           family={Rambow},
+           familyi={R\bibinitperiod},
+           given={Owen},
+           giveni={O\bibinitperiod}}}%
+        {{hash=55f279e017bd585b710d78e5098cdb0a}{%
+           family={Wanner},
+           familyi={W\bibinitperiod},
+           given={Leo},
+           giveni={L\bibinitperiod}}}%
+        {{hash=b0bf0fa4f634ecbebcf453cde5b02df9}{%
+           family={Apidianaki},
+           familyi={A\bibinitperiod},
+           given={Marianna},
+           giveni={M\bibinitperiod}}}%
+        {{hash=9bf3d74523ad71f3cd87991dcc3d9b00}{%
+           family={Al-Khalifa},
+           familyi={A\bibinithyphendelim K\bibinitperiod},
+           given={Hend},
+           giveni={H\bibinitperiod}}}%
+        {{hash=4f51bbb62297b137bee0f2dd16388c31}{%
+           family={Eugenio},
+           familyi={E\bibinitperiod},
+           given={Barbara\bibnamedelima Di},
+           giveni={B\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=b66c934ea85e43f75cae6e977ceaca03}{%
+           family={Schockaert},
+           familyi={S\bibinitperiod},
+           given={Steven},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Abu Dhabi, UAE}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computational Linguistics}%
+      }
+      \strng{namehash}{0f587bc40f413a2e4e95355982e9d253}
+      \strng{fullhash}{0f587bc40f413a2e4e95355982e9d253}
+      \strng{fullhashraw}{0f587bc40f413a2e4e95355982e9d253}
+      \strng{bibnamehash}{0f587bc40f413a2e4e95355982e9d253}
+      \strng{authorbibnamehash}{0f587bc40f413a2e4e95355982e9d253}
+      \strng{authornamehash}{0f587bc40f413a2e4e95355982e9d253}
+      \strng{authorfullhash}{0f587bc40f413a2e4e95355982e9d253}
+      \strng{authorfullhashraw}{0f587bc40f413a2e4e95355982e9d253}
+      \strng{editorbibnamehash}{5c4cb696904ac98f403b04594891ef70}
+      \strng{editornamehash}{5c4cb696904ac98f403b04594891ef70}
+      \strng{editorfullhash}{6475404b12259beb64e8893b0ff8a24c}
+      \strng{editorfullhashraw}{6475404b12259beb64e8893b0ff8a24c}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Large Language Models (LLMs) have shown impressive performance on various benchmarks, yet their ability to engage in deliberate reasoning remains questionable. We present NYT-Connections, a collection of 358 simple word classification puzzles derived from the New York Times Connections game. This benchmark is designed to penalize quick, intuitive “System 1” thinking, isolating fundamental reasoning skills. We evaluated six recent LLMs, a simple machine learning heuristic, and humans across three configurations: single-attempt, multiple attempts without hints, and multiple attempts with contextual hints. Our findings reveal a significant performance gap: even top-performing LLMs like GPT-4 fall short of human performance by nearly 30\%. Notably, advanced prompting techniques such as Chain-of-Thought and Self-Consistency show diminishing returns as task difficulty increases. NYT-Connections uniquely combines linguistic isolation, resistance to intuitive shortcuts, and regular updates to mitigate data leakage, offering a novel tool for assessing LLM reasoning capabilities.}
+      \field{booktitle}{Proceedings of the 31st {{International Conference}} on {{Computational Linguistics}}}
+      \field{eventtitle}{{{COLING}} 2025}
+      \field{month}{1}
+      \field{shorttitle}{{{NYT-Connections}}}
+      \field{title}{{{NYT-Connections}}: {{A Deceptively Simple Text Classification Task}} That {{Stumps System-1 Thinkers}}}
+      \field{urlday}{17}
+      \field{urlmonth}{12}
+      \field{urlyear}{2025}
+      \field{year}{2025}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{1952\bibrangedash 1963}
+      \range{pages}{12}
+      \verb{file}
+      \verb /Users/hong/Zotero/storage/I9VUDFLW/Loredo Lopez et al. - 2025 - NYT-Connections A Deceptively Simple Text Classification Task that Stumps System-1 Thinkers.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://aclanthology.org/2025.coling-main.134/
+      \endverb
+      \verb{url}
+      \verb https://aclanthology.org/2025.coling-main.134/
+      \endverb
+    \endentry
+    \entry{zhangLearningSemanticComplexities}{report}{}{}
+      \name{author}{3}{}{%
+        {{hash=3ff597a78eb8588dfd5a18cf4ab202e0}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Emily},
+           giveni={E\bibinitperiod}}}%
+        {{hash=930aa10efa3b094c1a61b304c952e007}{%
+           family={Jiang},
+           familyi={J\bibinitperiod},
+           given={Yanan},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=677f84e09183133c1bf6d6997a107e80}{%
+           family={Ye},
+           familyi={Y\bibinitperiod},
+           given={Peixuan},
+           giveni={P\bibinitperiod}}}%
+      }
+      \strng{namehash}{6f6b3d2a6e89759fae2bf6a36e371508}
+      \strng{fullhash}{6f6b3d2a6e89759fae2bf6a36e371508}
+      \strng{fullhashraw}{6f6b3d2a6e89759fae2bf6a36e371508}
+      \strng{bibnamehash}{6f6b3d2a6e89759fae2bf6a36e371508}
+      \strng{authorbibnamehash}{6f6b3d2a6e89759fae2bf6a36e371508}
+      \strng{authornamehash}{6f6b3d2a6e89759fae2bf6a36e371508}
+      \strng{authorfullhash}{6f6b3d2a6e89759fae2bf6a36e371508}
+      \strng{authorfullhashraw}{6f6b3d2a6e89759fae2bf6a36e371508}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{While modern NLP models are adept at handling syntactically rich prose and sentence structure, they still struggle with the flexible problem solving and general reasoning ability that humans exhibit. In this paper, we apply diverse NLP methods to one example of a semantically complex reasoning task, The New York Times Connections game. We explore baseline methods that are specific to the semantic grouping task, such as K-Means clustering on various word embeddings. Then, we benchmark in-context learning on a large LLM as well as finetune a smaller LLM using existing examples of solved puzzles. We also explore unique methods of introducing complex linguistic and metalinguistic reasoning capabilities of a larger LLM into a smaller LLM, through methods like fine-tuning with distilled rationales and Verbal Reinforcement Learning. We found promising results with Verbal RL, as the smaller model was able to absorb critique from a larger language model and improve on previous answers, similar to how human solvers approach language puzzles.}
+      \field{langid}{english}
+      \field{title}{Learning {{Semantic Complexities}} of {{NYT Connections}}}
+      \verb{file}
+      \verb /Users/hong/Zotero/storage/TKJUGQUB/Zhang et al. - Learning Semantic Complexities of NYT Connections.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://web.stanford.edu/class/cs224n/final-reports/256847963.pdf
+      \endverb
+      \verb{url}
+      \verb https://web.stanford.edu/class/cs224n/final-reports/256847963.pdf
+      \endverb
+    \endentry
+    \entry{ConstraintSatisfactionProblem2026}{inreference}{}{}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Constraint satisfaction problems (CSPs) are mathematical questions defined as a set of objects whose state must satisfy a number of constraints or limitations. CSPs represent the entities in a problem as a homogeneous collection of finite constraints over variables, which is solved by constraint satisfaction methods. CSPs are the subject of research in both artificial intelligence and operations research, since the regularity in their formulation provides a common basis to analyze and solve problems of many seemingly unrelated families. CSPs often exhibit high complexity, requiring a combination of heuristics and combinatorial search methods to be solved in a reasonable time. Constraint programming (CP) is the field of research that specifically focuses on tackling these kinds of problems. Additionally, the Boolean satisfiability problem (SAT), satisfiability modulo theories (SMT), mixed integer programming (MIP) and answer set programming (ASP) are all fields of research focusing on the resolution of particular forms of the constraint satisfaction problem. Examples of problems that can be modeled as a constraint satisfaction problem include: Type inference Eight queens puzzle Map coloring problem Maximum cut problem Sudoku, crosswords, futoshiki, Kakuro (Cross Sums), Numbrix/Hidato, Zebra Puzzle, and many other logic puzzles These are often provided with tutorials of CP, ASP, Boolean SAT and SMT solvers. In the general case, constraint problems can be much harder, and may not be expressible in some of these simpler systems. "Real life" examples include automated planning, lexical disambiguation, musicology, product configuration and resource allocation. The existence of a solution to a CSP can be viewed as a decision problem. This can be decided by finding a solution, or failing to find a solution after exhaustive search (stochastic algorithms typically never reach an exhaustive conclusion, while directed searches often do, on sufficiently small problems). In some cases the CSP might be known to have solutions beforehand, through some other mathematical inference process.}
+      \field{annotation}{Page Version ID: 1334133666}
+      \field{booktitle}{Wikipedia}
+      \field{day}{21}
+      \field{hour}{19}
+      \field{langid}{english}
+      \field{minute}{18}
+      \field{month}{1}
+      \field{second}{56}
+      \field{timezone}{Z}
+      \field{title}{Constraint Satisfaction Problem}
+      \field{urlday}{31}
+      \field{urlmonth}{7}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/hong/Zotero/storage/SUUP89B5/index.html
+      \endverb
+      \verb{urlraw}
+      \verb https://en.wikipedia.org/w/index.php?title=Constraint_satisfaction_problem&oldid=1334133666
+      \endverb
+      \verb{url}
+      \verb https://en.wikipedia.org/w/index.php?title=Constraint_satisfaction_problem&oldid=1334133666
+      \endverb
+    \endentry
+    \entry{brailsfordConstraintSatisfactionProblems1999}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=215aaa3b3e327955064e158573580eca}{%
+           family={Brailsford},
+           familyi={B\bibinitperiod},
+           given={Sally\bibnamedelima C.},
+           giveni={S\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=30848b8dfe66cb999eb7b314674c2bbb}{%
+           family={Potts},
+           familyi={P\bibinitperiod},
+           given={Chris\bibnamedelima N.},
+           giveni={C\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=b459a0d10ebd2b75d7c9854554dc2c8e}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={Barbara\bibnamedelima M.},
+           giveni={B\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{b3b61a6ca5cb4d53eba04f7b78c53e26}
+      \strng{fullhash}{b3b61a6ca5cb4d53eba04f7b78c53e26}
+      \strng{fullhashraw}{b3b61a6ca5cb4d53eba04f7b78c53e26}
+      \strng{bibnamehash}{b3b61a6ca5cb4d53eba04f7b78c53e26}
+      \strng{authorbibnamehash}{b3b61a6ca5cb4d53eba04f7b78c53e26}
+      \strng{authornamehash}{b3b61a6ca5cb4d53eba04f7b78c53e26}
+      \strng{authorfullhash}{b3b61a6ca5cb4d53eba04f7b78c53e26}
+      \strng{authorfullhashraw}{b3b61a6ca5cb4d53eba04f7b78c53e26}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{A constraint satisfaction problem (CSP) requires a value, selected from a given finite domain, to be assigned to each variable in the problem, so that all constraints relating the variables are satisfied. Many combinatorial problems in operational research, such as scheduling and timetabling, can be formulated as CSPs. Researchers in artificial intelligence (AI) usually adopt a constraint satisfaction approach as their preferred method when tackling such problems. However, constraint satisfaction approaches are not widely known amongst operational researchers. The aim of this paper is to introduce constraint satisfaction to the operational researcher. We start by defining CSPs, and describing the basic techniques for solving them. We then show how various combinatorial optimization problems are solved using a constraint satisfaction approach. Based on computational experience in the literature, constraint satisfaction approaches are compared with well-known operational research (OR) techniques such as integer programming, branch and bound, and simulated annealing.}
+      \field{day}{16}
+      \field{issn}{0377-2217}
+      \field{journaltitle}{European Journal of Operational Research}
+      \field{month}{12}
+      \field{number}{3}
+      \field{shortjournal}{European Journal of Operational Research}
+      \field{shorttitle}{Constraint Satisfaction Problems}
+      \field{title}{Constraint Satisfaction Problems: {{Algorithms}} and Applications}
+      \field{urlday}{31}
+      \field{urlmonth}{7}
+      \field{urlyear}{2026}
+      \field{volume}{119}
+      \field{year}{1999}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{557\bibrangedash 581}
+      \range{pages}{25}
+      \verb{doi}
+      \verb 10.1016/S0377-2217(98)00364-6
+      \endverb
+      \verb{file}
+      \verb /Users/hong/Zotero/storage/7N74Y75R/Brailsford et al. - 1999 - Constraint satisfaction problems Algorithms and applications.pdf;/Users/hong/Zotero/storage/APGG4ZQE/S0377221798003646.html
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0377221798003646
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0377221798003646
+      \endverb
+      \keyw{Combinatorial optimization,Constraint satisfaction,Integer programming,Local search}
+    \endentry
+    \entry{gallardoSolvingWeightedConstraint2009}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=6f7366a0cd234124e5057e06d9d322ea}{%
+           family={Gallardo},
+           familyi={G\bibinitperiod},
+           given={José\bibnamedelima Enrique},
+           giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=583f6e5b3c448041b353b3b3bcc0576f}{%
+           family={Cotta},
+           familyi={C\bibinitperiod},
+           given={Carlos},
+           giveni={C\bibinitperiod}}}%
+        {{hash=a6405ee16052702a19c80e748c15a828}{%
+           family={Fernández},
+           familyi={F\bibinitperiod},
+           given={Antonio\bibnamedelima José},
+           giveni={A\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{5a1cc603e75dcbddfa164ce9865aecbe}
+      \strng{fullhash}{5a1cc603e75dcbddfa164ce9865aecbe}
+      \strng{fullhashraw}{5a1cc603e75dcbddfa164ce9865aecbe}
+      \strng{bibnamehash}{5a1cc603e75dcbddfa164ce9865aecbe}
+      \strng{authorbibnamehash}{5a1cc603e75dcbddfa164ce9865aecbe}
+      \strng{authornamehash}{5a1cc603e75dcbddfa164ce9865aecbe}
+      \strng{authorfullhash}{5a1cc603e75dcbddfa164ce9865aecbe}
+      \strng{authorfullhashraw}{5a1cc603e75dcbddfa164ce9865aecbe}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{A weighted constraint satisfaction problem (WCSP) is a constraint satisfaction problem in which preferences among solutions can be expressed. Bucket elimination is a complete technique commonly used to solve this kind of constraint satisfaction problem. When the memory required to apply bucket elimination is too high, a heuristic method based on it (denominated mini-buckets) can be used to calculate bounds for the optimal solution. Nevertheless, the curse of dimensionality makes these techniques impractical on large scale problems. In response to this situation, we present a memetic algorithm for WCSPs in which bucket elimination is used as a mechanism for recombining solutions, providing the best possible child from the parental set. Subsequently, a multi-level model in which this exact/metaheuristic hybrid is further hybridized with branch-and-bound techniques and mini-buckets is studied. As a case study, we have applied these algorithms to the resolution of the maximum density still life problem, a hard constraint optimization problem based on Conways game of life. The resulting algorithm consistently finds optimal patterns for up to date solved instances in less time than current approaches. Moreover, it is shown that this proposal provides new best known solutions for very large instances.}
+      \field{day}{28}
+      \field{eprintclass}{cs.AI}
+      \field{eprinttype}{arXiv}
+      \field{issn}{1076-9757}
+      \field{journaltitle}{Journal of Artificial Intelligence Research}
+      \field{month}{7}
+      \field{shortjournal}{jair}
+      \field{title}{Solving {{Weighted Constraint Satisfaction Problems}} with {{Memetic}}/{{Exact Hybrid Algorithms}}}
+      \field{urlday}{31}
+      \field{urlmonth}{7}
+      \field{urlyear}{2026}
+      \field{volume}{35}
+      \field{year}{2009}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{533\bibrangedash 555}
+      \range{pages}{23}
+      \verb{doi}
+      \verb 10.1613/jair.2770
+      \endverb
+      \verb{eprint}
+      \verb 1401.3477
+      \endverb
+      \verb{file}
+      \verb /Users/hong/Zotero/storage/YR5VAMH6/Gallardo et al. - 2009 - Solving Weighted Constraint Satisfaction Problems with MemeticExact Hybrid Algorithms.pdf;/Users/hong/Zotero/storage/6EYERS4Y/1401.html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/1401.3477
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1401.3477
+      \endverb
+      \keyw{Computer Science - Artificial Intelligence}
+    \endentry
+    \entry{ginsbergDrFillCrosswordsImplemented2014}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=4504abd3ca0760eeb2c7b13b7b16168f}{%
+           family={Ginsberg},
+           familyi={G\bibinitperiod},
+           given={Matthew\bibnamedelima L.},
+           giveni={M\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \strng{namehash}{4504abd3ca0760eeb2c7b13b7b16168f}
+      \strng{fullhash}{4504abd3ca0760eeb2c7b13b7b16168f}
+      \strng{fullhashraw}{4504abd3ca0760eeb2c7b13b7b16168f}
+      \strng{bibnamehash}{4504abd3ca0760eeb2c7b13b7b16168f}
+      \strng{authorbibnamehash}{4504abd3ca0760eeb2c7b13b7b16168f}
+      \strng{authornamehash}{4504abd3ca0760eeb2c7b13b7b16168f}
+      \strng{authorfullhash}{4504abd3ca0760eeb2c7b13b7b16168f}
+      \strng{authorfullhashraw}{4504abd3ca0760eeb2c7b13b7b16168f}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{We describe Dr.Fill, a program that solves American-style crossword puzzles. From a technical perspective, Dr.Fill works by converting crosswords to weighted CSPs, and then using a variety of novel techniques to find a solution. These techniques include generally applicable heuristics for variable and value selection, a variant of limited discrepancy search, and postprocessing and partitioning ideas. Branch and bound is not used, as it was incompatible with postprocessing and was determined experimentally to be of little practical value. Dr.Fillls performance on crosswords from the American Crossword Puzzle Tournament suggests that it ranks among the top fifty or so crossword solvers in the world.}
+      \field{day}{18}
+      \field{eprintclass}{cs.AI}
+      \field{eprinttype}{arXiv}
+      \field{month}{1}
+      \field{pubstate}{prepublished}
+      \field{shorttitle}{Dr.{{Fill}}}
+      \field{title}{Dr.{{Fill}}: {{Crosswords}} and an {{Implemented Solver}} for {{Singly Weighted CSPs}}}
+      \field{urlday}{31}
+      \field{urlmonth}{7}
+      \field{urlyear}{2026}
+      \field{year}{2014}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.1613/jair.3437
+      \endverb
+      \verb{eprint}
+      \verb 1401.4597
+      \endverb
+      \verb{file}
+      \verb /Users/hong/Zotero/storage/ZSV3L7XV/Ginsberg - 2014 - Dr.Fill Crosswords and an Implemented Solver for Singly Weighted CSPs.pdf;/Users/hong/Zotero/storage/DT5U5VAH/1401.html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/1401.4597
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1401.4597
+      \endverb
+      \keyw{Computer Science - Artificial Intelligence}
+    \endentry
+    \entry{PartitionSet2026}{inreference}{}{}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In mathematics, a partition of a set is a grouping of its elements into non-empty subsets, in such a way that every element is included in exactly one subset. Every equivalence relation on a set defines a partition of this set, and every partition defines an equivalence relation. A set equipped with an equivalence relation or a partition is sometimes called a setoid, typically in type theory and proof theory.}
+      \field{annotation}{Page Version ID: 1352723986}
+      \field{booktitle}{Wikipedia}
+      \field{day}{5}
+      \field{hour}{22}
+      \field{langid}{english}
+      \field{minute}{13}
+      \field{month}{5}
+      \field{second}{49}
+      \field{timezone}{Z}
+      \field{title}{Partition of a Set}
+      \field{urlday}{31}
+      \field{urlmonth}{7}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/hong/Zotero/storage/TAU9LS7W/index.html
+      \endverb
+      \verb{urlraw}
+      \verb https://en.wikipedia.org/w/index.php?title=Partition_of_a_set&oldid=1352723986
+      \endverb
+      \verb{url}
+      \verb https://en.wikipedia.org/w/index.php?title=Partition_of_a_set&oldid=1352723986
+      \endverb
+    \endentry
+    \entry{muellerSolvingSetPartitioning1998}{inproceedings}{}{}
+      \name{author}{1}{}{%
+        {{hash=a7f19e2f9691ebd6d20595fa8c03016c}{%
+           family={Müller},
+           familyi={M\bibinitperiod},
+           given={Tobias},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {London, UK}%
+      }
+      \list{publisher}{1}{%
+        {The Practical Application Company Ltd.}%
+      }
+      \strng{namehash}{a7f19e2f9691ebd6d20595fa8c03016c}
+      \strng{fullhash}{a7f19e2f9691ebd6d20595fa8c03016c}
+      \strng{fullhashraw}{a7f19e2f9691ebd6d20595fa8c03016c}
+      \strng{bibnamehash}{a7f19e2f9691ebd6d20595fa8c03016c}
+      \strng{authorbibnamehash}{a7f19e2f9691ebd6d20595fa8c03016c}
+      \strng{authornamehash}{a7f19e2f9691ebd6d20595fa8c03016c}
+      \strng{authorfullhash}{a7f19e2f9691ebd6d20595fa8c03016c}
+      \strng{authorfullhashraw}{a7f19e2f9691ebd6d20595fa8c03016c}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the Sixth International Conference on the Practical Application of Prolog and the Fourth International Conference on the Practical Application of Constraint Technology (PAPPACT98)}
+      \field{title}{Solving Set Partitioning Problems with Constraint Programming}
+      \field{urlday}{31}
+      \field{urlmonth}{7}
+      \field{urlyear}{2026}
+      \field{year}{1998}
+      \field{urldateera}{ce}
+      \field{pages}{313\bibrangedash 332}
+      \range{pages}{20}
+      \verb{urlraw}
+      \verb https://www.ps.uni-saarland.de/Publications/documents/Mueller_98a.pdf
+      \endverb
+      \verb{url}
+      \verb https://www.ps.uni-saarland.de/Publications/documents/Mueller_98a.pdf
+      \endverb
+    \endentry
+    \entry{shannonMathematicalTheoryCommunication1948}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=22e2130b8d96f93daba648ff62af869b}{%
+           family={Shannon},
+           familyi={S\bibinitperiod},
+           given={C.\bibnamedelimi E.},
+           giveni={C\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{22e2130b8d96f93daba648ff62af869b}
+      \strng{fullhash}{22e2130b8d96f93daba648ff62af869b}
+      \strng{fullhashraw}{22e2130b8d96f93daba648ff62af869b}
+      \strng{bibnamehash}{22e2130b8d96f93daba648ff62af869b}
+      \strng{authorbibnamehash}{22e2130b8d96f93daba648ff62af869b}
+      \strng{authornamehash}{22e2130b8d96f93daba648ff62af869b}
+      \strng{authorfullhash}{22e2130b8d96f93daba648ff62af869b}
+      \strng{authorfullhashraw}{22e2130b8d96f93daba648ff62af869b}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The recent development of various methods of modulation such as PCM and PPM which exchange bandwidth for signal-to-noise ratio has intensified the interest in a general theory of communication. A basis for such a theory is contained in the important papers of Nyquist1 and Hartley2 on this subject. In the present paper we will extend the theory to include a number of new factors, in particular the effect of noise in the channel, and the savings possible due to the statistical structure of the original message and due to the nature of the final destination of the information.}
+      \field{issn}{0005-8580}
+      \field{journaltitle}{The Bell System Technical Journal}
+      \field{month}{7}
+      \field{number}{3}
+      \field{title}{A Mathematical Theory of Communication}
+      \field{urlday}{2}
+      \field{urlmonth}{8}
+      \field{urlyear}{2026}
+      \field{volume}{27}
+      \field{year}{1948}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{379\bibrangedash 423}
+      \range{pages}{45}
+      \verb{doi}
+      \verb 10.1002/j.1538-7305.1948.tb01338.x
+      \endverb
+      \verb{file}
+      \verb /Users/hong/Zotero/storage/VN5U7TTW/Shannon - 1948 - A mathematical theory of communication.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org/document/6773024
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org/document/6773024
+      \endverb
+    \endentry
+    \entry{pinkardVisualIntroductionInformation2026}{online}{}{}
+      \name{author}{2}{}{%
+        {{hash=8a5f46870156bfeccdbe8dfd1ea71e36}{%
+           family={Pinkard},
+           familyi={P\bibinitperiod},
+           given={Henry},
+           giveni={H\bibinitperiod}}}%
+        {{hash=3668006ac97a6c075c62cbfd8d9410f6}{%
+           family={Waller},
+           familyi={W\bibinitperiod},
+           given={Laura},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{8a981afdca61fe1aaafcb371f2eb40c8}
+      \strng{fullhash}{8a981afdca61fe1aaafcb371f2eb40c8}
+      \strng{fullhashraw}{8a981afdca61fe1aaafcb371f2eb40c8}
+      \strng{bibnamehash}{8a981afdca61fe1aaafcb371f2eb40c8}
+      \strng{authorbibnamehash}{8a981afdca61fe1aaafcb371f2eb40c8}
+      \strng{authornamehash}{8a981afdca61fe1aaafcb371f2eb40c8}
+      \strng{authorfullhash}{8a981afdca61fe1aaafcb371f2eb40c8}
+      \strng{authorfullhashraw}{8a981afdca61fe1aaafcb371f2eb40c8}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Information theory, though originally developed for communications engineering, provides mathematical tools with broad applications across science. These tools characterize the fundamental limits of data compression and transmission in the presence of noise. Here, we present a visual, intuition-driven guide to key concepts in information theory. We show how entropy, mutual information, and channel capacity follow from basic probability, and how they determine the shortest possible encoding of a data source and the maximum rate of reliable communication through a noisy channel. Our presentation assumes only a familiarity with basic probability theory.}
+      \field{day}{6}
+      \field{eprintclass}{cs.IT}
+      \field{eprinttype}{arXiv}
+      \field{month}{3}
+      \field{pubstate}{prepublished}
+      \field{title}{A Visual Introduction to Information Theory}
+      \field{urlday}{2}
+      \field{urlmonth}{8}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.2206.07867
+      \endverb
+      \verb{eprint}
+      \verb 2206.07867
+      \endverb
+      \verb{file}
+      \verb /Users/hong/Zotero/storage/Y4BRBMVG/Pinkard and Waller - 2026 - A visual introduction to information theory.pdf;/Users/hong/Zotero/storage/W6VD3FJP/2206.html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/2206.07867
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/2206.07867
+      \endverb
+      \keyw{Computer Science - Information Theory}
+    \endentry
+  \enddatalist
+  \missing{aladailehSolvingWordleInformation2026}
+  \missing{arthur2007kmeanspp}
+  \missing{bischoffInformationTheoryFinds2024}
+  \missing{chandrasekaran2021}
+  \missing{ester1996dbscan}
+  \missing{geirhos2020}
+  \missing{huang2025textclustering}
+  \missing{incitti2023}
+  \missing{loredolopez2025}
+  \missing{mikolov2013}
+  \missing{nyt-puzzle-2025-12-29}
+  \missing{nyt-puzzle-2026-01-03}
+  \missing{nyt-puzzle-2026-01-05}
+  \missing{nyt-tips-tricks-2023}
+  \missing{patil2023}
+  \missing{petukhova2025}
+  \missing{promptguide-cot}
+  \missing{toddetal2024}
+  \missing{wei2022cot}
+  \missing{zhangetal-connections}
+\endrefsection
 \endinput
 
