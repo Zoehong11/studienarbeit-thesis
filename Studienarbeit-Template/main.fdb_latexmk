@@ -1,13 +1,13 @@
 # Fdb version 4
-["biber main"] 1785942512.99544 "main.bcf" "main.bbl" "main" 1785942620.83654 0
-  "etc/literature.bib" 1785934999.24735 90846 0e0c7a544120f28514dd24f736da2d1d ""
-  "main.bcf" 1785942620.72975 110131 933551d722e8ae61b2c0d9d78d51fe06 "pdflatex"
+["biber main"] 1786036898.34855 "main.bcf" "main.bbl" "main" 1786036906.01313 0
+  "etc/literature.bib" 1786036790.41131 91180 e3b8e6d0ae5b6481a12b06372894fbb0 ""
+  "main.bcf" 1786036905.90682 110304 0f6247c6d760a73af1ad06b8cedf9861 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1785942618.69397 "/Users/hong/Study/studienArbeit/documents_hong/thesis/Studienarbeit-Template/main.tex" "main.pdf" "main" 1785942620.83674 0
-  "/Users/hong/Study/studienArbeit/documents_hong/thesis/Studienarbeit-Template/main.tex" 1785942616.38641 3152 3de6b1ba6cc08f483994e320ff221265 ""
+["pdflatex"] 1786036903.85674 "/Users/hong/Study/studienArbeit/documents_hong/thesis/Studienarbeit-Template/main.tex" "main.pdf" "main" 1786036906.01337 0
+  "/Users/hong/Study/studienArbeit/documents_hong/thesis/Studienarbeit-Template/main.tex" 1786036819.28705 3151 50248184a2a75d9119693d92bca498e3 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1136768653 3584 402da0b29eafbad07963b1224b222f18 ""
@@ -330,20 +330,20 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1750037852 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "chapters/chap0_abstract.aux" 1785942620.36177 4979 0cc5eaeb8a6424546b828350702755eb "pdflatex"
+  "chapters/chap0_abstract.aux" 1786036905.52512 4979 0cc5eaeb8a6424546b828350702755eb "pdflatex"
   "chapters/chap0_abstract.tex" 1783709678.41747 303 ac66efea2d78ed4f223aaa8d3e3cf9a5 ""
   "chapters/chap1_introduction.tex" 1785490599.84748 5472 0ad6bb5d1290cb8d8643ef452940b593 ""
-  "chapters/chap2_realated_work.tex" 1785936058.75607 30841 8d346813d5668869e996a80f64e1df21 ""
-  "chapters/chap3_problem_formation.tex" 1785942493.7763 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "chapters/chap2_related_work.tex" 1786036895.9385 33891 5788dd0d3c1995f70b07ec402971bfc4 ""
+  "chapters/chap3_problem_formation.tex" 1786032134.97518 1755 5ea3dca7ce7d5a931e615bb055b76ffb ""
   "chapters/chap4_methodology.tex" 1785942550.95663 0 d41d8cd98f00b204e9800998ecf8427e ""
   "etc/acronyms.tex" 1785497869.91569 131 5cb16a5bdce27495d0466cb055f948bb ""
   "etc/hyphenation.tex" 1783709678.41852 83 f8fe52802bca02d8bc9143736e612a2b ""
-  "main.aux" 1785942620.72576 7872 389ef9ac3f10ca0da4bdaf5a37df2f73 "pdflatex"
-  "main.bbl" 1785942514.23265 48233 0adbdb2ea1d3b895f5e545eacb189b35 "biber main"
-  "main.out" 1785942620.23126 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.run.xml" 1785942620.73027 2440 6b4d5c464ac959944ace883ae0649737 "pdflatex"
-  "main.tex" 1785942616.38641 3152 3de6b1ba6cc08f483994e320ff221265 ""
-  "main.toc" 1785942620.73033 369 cbb7ac2ab1ab5cacf293915526170231 "pdflatex"
+  "main.aux" 1786036905.90282 10158 66b22aabd4520fb16995dc1830207d91 "pdflatex"
+  "main.bbl" 1786036899.44447 49807 fcddbd882bd1fe345b23c06247d527ba "biber main"
+  "main.out" 1786036905.39336 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.run.xml" 1786036905.90736 2440 6b4d5c464ac959944ace883ae0649737 "pdflatex"
+  "main.tex" 1786036819.28705 3151 50248184a2a75d9119693d92bca498e3 ""
+  "main.toc" 1786036905.90742 674 80b1c20931135e5cea10f39f13188ccb "pdflatex"
   "template/declaration_affidavit_en.tex" 1783709678.42106 738 c96aaf30f29602a97461e8fce2c5b5fe ""
   "template/dhbw_coverpage_study_en.tex" 1783709678.42145 1628 80672cdf620626356bccf7bf15b0526a ""
   "template/figures/DHBW.png" 1783709678.42195 12513 1cac91c172f11792caa16afcc85a433c ""

@@ -82,8 +82,8 @@
       \strng{authornamehash}{9a7628e4f40411cca901fb740339ef73}
       \strng{authorfullhash}{f038d49bc5b63c5a40c7ced74f52ab61}
       \strng{authorfullhashraw}{f038d49bc5b63c5a40c7ced74f52ab61}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{The Connections puzzle published each day by the New York Times tasks players with dividing a bank of sixteen words into four groups of four words that each relate to a common theme. Solving the puzzle requires both common linguistic knowledge (i.e. definitions and typical usage) as well as, in many cases, lateral or abstract thinking. This is because the four categories ascend in complexity, with the most challenging category often requiring thinking about words in uncommon ways or as parts of larger phrases. We investigate the capacity for automated AI systems to play Connections and explore the game’s potential as an automated benchmark for abstract reasoning and a way to measure the semantic information encoded by data-driven linguistic systems. In particular, we study both a sentence-embedding baseline and modern large language models (LLMs). We report their accuracy on the task, measure the impacts of chain-of-thought prompting, and discuss their failure modes. Overall, we find that the Connections task is challenging yet feasible, and a strong test-bed for future work.}
@@ -259,8 +259,8 @@
       \strng{editornamehash}{5c4cb696904ac98f403b04594891ef70}
       \strng{editorfullhash}{6475404b12259beb64e8893b0ff8a24c}
       \strng{editorfullhashraw}{6475404b12259beb64e8893b0ff8a24c}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{Large Language Models (LLMs) have shown impressive performance on various benchmarks, yet their ability to engage in deliberate reasoning remains questionable. We present NYT-Connections, a collection of 358 simple word classification puzzles derived from the New York Times Connections game. This benchmark is designed to penalize quick, intuitive “System 1” thinking, isolating fundamental reasoning skills. We evaluated six recent LLMs, a simple machine learning heuristic, and humans across three configurations: single-attempt, multiple attempts without hints, and multiple attempts with contextual hints. Our findings reveal a significant performance gap: even top-performing LLMs like GPT-4 fall short of human performance by nearly 30\%. Notably, advanced prompting techniques such as Chain-of-Thought and Self-Consistency show diminishing returns as task difficulty increases. NYT-Connections uniquely combines linguistic isolation, resistance to intuitive shortcuts, and regular updates to mitigate data leakage, offering a novel tool for assessing LLM reasoning capabilities.}
@@ -313,8 +313,8 @@
       \strng{authornamehash}{6f6b3d2a6e89759fae2bf6a36e371508}
       \strng{authorfullhash}{6f6b3d2a6e89759fae2bf6a36e371508}
       \strng{authorfullhashraw}{6f6b3d2a6e89759fae2bf6a36e371508}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{While modern NLP models are adept at handling syntactically rich prose and sentence structure, they still struggle with the flexible problem solving and general reasoning ability that humans exhibit. In this paper, we apply diverse NLP methods to one example of a semantically complex reasoning task, The New York Times Connections game. We explore baseline methods that are specific to the semantic grouping task, such as K-Means clustering on various word embeddings. Then, we benchmark in-context learning on a large LLM as well as finetune a smaller LLM using existing examples of solved puzzles. We also explore unique methods of introducing complex linguistic and metalinguistic reasoning capabilities of a larger LLM into a smaller LLM, through methods like fine-tuning with distilled rationales and Verbal Reinforcement Learning. We found promising results with Verbal RL, as the smaller model was able to absorb critique from a larger language model and improve on previous answers, similar to how human solvers approach language puzzles.}
@@ -331,8 +331,8 @@
       \endverb
     \endentry
     \entry{ConstraintSatisfactionProblem2026}{inreference}{}{}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labeltitlesource}{title}
       \field{abstract}{Constraint satisfaction problems (CSPs) are mathematical questions defined as a set of objects whose state must satisfy a number of constraints or limitations. CSPs represent the entities in a problem as a homogeneous collection of finite constraints over variables, which is solved by constraint satisfaction methods. CSPs are the subject of research in both artificial intelligence and operations research, since the regularity in their formulation provides a common basis to analyze and solve problems of many seemingly unrelated families. CSPs often exhibit high complexity, requiring a combination of heuristics and combinatorial search methods to be solved in a reasonable time. Constraint programming (CP) is the field of research that specifically focuses on tackling these kinds of problems. Additionally, the Boolean satisfiability problem (SAT), satisfiability modulo theories (SMT), mixed integer programming (MIP) and answer set programming (ASP) are all fields of research focusing on the resolution of particular forms of the constraint satisfaction problem. Examples of problems that can be modeled as a constraint satisfaction problem include: Type inference Eight queens puzzle Map coloring problem Maximum cut problem Sudoku, crosswords, futoshiki, Kakuro (Cross Sums), Numbrix/Hidato, Zebra Puzzle, and many other logic puzzles These are often provided with tutorials of CP, ASP, Boolean SAT and SMT solvers. In the general case, constraint problems can be much harder, and may not be expressible in some of these simpler systems. "Real life" examples include automated planning, lexical disambiguation, musicology, product configuration and resource allocation. The existence of a solution to a CSP can be viewed as a decision problem. This can be decided by finding a solution, or failing to find a solution after exhaustive search (stochastic algorithms typically never reach an exhaustive conclusion, while directed searches often do, on sufficiently small problems). In some cases the CSP might be known to have solutions beforehand, through some other mathematical inference process.}
       \field{annotation}{Page Version ID: 1334133666}
@@ -387,8 +387,8 @@
       \strng{authornamehash}{b3b61a6ca5cb4d53eba04f7b78c53e26}
       \strng{authorfullhash}{b3b61a6ca5cb4d53eba04f7b78c53e26}
       \strng{authorfullhashraw}{b3b61a6ca5cb4d53eba04f7b78c53e26}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{9}
+      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{A constraint satisfaction problem (CSP) requires a value, selected from a given finite domain, to be assigned to each variable in the problem, so that all constraints relating the variables are satisfied. Many combinatorial problems in operational research, such as scheduling and timetabling, can be formulated as CSPs. Researchers in artificial intelligence (AI) usually adopt a constraint satisfaction approach as their preferred method when tackling such problems. However, constraint satisfaction approaches are not widely known amongst operational researchers. The aim of this paper is to introduce constraint satisfaction to the operational researcher. We start by defining CSPs, and describing the basic techniques for solving them. We then show how various combinatorial optimization problems are solved using a constraint satisfaction approach. Based on computational experience in the literature, constraint satisfaction approaches are compared with well-known operational research (OR) techniques such as integer programming, branch and bound, and simulated annealing.}
@@ -449,8 +449,8 @@
       \strng{authornamehash}{5a1cc603e75dcbddfa164ce9865aecbe}
       \strng{authorfullhash}{5a1cc603e75dcbddfa164ce9865aecbe}
       \strng{authorfullhashraw}{5a1cc603e75dcbddfa164ce9865aecbe}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{A weighted constraint satisfaction problem (WCSP) is a constraint satisfaction problem in which preferences among solutions can be expressed. Bucket elimination is a complete technique commonly used to solve this kind of constraint satisfaction problem. When the memory required to apply bucket elimination is too high, a heuristic method based on it (denominated mini-buckets) can be used to calculate bounds for the optimal solution. Nevertheless, the curse of dimensionality makes these techniques impractical on large scale problems. In response to this situation, we present a memetic algorithm for WCSPs in which bucket elimination is used as a mechanism for recombining solutions, providing the best possible child from the parental set. Subsequently, a multi-level model in which this exact/metaheuristic hybrid is further hybridized with branch-and-bound techniques and mini-buckets is studied. As a case study, we have applied these algorithms to the resolution of the maximum density still life problem, a hard constraint optimization problem based on Conways game of life. The resulting algorithm consistently finds optimal patterns for up to date solved instances in less time than current approaches. Moreover, it is shown that this proposal provides new best known solutions for very large instances.}
@@ -504,8 +504,8 @@
       \strng{authornamehash}{4504abd3ca0760eeb2c7b13b7b16168f}
       \strng{authorfullhash}{4504abd3ca0760eeb2c7b13b7b16168f}
       \strng{authorfullhashraw}{4504abd3ca0760eeb2c7b13b7b16168f}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{We describe Dr.Fill, a program that solves American-style crossword puzzles. From a technical perspective, Dr.Fill works by converting crosswords to weighted CSPs, and then using a variety of novel techniques to find a solution. These techniques include generally applicable heuristics for variable and value selection, a variant of limited discrepancy search, and postprocessing and partitioning ideas. Branch and bound is not used, as it was incompatible with postprocessing and was determined experimentally to be of little practical value. Dr.Fillls performance on crosswords from the American Crossword Puzzle Tournament suggests that it ranks among the top fifty or so crossword solvers in the world.}
@@ -540,8 +540,8 @@
       \keyw{Computer Science - Artificial Intelligence}
     \endentry
     \entry{PartitionSet2026}{inreference}{}{}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labeltitlesource}{title}
       \field{abstract}{In mathematics, a partition of a set is a grouping of its elements into non-empty subsets, in such a way that every element is included in exactly one subset. Every equivalence relation on a set defines a partition of this set, and every partition defines an equivalence relation. A set equipped with an equivalence relation or a partition is sometimes called a setoid, typically in type theory and proof theory.}
       \field{annotation}{Page Version ID: 1352723986}
@@ -592,8 +592,8 @@
       \strng{authornamehash}{a7f19e2f9691ebd6d20595fa8c03016c}
       \strng{authorfullhash}{a7f19e2f9691ebd6d20595fa8c03016c}
       \strng{authorfullhashraw}{a7f19e2f9691ebd6d20595fa8c03016c}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Proceedings of the Sixth International Conference on the Practical Application of Prolog and the Fourth International Conference on the Practical Application of Constraint Technology (PAPPACT98)}
@@ -612,6 +612,37 @@
       \verb https://www.ps.uni-saarland.de/Publications/documents/Mueller_98a.pdf
       \endverb
     \endentry
+    \entry{InformationTheory2026}{inreference}{}{}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Information theory is the mathematical study of the quantification, storage, and communication of a particular type of mathematically defined information. The field was established and formalized by Claude Shannon in the 1940s, though early contributions were made in the 1920s through the works of Harry Nyquist and Ralph Hartley. Information theory was initially formed in the context of telecommunication but soon found a wide range of other applications. It is now at the intersection of mathematics, statistics and computer science, and has applications in diverse fields ranging from electrical engineering and physics to neurobiology. As a simple example of the concept, if one flips a fair coin and does not yet know the outcome (heads or tails), then one lacks a certain amount of information. After looking at the coin, one gains information about the outcome. For a fair coin, the probability of either heads or tails is 1/2 and the amount of information is expressed as − log 2 ⁡ ( 1 / 2 ) \{\textbackslash displaystyle -\textbackslash log \_\{2\}(1/2)\} = 1 bit of information. A key concept in information theory is entropy. In Shannon's formulation, entropy is equal to the lack of information about an event. In the above coin flip example, the entropy in the case where you don't know the outcome is 1 bit. When you know the outcome after the coin has landed, the entropy is zero because you have gained one bit. Information theory has been used in a wide range of applications, such as source coding/data compression (e.g. for ZIP files), and channel coding/error detection and correction (e.g. for DSL). Its impact has been crucial to the success of the Voyager missions to deep space, the invention of the compact disc, the feasibility of mobile phones and the development of the Internet and artificial intelligence. The theory has also found applications in other areas, including statistical inference, cryptography, neurobiology, perception, signal processing, linguistics, the evolution and function of molecular codes (bioinformatics), thermal physics, molecular dynamics, black holes, quantum computing, information retrieval, intelligence gathering, plagiarism detection, pattern recognition, anomaly detection, the analysis of music, art creation, imaging system design, study of outer space, the dimensionality of space, and epistemology.}
+      \field{annotation}{Page Version ID: 1366101152}
+      \field{booktitle}{Wikipedia}
+      \field{day}{26}
+      \field{hour}{7}
+      \field{langid}{english}
+      \field{minute}{26}
+      \field{month}{7}
+      \field{second}{3}
+      \field{timezone}{Z}
+      \field{title}{Information Theory}
+      \field{urlday}{2}
+      \field{urlmonth}{8}
+      \field{urlyear}{2026}
+      \field{year}{2026}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{file}
+      \verb /Users/hong/Zotero/storage/573VJAXV/index.html
+      \endverb
+      \verb{urlraw}
+      \verb https://en.wikipedia.org/w/index.php?title=Information_theory&oldid=1366101152
+      \endverb
+      \verb{url}
+      \verb https://en.wikipedia.org/w/index.php?title=Information_theory&oldid=1366101152
+      \endverb
+    \endentry
     \entry{shannonMathematicalTheoryCommunication1948}{article}{}{}
       \name{author}{1}{}{%
         {{hash=22e2130b8d96f93daba648ff62af869b}{%
@@ -628,8 +659,8 @@
       \strng{authornamehash}{22e2130b8d96f93daba648ff62af869b}
       \strng{authorfullhash}{22e2130b8d96f93daba648ff62af869b}
       \strng{authorfullhashraw}{22e2130b8d96f93daba648ff62af869b}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{The recent development of various methods of modulation such as PCM and PPM which exchange bandwidth for signal-to-noise ratio has intensified the interest in a general theory of communication. A basis for such a theory is contained in the important papers of Nyquist1 and Hartley2 on this subject. In the present paper we will extend the theory to include a number of new factors, in particular the effect of noise in the channel, and the savings possible due to the statistical structure of the original message and due to the nature of the final destination of the information.}
@@ -681,8 +712,8 @@
       \strng{authornamehash}{8a981afdca61fe1aaafcb371f2eb40c8}
       \strng{authorfullhash}{8a981afdca61fe1aaafcb371f2eb40c8}
       \strng{authorfullhashraw}{8a981afdca61fe1aaafcb371f2eb40c8}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Information theory, though originally developed for communications engineering, provides mathematical tools with broad applications across science. These tools characterize the fundamental limits of data compression and transmission in the presence of noise. Here, we present a visual, intuition-driven guide to key concepts in information theory. We show how entropy, mutual information, and channel capacity follow from basic probability, and how they determine the shortest possible encoding of a data source and the maximum rate of reliable communication through a noisy channel. Our presentation assumes only a familiarity with basic probability theory.}
@@ -715,27 +746,119 @@
       \endverb
       \keyw{Computer Science - Information Theory}
     \endentry
+    \entry{aladailehSolvingWordleUsing2026}{article}{}{}
+      \name{author}{4}{}{%
+        {{hash=def0930b01da6bec7511b763a7c7ede5}{%
+           family={Aladaileh},
+           familyi={A\bibinitperiod},
+           given={Talal},
+           giveni={T\bibinitperiod}}}%
+        {{hash=04a8495400978792f35f82fd493a756e}{%
+           family={Stephens},
+           familyi={S\bibinitperiod},
+           given={Donald},
+           giveni={D\bibinitperiod}}}%
+        {{hash=afdd424c80c3b6849e9172bc027ed81f}{%
+           family={Alqaisi},
+           familyi={A\bibinitperiod},
+           given={Mallak},
+           giveni={M\bibinitperiod}}}%
+        {{hash=4097914e2fc54b1ebee3e174ac0fbf9c}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Congyu},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{081df5a30962175e4a378a90364aacef}
+      \strng{fullhash}{9d8d9ad393d179912180b1b8fe77b76f}
+      \strng{fullhashraw}{9d8d9ad393d179912180b1b8fe77b76f}
+      \strng{bibnamehash}{081df5a30962175e4a378a90364aacef}
+      \strng{authorbibnamehash}{081df5a30962175e4a378a90364aacef}
+      \strng{authornamehash}{081df5a30962175e4a378a90364aacef}
+      \strng{authorfullhash}{9d8d9ad393d179912180b1b8fe77b76f}
+      \strng{authorfullhashraw}{9d8d9ad393d179912180b1b8fe77b76f}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{6}
+      \field{issn}{2577-8439}
+      \field{journaltitle}{Northeast Journal of Complex Systems (NEJCS)}
+      \field{month}{4}
+      \field{number}{1}
+      \field{title}{Solving {{Wordle Using Information Theory}}}
+      \field{volume}{8}
+      \field{year}{2026}
+      \field{dateera}{ce}
+      \verb{doi}
+      \verb 10.63562/2577-8439.1146
+      \endverb
+      \verb{file}
+      \verb /Users/hong/Zotero/storage/9PWBX4DM/Aladaileh et al. - 2026 - Solving Wordle Using Information Theory.pdf;/Users/hong/Zotero/storage/E8PZE8RL/6.html
+      \endverb
+      \verb{urlraw}
+      \verb https://orb.binghamton.edu/nejcs/vol8/iss1/6
+      \endverb
+      \verb{url}
+      \verb https://orb.binghamton.edu/nejcs/vol8/iss1/6
+      \endverb
+    \endentry
+    \entry{cunananOptimalStrategiesWordle2023}{online}{}{}
+      \name{author}{2}{}{%
+        {{hash=e06d44ff5c5d93ee9949fe1fc8c63805}{%
+           family={Cunanan},
+           familyi={C\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=b42aa8f3e81a6eca5e239e213b939009}{%
+           family={Thielscher},
+           familyi={T\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{3e3f9879e6a5c928d6579d14c3978b4e}
+      \strng{fullhash}{3e3f9879e6a5c928d6579d14c3978b4e}
+      \strng{fullhashraw}{3e3f9879e6a5c928d6579d14c3978b4e}
+      \strng{bibnamehash}{3e3f9879e6a5c928d6579d14c3978b4e}
+      \strng{authorbibnamehash}{3e3f9879e6a5c928d6579d14c3978b4e}
+      \strng{authornamehash}{3e3f9879e6a5c928d6579d14c3978b4e}
+      \strng{authorfullhash}{3e3f9879e6a5c928d6579d14c3978b4e}
+      \strng{authorfullhashraw}{3e3f9879e6a5c928d6579d14c3978b4e}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The recent popularity of Wordle has revived interest in guessing games. We develop a general method for finding optimal strategies for guessing games while avoiding an exhaustive search. Our main contributions are several theorems that build towards a general theory to prove the optimality of a strategy for a guessing game. This work is developed to apply to any guessing game, but we use Wordle as an example to present concrete results.}
+      \field{day}{16}
+      \field{eprintclass}{cs.AI}
+      \field{eprinttype}{arXiv}
+      \field{month}{5}
+      \field{pubstate}{prepublished}
+      \field{title}{On {{Optimal Strategies}} for {{Wordle}} and {{General Guessing Games}}}
+      \field{urlday}{5}
+      \field{urlmonth}{8}
+      \field{urlyear}{2026}
+      \field{year}{2023}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.2305.09111
+      \endverb
+      \verb{eprint}
+      \verb 2305.09111
+      \endverb
+      \verb{file}
+      \verb /Users/hong/Zotero/storage/SGT6CQJF/Cunanan and Thielscher - 2023 - On Optimal Strategies for Wordle and General Guessing Games.pdf;/Users/hong/Zotero/storage/CFKKYN9T/2305.html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/2305.09111
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/2305.09111
+      \endverb
+      \keyw{Computer Science - Artificial Intelligence}
+    \endentry
   \enddatalist
-  \missing{aladailehSolvingWordleInformation2026}
-  \missing{arthur2007kmeanspp}
-  \missing{bischoffInformationTheoryFinds2024}
-  \missing{chandrasekaran2021}
-  \missing{ester1996dbscan}
-  \missing{geirhos2020}
-  \missing{huang2025textclustering}
-  \missing{incitti2023}
-  \missing{loredolopez2025}
-  \missing{mikolov2013}
-  \missing{nyt-puzzle-2025-12-29}
-  \missing{nyt-puzzle-2026-01-03}
-  \missing{nyt-puzzle-2026-01-05}
-  \missing{nyt-tips-tricks-2023}
-  \missing{patil2023}
-  \missing{petukhova2025}
-  \missing{promptguide-cot}
-  \missing{toddetal2024}
-  \missing{wei2022cot}
-  \missing{zhangetal-connections}
 \endrefsection
 \endinput
 

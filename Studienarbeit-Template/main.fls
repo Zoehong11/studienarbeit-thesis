@@ -605,9 +605,9 @@ INPUT ./chapters/chap1_introduction.tex
 INPUT ./chapters/chap1_introduction.tex
 INPUT chapters/chap1_introduction.tex
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecsx1000.tfm
-INPUT ./chapters/chap2_realated_work.tex
-INPUT ./chapters/chap2_realated_work.tex
-INPUT chapters/chap2_realated_work.tex
+INPUT ./chapters/chap2_related_work.tex
+INPUT ./chapters/chap2_related_work.tex
+INPUT chapters/chap2_related_work.tex
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecsx1000.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecrm0800.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/ecrm0600.tfm
