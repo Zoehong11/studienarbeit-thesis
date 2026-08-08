@@ -1,14 +1,91 @@
 \chapter{Problem Formation}
 \label{sec:problem-formulation}
-The previous Chapter \autoref{ch:related_work} introduced three foundational concepts that apply to Connections. Firstly, it can be treated as weighted constraint satisfaction problems and its grouping requirement can be concluded as a set partition problem. Secondly, information theory provide a framework to measure how much remains unknown about a puzzle and how much a single observation can reveal. Thirdly, after quantifying the information and uncertainty, connections provides a feedback mechanism that can be used to 
+The previous Chapter \autoref{ch:related_work} introduced three foundational concepts that apply to Connections. Firstly, it can be treated as weighted \ac{CSP} and its grouping requirement can be concluded as a set partition problem. Secondly, information theory provide a framework to measure how much remains unknown about a puzzle and how much a single observation can reveal. Thirdly, after quantifying the information and uncertainty, connections provides a feedback mechanism that can be used to determine the next answer.
 
-This chapter applies all three to Connections. Nothing here depends on how the puzzle is actually solved. The formulation and the quantities derived from it follow from the rules of the game alone, and would hold for any solver.
-
-\autoref{sec:problem-setting} states the rules and defines the two evaluation settings used throughout this thesis. \autoref{sec:connections-csp} expresses the puzzle as a weighted CSP. \autoref{sec:hypothesis-space} counts how many candidate solutions exist and how much uncertainty that represents. \autoref{sec:feedback-channel} does the same for the feedback the game returns, and compares the two. \autoref{sec:relation-guessing-games} notes where Connections departs from the guessing-game definition.
+This chapter starts with \autoref{sec:problem-setting}, which states the Connections game rules and defines the two evaluation settings used throughout this thesis. \autoref{sec:connections-csp} expresses the puzzle as a weighted \ac{CSP} mathematically. \autoref{sec:hypothesis-space} counts how many candidate solutions exist and how much uncertainty that represents. \autoref{sec:feedback-information} then quantifies how much of that uncertainty the game's feedback can remove.
 
 \section{Problem Setting}
+\label{sec:problem-setting}
+
+A Connections puzzle presents sixteen words that must be split into four groups of four. Each group corresponds to a hidden category, and every word belongs to exactly one group. The player does not submit a full solution at once. Instead, one group of four words is submitted at a time, and the game responds before the next submission is made.
+
+Three responses are possible. If all four submitted words indeed belong to one category, 4 words will be placed on the same row and the category will be revealed. If exactly three of them do, player will be prompted with one away. Otherwise the response is wrong. Both one-away and wrong count as mistakes, and the game ends in failure after four mistakes. Correct submissions do not consume the mistake budget. A correct submission takes those four words out of consideration for the remaining groups. The puzzle therefore shrinks as it is solved, and each correct answer both reduces the number of remaining possibilities and simplifies the problem that remains. 
+
+There are four levels of difficulty, starting with yellow group (the easiest), then green, blue, and purple (the hardest), which reflect the intended difficulty in recognizing the underlying grouping relation. So if player are able to solve the easy groups first, the remaining puzzle will be easier to solve.
+
+The group relations are diverse. Some categories are driven by semantic similarity, such as near-synonymy or membership under a shared hypernym (e.g., ``types of flowers''). Others reflect semantic relatedness: words are not strictly similar, but cohere within a common theme or script (e.g., actions in a typical scenario). A third class consists of form- / rule-based relations, where membership is determined by surface regularities such as spelling or word-formation patterns (orthography, morphology), or by conventional meanings of symbols and abbreviations. Referential relations require external world knowledge about named entities or factual lists (e.g., trivia- or culture-dependent categories).
+	
+Notably, the hardest (purple) categories often draw on less standard relations such as word and letter patterns (e.g., rhymes, homophones, anagrams, palindromes, or unmarked fill-in-the-blank phrases) and may also involve pop-culture or proper-noun knowledge. \cite{NYTConnTipsTricks-2023-11-06} As a result, they frequently exhibit mixed relations that combine more than one relation type and cannot be explained well by a single type alone.
+
+An overview of these relation types and representative examples is provided in Table~\ref{tab:connections_relation_taxonomy}.
+
+\begin{table}[t]
+    \centering
+    \caption{Relation category for NYT Connections with illustrative examples.}
+    \label{tab:connections_relation_taxonomy}
+    \renewcommand{\arraystretch}{1.15}
+    \begin{tabular}{>{\raggedright\arraybackslash}p{0.30\linewidth} >{\raggedright\arraybackslash}p{0.66\linewidth}}
+        \toprule
+        \textbf{Relation type} & \textbf{Example category + words} \\
+        \midrule
+        {\large Semantic similarity} &
+        {\small \textit{FURTHEST POINT}: END, EXTREME, OPPOSITE, POLE \cite{NYTConn-2026-01-05}} \\
+        {\large Semantic relatedness} &
+        {\small \textit{THINGS YOU CAN DO ON SOCIAL MEDIA}: COMMENT, LIKE, LURK, POST \cite{NYTConn-2026-01-05}} \\
+        {\large Form- or rule-based relations} &
+        {\small \textit{ART MOVEMENTS, WITH ``-ISM''}: BRUTAL, IMPRESSION, MANNER, REAL \cite{NYTConn-2026-01-05}} \\
+        {\large Referential relations} &
+        {\small \textit{RIHANNA \#1 HITS}: DIAMONDS, SOS, UMBRELLA, WORK \cite{NYTConn-2026-01-03}} \\
+        {\large Mixed categories} &
+        {\small \textit{CAR BRAND HOMOPHONES}: INFINITY, MINNIE, OPAL, OUTIE \cite{NYTConn-2025-12-29}} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+This categorisation is derived from inspecting published puzzles, and it broadly aligns with the taxonomy proposed by \citeauthor{samadarshiConnectingDotsEvaluating2024}, which concentrates on the kinds of knowledge a LLM must possess \cite{samadarshiConnectingDotsEvaluating2024}, while ours classifies the relation that holds a group together. The single semantic category they proposed was split into similarity and relatedness in this taxonomy, since the two behave differently under embedding-based scoring, and multiword expressions was also nol longer treated as an individual category.
+
+\subsection{Evaluation Settings}
+This thesis evaluates solvers under two settings, and the distinction between them matters throughout. In the \textbf{one-shot} setting, a solver commits to a complete partition of all sixteen words in a single pass, receiving no feedback at any point. The same setting is also used by \citeauthor{toddMissedConnectionsLateral2024} \cite{toddMissedConnectionsLateral2024}, \citeauthor{samadarshiConnectingDotsEvaluating2024} \cite{samadarshiConnectingDotsEvaluating2024}, and \citeauthor{lopezNYTConnectionsDeceptivelySimple} \cite{lopezNYTConnectionsDeceptivelySimple}. In the \textbf{interactive} setting, the solver submits one group at a time, observes the response, and may revise before submitting again, subject to the four-mistake budget, which is also adopted by \citeauthor{lopezNYTConnectionsDeceptivelySimple} \cite{lopezNYTConnectionsDeceptivelySimple}. The second reflects how the puzzle is actually played.
+
+The one-shot setting isolates what is being measured. With no feedback available, the outcome depends entirely on the scoring function, so any change in performance can be attributed to whatever was changed in that function. Under the interactive setting the two are entangled: a weak scoring function may be rescued by feedback, and a strong one may be squandered by a poor choice of what to submit first, leaving it unclear which is responsible for the result. The interactive setting measures whether a puzzle is won under the rules. The two settings pose different problems and are measured accordingly. The metrics used for each are given in \autoref{chap:method}.
+
+
+% The metric, however, is chosen differently. Most of the one-shot experiments reported here are ablations, which compare variants of a scoring function against each other rather than against an absolute standard. Complete-solve rates are poorly suited to this: a change may improve how many groups a solver identifies without ever producing a fully correct partition, and the rate then registers no difference at all. The one-shot setting is therefore reported as the average number of correct groups per puzzle, out of four, which responds to changes of that size. The interactive setting is reported as the complete-solve rate, since that is the game's own win condition and no substitute for it would be meaningful.
+
+% The two quantities measure different things. One asks how many groups a scoring function places correctly, the other whether a puzzle is won under the rules. Results from the two settings are therefore not compared directly, and any statement involving both makes the distinction explicit.
 
 \section{Connections as a Weighted CSP}
+\label{sec:connections-csp}
+
+The previous section described the puzzle in words. This section restates it in the form introduced in \autoref{sec:puzzles-as-csp}, where a constraint satisfaction problem is given as a triple $\langle X, D, C\rangle$ of variables, domains and constraints, and a weighted variant adds a score to each candidate assignment so that solutions can be ranked rather than merely accepted or rejected. Both parts are needed here. The constraint captures what makes a partition legal, and the score captures what makes one legal partition more plausible than another.
+
+Connections maps onto the triple $\langle X, D, C\rangle$ directly. Let $W = \{w_1, \dots, w_{16}\}$ be the sixteen puzzle words. Each word gets its own variable, so $X = \{x_1, \dots, x_{16}\}$. The variable $x_i$ does not stand for the word itself, but for the decision of which group $w_i$ is placed in. Every variable has the same domain, $D_i = \{1, 2, 3, 4\}$, one value for each of the four groups.
+
+Take the puzzle of 12 June 2023 as an example. Its sixteen words are BUCKS, HAIL, HEAT, JAZZ, KAYAK, LEVEL, MOM, NETS, OPTION, RACECAR, RAIN, RETURN, SHIFT, SLEET, SNOW and TAB. If BUCKS is $w_1$ and it is placed in group 2, then $x_1 = 2$. A complete assignment $x = (x_1, \dots, x_{16})$ records one such decision per word and therefore describes one way of dividing the board.
+
+Write $G_k$ for the set of words assigned to group $k$:
+\begin{equation}
+G_k = \{w_i : x_i = k\}.
+\label{eq:group-def}
+\end{equation}
+The constraint set $C$ then requires each group to hold exactly four words:
+\begin{equation}
+C: \quad |G_k| = 4 \quad \text{for every } k \in \{1,2,3,4\}.
+\label{eq:csp-constraint}
+\end{equation}
+This single condition is enough. Nothing has to be stated about a word belonging to only one group, since each $x_i$ takes exactly one value by definition. Nothing has to be stated about every word being used either, since every variable is assigned a value. Once all four groups hold exactly four words, sixteen words have been distributed with none left over and none reused, which is a partition of $W$ into four groups of four.
+
+Satisfying \autoref{eq:csp-constraint} is not difficult. A great many assignments do so, and only one recovers the puzzle's intended grouping, which for the 12 June 2023 puzzle is WET WEATHER (HAIL, RAIN, SLEET, SNOW), NBA TEAMS (BUCKS, HEAT, JAZZ, NETS), KEYBOARD KEYS (OPTION, RETURN, SHIFT, TAB) and PALINDROMES (KAYAK, LEVEL, MOM, RACECAR). The constraint treats all valid partitions as equally acceptable and offers no way to prefer this one. Something else must distinguish it, and that role is filled by a scoring function.
+
+Let $s(g)$ be a function that takes a group of four words $g \subset W$ and returns a score for how plausibly they belong to a common category, with higher values indicating stronger evidence. How $s$ is constructed is the subject of \autoref{chap:method}; here it is only assumed to exist. The problem is then to find
+\begin{equation}
+x^* = \argmax_x \sum_{k=1}^{4} s(G_k) \quad \text{subject to } |G_k| = 4 \text{ for all } k.
+\label{eq:weighted-csp}
+\end{equation}
+The assignment $x^*$ is the one scoring highest among all assignments satisfying the constraint, and is what a solver operating under this formulation returns. It is worth being explicit that $x^*$ is not by definition the correct answer. It is the partition that $s$ ranks highest, and whether that coincides with the puzzle's intended grouping depends entirely on how well $s$ reflects the relations the puzzle is built on. Where $s$ is imperfect, the correct partition may score below an incorrect one, and no amount of searching will recover it, because the information needed to prefer it was never encoded in the score. Much of this thesis is concerned with how close $s$ can be brought to that standard, and with what happens when it falls short.
+
+The sum in \autoref{eq:weighted-csp} runs over all four groups, so an assignment is judged by the combined plausibility of the whole partition and not of any group on its own. The 12 June 2023 puzzle shows why this matters. HEAT sits naturally alongside HAIL, RAIN, SLEET and SNOW, and a solver scoring that group in isolation would find it convincing. The group is nonetheless wrong: HEAT belongs to NBA TEAMS, and committing to a weather group containing it leaves BUCKS, JAZZ and NETS without a fourth member. A locally plausible group can only be accepted if the twelve words it leaves behind can still form three groups that score well, and the summation over all four groups is what enforces that condition.
+
 
 
 % 3.1 Problem Setting — 规则、两套设定、指标不可比
@@ -20,3 +97,8 @@ This chapter applies all three to Connections. Nothing here depends on how the p
 % 3.3 The Hypothesis Space — 2,627,625 和 21.3 bits
 % 3.4 The Feedback Channel — 反馈函数、1.58 和 6.34 bits、与 21.3 的对比
 % 3.5 Relation to Guessing Games — 结构性差异
+\section{The Hypothesis Space}
+\label{sec:hypothesis-space}
+
+\section{Information from Feedback}
+\label{sec:feedback-information}
