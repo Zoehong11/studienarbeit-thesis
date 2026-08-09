@@ -978,42 +978,6 @@
       \verb https://www.nytimes.com/games/connections
       \endverb
     \endentry
-    \entry{lopezNYTConnectionsDeceptivelySimple}{article}{}{}
-      \name{author}{3}{}{%
-        {{hash=64884c9a487c2b26072b69c70894d413}{%
-           family={Lopez},
-           familyi={L\bibinitperiod},
-           given={Angel\bibnamedelimb Yahir\bibnamedelima Loredo},
-           giveni={A\bibinitperiod\bibinitdelim Y\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
-        {{hash=09e4a6b7f00a88be876cf9d434a9a6a2}{%
-           family={McDonald},
-           familyi={M\bibinitperiod},
-           given={Tyler},
-           giveni={T\bibinitperiod}}}%
-        {{hash=cd68fc8e722b8e5be2d270cbf63b48f5}{%
-           family={Emami},
-           familyi={E\bibinitperiod},
-           given={Ali},
-           giveni={A\bibinitperiod}}}%
-      }
-      \strng{namehash}{c56ae8dd33106dd2dbb559518fe9707c}
-      \strng{fullhash}{c56ae8dd33106dd2dbb559518fe9707c}
-      \strng{fullhashraw}{c56ae8dd33106dd2dbb559518fe9707c}
-      \strng{bibnamehash}{c56ae8dd33106dd2dbb559518fe9707c}
-      \strng{authorbibnamehash}{c56ae8dd33106dd2dbb559518fe9707c}
-      \strng{authornamehash}{c56ae8dd33106dd2dbb559518fe9707c}
-      \strng{authorfullhash}{c56ae8dd33106dd2dbb559518fe9707c}
-      \strng{authorfullhashraw}{c56ae8dd33106dd2dbb559518fe9707c}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{langid}{english}
-      \field{title}{{{NYT-Connections}}: {{A Deceptively Simple Text Classification Task}} That {{Stumps System-1 Thinkers}}}
-      \verb{file}
-      \verb /Users/hong/Zotero/storage/FPQLTF8F/Lopez et al. - NYT-Connections A Deceptively Simple Text Classification Task that Stumps System-1 Thinkers.pdf
-      \endverb
-    \endentry
   \enddatalist
 \endrefsection
 \endinput

@@ -45,7 +45,7 @@ An overview of these relation types and representative examples is provided in T
 This categorisation is derived from inspecting published puzzles, and it broadly aligns with the taxonomy proposed by \citeauthor{samadarshiConnectingDotsEvaluating2024}, which concentrates on the kinds of knowledge a LLM must possess \cite{samadarshiConnectingDotsEvaluating2024}, while ours classifies the relation that holds a group together. The single semantic category they proposed was split into similarity and relatedness in this taxonomy, since the two behave differently under embedding-based scoring, and multiword expressions was also nol longer treated as an individual category.
 
 \subsection{Evaluation Settings}
-This thesis evaluates solvers under two settings, and the distinction between them matters throughout. In the \textbf{one-shot} setting, a solver commits to a complete partition of all sixteen words in a single pass, receiving no feedback at any point. The same setting is also used by \citeauthor{toddMissedConnectionsLateral2024} \cite{toddMissedConnectionsLateral2024}, \citeauthor{samadarshiConnectingDotsEvaluating2024} \cite{samadarshiConnectingDotsEvaluating2024}, and \citeauthor{lopezNYTConnectionsDeceptivelySimple} \cite{lopezNYTConnectionsDeceptivelySimple}. In the \textbf{interactive} setting, the solver submits one group at a time, observes the response, and may revise before submitting again, subject to the four-mistake budget, which is also adopted by \citeauthor{lopezNYTConnectionsDeceptivelySimple} \cite{lopezNYTConnectionsDeceptivelySimple}. The second reflects how the puzzle is actually played.
+This thesis evaluates solvers under two settings, and the distinction between them matters throughout. In the \textbf{one-shot} setting, a solver commits to a complete partition of all sixteen words in a single pass, receiving no feedback at any point. The same setting is also used by \citeauthor{toddMissedConnectionsLateral2024} \cite{toddMissedConnectionsLateral2024}, \citeauthor{samadarshiConnectingDotsEvaluating2024} \cite{samadarshiConnectingDotsEvaluating2024}, and \citeauthor{loredolopezNYTConnectionsDeceptivelySimple2025} \cite{loredolopezNYTConnectionsDeceptivelySimple2025}. In the \textbf{interactive} setting, the solver submits one group at a time, observes the response, and may revise before submitting again, subject to the four-mistake budget, which is also adopted by \citeauthor{loredolopezNYTConnectionsDeceptivelySimple2025} \cite{loredolopezNYTConnectionsDeceptivelySimple2025}. The second reflects how the puzzle is actually played.
 
 The one-shot setting isolates what is being measured. With no feedback available, the outcome depends entirely on the scoring function, so any change in performance can be attributed to whatever was changed in that function. Under the interactive setting the two are entangled: a weak scoring function may be rescued by feedback, and a strong one may be squandered by a poor choice of what to submit first, leaving it unclear which is responsible for the result. The interactive setting measures whether a puzzle is won under the rules. The two settings pose different problems and are measured accordingly. The metrics used for each are given in \autoref{chap:method}.
 
@@ -61,32 +61,38 @@ The previous section described the puzzle in words. This section restates it in 
 
 Connections maps onto the triple $\langle X, D, C\rangle$ directly. Let $W = \{w_1, \dots, w_{16}\}$ be the sixteen puzzle words. Each word gets its own variable, so $X = \{x_1, \dots, x_{16}\}$. The variable $x_i$ does not stand for the word itself, but for the decision of which group $w_i$ is placed in. Every variable has the same domain, $D_i = \{1, 2, 3, 4\}$, one value for each of the four groups.
 
-Take the puzzle of 12 June 2023 as an example. Its sixteen words are BUCKS, HAIL, HEAT, JAZZ, KAYAK, LEVEL, MOM, NETS, OPTION, RACECAR, RAIN, RETURN, SHIFT, SLEET, SNOW and TAB. If BUCKS is $w_1$ and it is placed in group 2, then $x_1 = 2$. A complete assignment $x = (x_1, \dots, x_{16})$ records one such decision per word and therefore describes one way of dividing the board.
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.8\linewidth]{img/connections-example20230612}
+    \caption{The NYT Connections puzzle answer of 12 June 2023.}
+    \label{fig:connections-example-20230612}
+\end{figure}
 
-Write $G_k$ for the set of words assigned to group $k$:
+Take the puzzle of 12 June 2023 as an example (\autoref{fig:connections-example-20230612} shows the answer). Its sixteen words are BUCKS, HAIL, HEAT, JAZZ, KAYAK, LEVEL, MOM, NETS, OPTION, RACECAR, RAIN, RETURN, SHIFT, SLEET, SNOW and TAB. Numbering its sixteen words gives $w_1 = \text{BUCKS}$, $w_2 = \text{HAIL}$, $w_3 = \text{HEAT}$, and so on up to $w_{16} = \text{TAB}$. Placing BUCKS in group 2 means setting $x_1 = 2$, and placing JAZZ there as well means $x_4 = 2$. A complete assignment $x = (x_1, \dots, x_{16})$ records one such decision per word and therefore describes one way of dividing the board. One important aspect is that the group numbers themselves carry no special meaning for the solver in this thesis. They serve only to record which words end up together, and any consistent relabelling describes the same division of the board. A solver is not asked which group corresponds to which, nor to identify the difficulty level a group belongs to, only which four words go together.
+
+Let $k$ be a group number, so $k \in \{1,2,3,4\}$, and write $G_k$ for the set of words that have been assigned to it:
 \begin{equation}
 G_k = \{w_i : x_i = k\}.
 \label{eq:group-def}
 \end{equation}
+The condition $x_i = k$ selects those indices $i$ whose word was placed in group $k$, and $G_k$ collects the corresponding words. In the assignment described above, $x_1 = 2$ and $x_3 = 2$, so BUCKS and HEAT both belong to $G_2$. Every assignment $x$ determines all four sets $G_1, \dots, G_4$ in this way. The two notations describe the same thing from different directions: $x$ records, for each word, which group it went to, while $G_k$ records, for each group, which words it received.
+
 The constraint set $C$ then requires each group to hold exactly four words:
 \begin{equation}
 C: \quad |G_k| = 4 \quad \text{for every } k \in \{1,2,3,4\}.
 \label{eq:csp-constraint}
 \end{equation}
-This single condition is enough. Nothing has to be stated about a word belonging to only one group, since each $x_i$ takes exactly one value by definition. Nothing has to be stated about every word being used either, since every variable is assigned a value. Once all four groups hold exactly four words, sixteen words have been distributed with none left over and none reused, which is a partition of $W$ into four groups of four.
 
-Satisfying \autoref{eq:csp-constraint} is not difficult. A great many assignments do so, and only one recovers the puzzle's intended grouping, which for the 12 June 2023 puzzle is WET WEATHER (HAIL, RAIN, SLEET, SNOW), NBA TEAMS (BUCKS, HEAT, JAZZ, NETS), KEYBOARD KEYS (OPTION, RETURN, SHIFT, TAB) and PALINDROMES (KAYAK, LEVEL, MOM, RACECAR). The constraint treats all valid partitions as equally acceptable and offers no way to prefer this one. Something else must distinguish it, and that role is filled by a scoring function.
+Satisfying \autoref{eq:csp-constraint} is not difficult, but only one partition recovers the puzzle's intended grouping. The constraint treats all valid partitions as equally acceptable and we need something to distinguish the correct one, and that role is filled by a scoring function.
 
-Let $s(g)$ be a function that takes a group of four words $g \subset W$ and returns a score for how plausibly they belong to a common category, with higher values indicating stronger evidence. How $s$ is constructed is the subject of \autoref{chap:method}; here it is only assumed to exist. The problem is then to find
+Let $s(g)$ be a function that takes a group of four words $g \subset W$ and returns a score or weight for how plausibly they belong to a common category, with higher values indicating stronger evidence. How $s$ is constructed in detail is explained in \autoref{chap:method}. The problem is then to find
 \begin{equation}
 x^* = \argmax_x \sum_{k=1}^{4} s(G_k) \quad \text{subject to } |G_k| = 4 \text{ for all } k.
 \label{eq:weighted-csp}
 \end{equation}
-The assignment $x^*$ is the one scoring highest among all assignments satisfying the constraint, and is what a solver operating under this formulation returns. It is worth being explicit that $x^*$ is not by definition the correct answer. It is the partition that $s$ ranks highest, and whether that coincides with the puzzle's intended grouping depends entirely on how well $s$ reflects the relations the puzzle is built on. Where $s$ is imperfect, the correct partition may score below an incorrect one, and no amount of searching will recover it, because the information needed to prefer it was never encoded in the score. Much of this thesis is concerned with how close $s$ can be brought to that standard, and with what happens when it falls short.
+The assignment $x^*$ is the one scoring highest among all assignments satisfying the constraint. It is worth being explicit that $x^*$ is not by definition the correct answer, but the partition that $s$ ranks highest, and whether that coincides with the puzzle's intended grouping depends entirely on how well $s$ reflects the relations the puzzle is built on. Where $s$ is imperfect, the correct partition may score below an incorrect one, and no amount of searching will recover it, because the information needed to prefer it was never encoded in the score. Much of this thesis is concerned with how close $s$ can be brought to that standard, and with what happens when it falls short.
 
 The sum in \autoref{eq:weighted-csp} runs over all four groups, so an assignment is judged by the combined plausibility of the whole partition and not of any group on its own. The 12 June 2023 puzzle shows why this matters. HEAT sits naturally alongside HAIL, RAIN, SLEET and SNOW, and a solver scoring that group in isolation would find it convincing. The group is nonetheless wrong: HEAT belongs to NBA TEAMS, and committing to a weather group containing it leaves BUCKS, JAZZ and NETS without a fourth member. A locally plausible group can only be accepted if the twelve words it leaves behind can still form three groups that score well, and the summation over all four groups is what enforces that condition.
-
-
 
 % 3.1 Problem Setting — 规则、两套设定、指标不可比
 % 3.2 Connections as a Weighted CSP — 
