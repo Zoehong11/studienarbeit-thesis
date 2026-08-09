@@ -106,5 +106,20 @@ The sum in \autoref{eq:weighted-csp} runs over all four groups, so an assignment
 \section{The Hypothesis Space}
 \label{sec:hypothesis-space}
 
+In \autoref{eq:weighted-csp}, the solving was defined as a search over assignments satisfying the constraint. In this section, we quantify the size of the search space. How large that search is depends on how many such assignments exist. $\mathcal{H}$ is used to represent the set of all valid partitions of the sixteen words into four groups of four, so that solving the puzzle is equivalent to selecting one element of $\mathcal{H}$.
+
+The size of $\mathcal{H}$ is calculated using permutations and combinations. Arranging the sixteen words in a sequence can be done in $16!$ ways, and each arrangement can be read as a partition by taking the first four words as one group, the next four as the second, and so on. But there are two overcounting factors we need to divide out. First, the order of words within a group carries no information, since a group is a set. HAIL, RAIN, SLEET, SNOW and SNOW, SLEET, RAIN, HAIL are the same group, and each group can be internally ordered in $4!$ ways, giving a factor of $(4!)^4$ across the four groups. Second, the order of the groups themselves carries no information either, as established in \autoref{sec:connections-csp}, so the $4!$ ways of arranging the four groups must also be divided out. What remains is
+\begin{equation}
+|\mathcal{H}| = \frac{16!}{(4!)^4 \cdot 4!} = 2{,}627{,}625.
+\label{eq:hypothesis-count}
+\end{equation}
+
+A solver that knows nothing about a particular puzzle has no reason to favour any element of $\mathcal{H}$ over another. Applying the entropy formula \autoref{eq:maxentropy} to a uniform distribution over $\mathcal{H}$ and entropy is at its largest in this case. It gives
+\begin{equation}
+H_{\text{max}}(\mathcal{H}) = \log_2 |\mathcal{H}| = \log_2 (2{,}627{,}625) \approx 21.3 \text{ bits}.
+\label{eq:prior-entropy}
+\end{equation}
+This is the total amount of information required to identify the correct partition with certainty, starting from no knowledge at all. The information a solver gets, no matter it's from the feedback or encoded in the scoring function, needs to reach this figure before it can be guaranteed to find the correct answer.
+
 \section{Information from Feedback}
 \label{sec:feedback-information}
