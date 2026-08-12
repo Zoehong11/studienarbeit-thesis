@@ -11,6 +11,6 @@
 \contentsline {section}{\numberline {4.2}Connections as a Weighted CSP}{11}{section.4.2}%
 \contentsline {section}{\numberline {4.3}The Hypothesis Space}{14}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Information from Feedback}{15}{section.4.4}%
-\contentsline {chapter}{\numberline {5}Methodology}{16}{chapter.5}%
+\contentsline {chapter}{\numberline {5}Methodology}{17}{chapter.5}%
 \contentsline {chapter}{\nonumberline Bibliography}{IV}{chapter*.12}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

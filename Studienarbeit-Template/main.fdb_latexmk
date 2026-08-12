@@ -1,12 +1,12 @@
 # Fdb version 4
-["biber main"] 1786265129.13552 "main.bcf" "main.bbl" "main" 1786285449.86589 0
+["biber main"] 1786265129.13552 "main.bcf" "main.bbl" "main" 1786567251.08635 0
   "etc/literature.bib" 1786264860.42242 92139 38f168076f523e6581513fc851e673e3 ""
-  "main.bcf" 1786285449.72776 111718 ce15c6ea12a8ad67ce4c5f87c04ebd5e "pdflatex"
+  "main.bcf" 1786567250.97265 111718 ce15c6ea12a8ad67ce4c5f87c04ebd5e "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1786285444.61031 "/Users/hong/Study/studienArbeit/documents_hong/thesis/Studienarbeit-Template/main.tex" "main.pdf" "main" 1786285449.86613 0
+["pdflatex"] 1786567245.82498 "/Users/hong/Study/studienArbeit/documents_hong/thesis/Studienarbeit-Template/main.tex" "main.pdf" "main" 1786567251.08655 0
   "/Users/hong/Study/studienArbeit/documents_hong/thesis/Studienarbeit-Template/main.tex" 1786036819.28705 3151 50248184a2a75d9119693d92bca498e3 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -334,23 +334,23 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1750037852 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1741450574 3345740 46b66fdb0378f7bf5921b5eabf1762b8 ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "chapters/chap0_abstract.aux" 1786285446.32844 4979 0cc5eaeb8a6424546b828350702755eb "pdflatex"
+  "chapters/chap0_abstract.aux" 1786567247.50151 4979 0cc5eaeb8a6424546b828350702755eb "pdflatex"
   "chapters/chap0_abstract.tex" 1783709678.41747 303 ac66efea2d78ed4f223aaa8d3e3cf9a5 ""
   "chapters/chap1_introduction.tex" 1785490599.84748 5472 0ad6bb5d1290cb8d8643ef452940b593 ""
   "chapters/chap2_related_work.tex" 1786131270.72111 33891 5788dd0d3c1995f70b07ec402971bfc4 ""
-  "chapters/chap3_problem_formation.tex" 1786285438.86208 16151 1301fd12dd4036660671ce74b90d15dd ""
+  "chapters/chap3_problem_formation.tex" 1786567245.61695 18451 20a2867d6b549cd7895c96b81bc666f0 ""
   "chapters/chap4_methodology.tex" 1786194942.13341 41 1214f9f1cf671f58423b481c9373716e ""
   "etc/acronyms.tex" 1785497869.91569 131 5cb16a5bdce27495d0466cb055f948bb ""
   "etc/hyphenation.tex" 1783709678.41852 83 f8fe52802bca02d8bc9143736e612a2b ""
   "img/connections-example20230612.png" 1786208122.96048 3684398 ba07fa525518b485398612438e92cc82 ""
-  "main.aux" 1786285449.7217 16262 ad718449131cc9888bb836d1761773ed "pdflatex"
+  "main.aux" 1786567250.96633 16429 d73282c85404e51ce66130383b86bdac "pdflatex"
   "main.bbl" 1786265130.16262 52803 5afb754a23210f81f006fee36fdd9dc9 "biber main"
-  "main.lof" 1786285449.72839 347 08dd4ce1f16d3468be947a7c45b75dbe "pdflatex"
-  "main.lot" 1786285449.72842 360 00e74b7cac12df960295587dc196ea61 "pdflatex"
-  "main.out" 1786285446.19352 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.run.xml" 1786285449.72832 2440 6b4d5c464ac959944ace883ae0649737 "pdflatex"
+  "main.lof" 1786567250.97327 347 08dd4ce1f16d3468be947a7c45b75dbe "pdflatex"
+  "main.lot" 1786567250.9733 360 00e74b7cac12df960295587dc196ea61 "pdflatex"
+  "main.out" 1786567247.37075 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.run.xml" 1786567250.97319 2440 6b4d5c464ac959944ace883ae0649737 "pdflatex"
   "main.tex" 1786036819.28705 3151 50248184a2a75d9119693d92bca498e3 ""
-  "main.toc" 1786285449.72838 1117 9fe06344c1c132bbb196b3a2e34f5b13 "pdflatex"
+  "main.toc" 1786567250.97325 1117 8074f4677976758cf2ddedd012ecca68 "pdflatex"
   "template/declaration_affidavit_en.tex" 1783709678.42106 738 c96aaf30f29602a97461e8fce2c5b5fe ""
   "template/dhbw_coverpage_study_en.tex" 1783709678.42145 1628 80672cdf620626356bccf7bf15b0526a ""
   "template/figures/DHBW.png" 1783709678.42195 12513 1cac91c172f11792caa16afcc85a433c ""

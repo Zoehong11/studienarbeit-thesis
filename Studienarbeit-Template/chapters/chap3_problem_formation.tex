@@ -123,3 +123,20 @@ This is the total amount of information required to identify the correct partiti
 
 \section{Information from Feedback}
 \label{sec:feedback-information}
+After knowing how much information is needed to solve a puzzle, we now turn to how much information the game mechanism actually provides. Under the interactive setting, each submission returns one of three responses: correct, one away, and when it shows nothings then means it is wrong. It depends on how many words the submitted group shares with whichever correct group it overlaps most. Four shared words returns correct, three returns one away, and anything less returns wrong. The last case can mean that a submission overlapping a correct group in two words or the 4 submitted words separately belong to 4 individual groups.
+
+The response set has three elements (correct, one away, wrong), so by \autoref{eq:maxentropy} a single response carries at most
+\begin{equation}
+\log_2 3 \approx 1.58 \text{ bits}.
+\label{eq:single-feedback}
+\end{equation}
+
+This is the maximum amount of information that can be obtained from a single feedback response, regardless of the submission strategy and is attained only when all three are equally likely. So it is the ideally maximum information gain. In real Connections, the distribution of feedback outcomes is not uniform. Of the $\binom{16}{4} = 1820$ groups that can be submitted, four are correct and 192 are one away, leaving 1624 that return wrong. A submission chosen at random therefore returns wrong with probability $1624/1820 \approx 0.89$, and the entropy of the response under that distribution is about 0.55 bits, roughly a third of the ceiling.
+
+The game allows four mistakes. Since correct submissions do not consume the budget, the number of responses received over a game is not fixed, but the number of failures is restricted, which is at most four responses of one away or wrong are available before the game ends. The total maximum information obtainable from feedback is therefore
+\begin{equation}
+4 \log_2 3 \approx 6.34 \text{ bits}.
+\label{eq:feedback-bound}
+\end{equation}
+
+\autoref{eq:prior-entropy} gives the information required to identify the correct partition as roughly 21.3 bits. Feedback supplies at most 6.34 of them and the remaining 15 bits must come from somewhere else. In this thesis, it is the scoring function that we mentioned in \autoref{sec:connections-csp}, which will be introduced in \autoref{chap:method}.
