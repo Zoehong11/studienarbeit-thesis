@@ -60,7 +60,7 @@
 
 % \autoref{sec:prior-work} reviews existing work on solving Connections, which has concentrated almost entirely on the first challenge. The remaining sections cover formalisms that apply to the second. \autoref{sec:puzzles-as-csp} describes how word puzzles are treated as weighted constraint satisfaction problems, which is how the partition requirement itself is expressed. \autoref{sec:information-theory} and \autoref{sec:strategies} turn to what happens when a puzzle is solved through repeated attempts rather than in one pass: how the information carried by feedback is measured, and how it is used to choose what to submit next.
 \chapter{Related Work}
-\label{ch:related_work}
+\label{chap:related_work}
 
 This chapter provides an overview of prior work relevant to this thesis, including work that directly solves Connections using LLMs and work that inspired the methods used in this study. It first introduces prior work on solving Connections with AI. It then presents related work on the methods used, which serves as the knowledge base for this study.
 
@@ -161,11 +161,11 @@ IG(\text{guess}) = H(\mathrm{X}) - \mathbb{E}\big[H(\mathrm{X} \mid \text{feedba
 \end{equation}
 This quantity is what solvers use to decide which action is most useful before knowing what the feedback will be. An action with higher expected information gain is expected to narrow down the remaining candidates more, regardless of which specific feedback is eventually returned.
 
-\subsectionnotoc{Solving Wordle with Informatiion Theory}
+\subsectionnotoc{Solving Wordle with Information Theory}
 % wordle
 Wordle is another word puzzle game from NY Times. It asks the player to guess a five-letter word within six attempts. After each guess, every letter is marked as correct and in the right position, present but in the wrong position, or absent, giving detailed per-letter feedback. Information theory based Wordle solvers apply this framework directly: at each step, the candidate word maximizing expected information gain is chosen as the next guess \cite{aladailehSolvingWordleUsing2026}. According to Grant Sanderson pointed out in his video, the best possible first guess yields an expected information gain of 5.89 bits, reducing the remaining uncertainty by roughly half in a single observation \cite{3blue1brownSolvingWordleUsing2022}. \citeauthor{aladailehSolvingWordleUsing2026} report that entropy-based selection outperforms a heuristic that selects words by letter distribution, and propose the approach as a general baseline for applying Shannon entropy to other games \cite{aladailehSolvingWordleUsing2026}.
 % connections
-Information theory can be applied to Connections as well. Detailed description see next chapter.
+Information theory can be applied to Connections as well. Detailed description see \autoref{chap:problem-formulation}.
 % Before any guess is made, the number of possible partitions of the sixteen words defines the entropy of the hypothesis space, in the same way that the set of allowed words defines the entropy of the candidate space in Wordle. Each guess, a submitted group of four words, returns feedback, and this feedback can in principle be used the same way: to compute an expected information gain and to eliminate partitions inconsistent with the observed outcome, reducing entropy at each step.
 
 % The key difference is the feedback signal itself. A Wordle guess returns a detailed, per-letter pattern, one of many possible outcomes, and consequently a large expected information gain. A Connections guess returns only one of three coarse outcomes: correct, one away, or wrong. By \autoref{eq:maxentropy}, this limits the maximum information a single guess can carry to $\log_2 3 \approx 1.58$ bits, regardless of which four words are guessed or how the guess is chosen. Over the four guesses allowed by the game's real rules, this places a hard upper bound of roughly 6.3 bits on the total information obtainable through feedback alone, far below the entropy of the hypothesis space itself. This bound is developed with exact numbers in Section~\ref{sec:problem-formulation}, and is the central reason, developed later in this thesis, why decision-strategy sophistication cannot substitute for the quality of the prior belief formed before any guess is made.
