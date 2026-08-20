@@ -978,6 +978,62 @@
       \verb https://www.nytimes.com/games/connections
       \endverb
     \endentry
+    \entry{camacho-colladosWordSenseEmbeddings2018}{online}{}{}
+      \name{author}{2}{}{%
+        {{hash=5a2c6234f337c9ad9aa4745a4bfbb3ee}{%
+           family={Camacho-Collados},
+           familyi={C\bibinithyphendelim C\bibinitperiod},
+           given={Jose},
+           giveni={J\bibinitperiod}}}%
+        {{hash=25546e3752457eae386c91911a2fb5f8}{%
+           family={Pilehvar},
+           familyi={P\bibinitperiod},
+           given={Mohammad\bibnamedelima Taher},
+           giveni={M\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \strng{namehash}{7af70c0bc938f83d129b6fd842655ea5}
+      \strng{fullhash}{7af70c0bc938f83d129b6fd842655ea5}
+      \strng{fullhashraw}{7af70c0bc938f83d129b6fd842655ea5}
+      \strng{bibnamehash}{7af70c0bc938f83d129b6fd842655ea5}
+      \strng{authorbibnamehash}{7af70c0bc938f83d129b6fd842655ea5}
+      \strng{authornamehash}{7af70c0bc938f83d129b6fd842655ea5}
+      \strng{authorfullhash}{7af70c0bc938f83d129b6fd842655ea5}
+      \strng{authorfullhashraw}{7af70c0bc938f83d129b6fd842655ea5}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Over the past years, distributed semantic representations have proved to be effective and flexible keepers of prior knowledge to be integrated into downstream applications. This survey focuses on the representation of meaning. We start from the theoretical background behind word vector space models and highlight one of their major limitations: the meaning conflation deficiency, which arises from representing a word with all its possible meanings as a single vector. Then, we explain how this deficiency can be addressed through a transition from the word level to the more fine-grained level of word senses (in its broader acceptation) as a method for modelling unambiguous lexical meaning. We present a comprehensive overview of the wide range of techniques in the two main branches of sense representation, i.e., unsupervised and knowledge-based. Finally, this survey covers the main evaluation procedures and applications for this type of representation, and provides an analysis of four of its important aspects: interpretability, sense granularity, adaptability to different domains and compositionality.}
+      \field{day}{26}
+      \field{eprintclass}{cs.CL}
+      \field{eprinttype}{arXiv}
+      \field{month}{10}
+      \field{pubstate}{prepublished}
+      \field{shorttitle}{From {{Word}} to {{Sense Embeddings}}}
+      \field{title}{From {{Word}} to {{Sense Embeddings}}: {{A Survey}} on {{Vector Representations}} of {{Meaning}}}
+      \field{urlday}{20}
+      \field{urlmonth}{8}
+      \field{urlyear}{2026}
+      \field{year}{2018}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.1805.04032
+      \endverb
+      \verb{eprint}
+      \verb 1805.04032
+      \endverb
+      \verb{file}
+      \verb /Users/hong/Zotero/storage/WZH3TVSF/Camacho-Collados and Pilehvar - 2018 - From Word to Sense Embeddings A Survey on Vector Representations of Meaning.pdf;/Users/hong/Zotero/storage/4T369VWJ/1805.html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/1805.04032
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1805.04032
+      \endverb
+      \keyw{Computer Science - Artificial Intelligence,Computer Science - Computation and Language}
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

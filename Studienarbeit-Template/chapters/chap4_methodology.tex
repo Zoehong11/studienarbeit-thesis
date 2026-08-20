@@ -1,5 +1,50 @@
 \chapter{Methodology}
 \label{chap:method}
-\autoref{chap:problem-formulation} defined solving Connections as a search for the partition with the highest score, while satisfying the grouping constraint, and showed that most of the information needed to identify the correct partition has to come from a scoring function rather than from feedback. This chapter focuses on the scoring function, beginning with how to construct it and then explaining how to determine the partitions once a scoring function is given.
+\autoref{chap:problem-formulation} defined solving Connections as a search for the partition with the highest score, while satisfying the grouping constraint, and showed that most of the information needed to identify the correct partition has to come from a scoring function rather than from feedback. The scoring function provides the score of each partition, and then a search algorithm will be used to find the partition with the highest score. 
 
-We propose a pipeline for solving Connections that consists of three stages. First, 
+Producing that score takes three steps. Each of the sixteen words is first expanded into a set of texts describing its possible meanings. Those texts are embedded and reduced to a similarity for every pair of words. Every candidate group of four words is then scored from the similarities of the pairs it contains, and a partition from the scores of its four groups. What follows depends on the evaluation setting: under the one-shot setting a global partition is selected and returned, while under the interactive setting the scores are treated as a prior over all partitions and revised as responses come in.
+
+\autoref{sec:scoring-functions} describes the scoring function. \autoref{sec:partition-search} describes the search. \autoref{sec:interactive-solving} describes the additional machinery the interactive setting requires. \autoref{sec:pipeline} then assembles the components into a complete system.
+
+\section{Scoring Functions}
+\label{sec:scoring-functions}
+
+The scoring function assigns a value to every partition, so that the best partition can be identified. It first produces a similarity for every pair of words, collected in a $16 \times 16$ matrix of $\binom{16}{2} = 120$ pairwise similarities. These similarities are then assembled into scores for groups and for partitions.
+
+A candidate group is any four of the sixteen words, and each contains $\binom{4}{2} = 6$ word pairs. Its score is the sum of all the pairwise similarities in the group:
+\begin{equation}
+s(g) = \sum_{\{i,j\} \subset g} \text{sim}[i,j].
+\label{eq:group-score}
+\end{equation}
+
+A partition is then scored by adding the scores of its four groups, which is the quantity maximized in \autoref{eq:weighted-csp}. Since the same group appears in many partitions, all $\binom{16}{4} = 1820$ group scores are computed once and stored, and partition scores are assembled from them by lookup.
+
+What varies is how $\text{sim}[i,j]$ is obtained. Two decisions are involved, namely which source(s) is suitable to provide meanings, and how the meanings of two words are compared. \autoref{subsec:semantic-enrichment} covers the first decision, \autoref{subsec:aggregation} demonstrates the second.
+
+\subsection{Semantic Enrichment}
+\label{subsec:semantic-enrichment}
+
+A word can contain multiple meanings. For example, the word "bank" can refer to a financial institution or to the edge of a river, and an embedding of the bare word blends both.
+
+The simplest way to obtain $\text{sim}[i,j]$ is to embed each word directly and take the cosine similarity of the two vectors, which is what embedding-based baselines in pior work \autoref{sec:prior-work-connections} do, and those baselines generally perform poorly. Two kinds of embedding model are involved. Static word embeddings (e.g. Word2vec, GloVe) assign one fixed vector per word, so every meaning of a polysemous word is compressed into a single representation, a property known as the meaning conflation deficiency, while contextualised models (e.g. BERT) address this by producing a vector that depends on the surrounding text \cite{camacho-colladosWordSenseEmbeddings2018}.
+
+Connections requires the intended meaning of each word to be identified before the words can be partitioned, and the most obvious meaning is not necessarily the intended one. A contextualised model is therefore the better fit, and \citeauthor{toddMissedConnectionsLateral2024} likewise use a sentence-embedding model, which belongs to this family, as their baseline \cite{toddMissedConnectionsLateral2024}. Such a model can only distinguish meanings when context is available. However, Connections does not provide context. This is what motivates enriching the words from external knowledge sources.
+
+The idea is to supply the context the puzzle might intend. Each word is replaced by a set of texts, and every one of them describing a single meaning, then each text is embedded separately. A word is then represented not by one vector but by all the meanings the resources provide. If two words are strongly similar under one particular pairing of their meanings, that pairing itself might be the evidence of what the puzzle intends.
+
+Whether this helps is not settled in advance. Embedding the bare words directly is itself one of the configurations compared in this thesis, and it serves as the baseline against which every enriched configuration is measured.
+% \subsubsection{Knowledge Source}
+
+% Therefore, the first stage of the scoring function replaces each word with a set of texts, each describing one meaning, so that the meanings can be kept apart. Three resources were examined as suppliers of those texts, each chosen to target one or more of the relation types identified in \autoref{tab:connections_relation_taxonomy}.
+
+% WordNet organizes English vocabulary into synsets. A synset is a set of words that share one specific meaning, with a separate synset maintained for each meaning of a polysemous word \cite{millerWordNetLexicalDatabase1995}. Every synset carries a short definition, called a gloss. For a given word, each of its synsets contributes its gloss as a separate text. “Bank” has synsets for the financial-institution sense and for the riverside sense, and each gloss enters the pool on its own rather than being merged with the other. WordNet's glosses target the semantic similarity and semantic relatedness categories, where word meaning and shared theme drive the grouping.
+
+% Wikipedia provides encyclopedic text covering proper nouns, cultural references and domain-specific topics that a lexical resource does not include. For a given word, the opening summary of the corresponding article is retrieved and added to the pool as a single text. Wikipedia targets the referential categories, which require knowledge of named entities and other real-world facts.
+
+% Datamuse is a public API returning words related to a query along mechanically defined axes, including rhymes, phonetic near-matches, spelling similarity, and corpus co-occurrence. The words it returns are added to the pool directly, without definitions attached. Datamuse is included to target the form- or rule-based categories, where the group depends on the spelling or sound rather than meaning.
+
+% The three resources are controlled by independent switches on the same routine, so a configuration is specified by which of them are enabled. Every other stage of the scoring function is held fixed, so any difference between configurations can be attributed to the choice of resources alone.
+
+% Where none of the enabled resources returns anything for a word, the bare word itself is used as the single entry in its pool. This rule applies to the combined output of whichever resources are enabled rather than to each of them separately, so a word falls back to its surface form only if every enabled resource fails to cover it.
+
+The texts themselves come from external lexical and encyclopedic resources. Which resources are used is a configuration choice rather than part of the mechanism, and the ones examined here, together with the effect of each, are reported in \autoref{chap:experiments}. Where none of the enabled resources returns anything for a word, the bare word itself is used as the single entry in its pool, so that every word is represented.
