@@ -56,4 +56,26 @@ Our solver supplies every candidate meaning of a word directly as a set of texts
 
 % Where none of the enabled resources returns anything for a word, the bare word itself is used as the single entry in its pool. This rule applies to the combined output of whichever resources are enabled rather than to each of them separately, so a word falls back to its surface form only if every enabled resource fails to cover it.
 
-The texts themselves come from external lexical and encyclopedic resources. Which resources are used is a configuration choice rather than part of the mechanism. The knowledge resources examined in this thesis and the effect of each are reported in \autoref{chap:experiments}. When none of the enabled resources returns anything for a word, the bare word itself is used as the single entry in its pool, so that every word is represented.
+The texts themselves come from external lexical and encyclopedic resources. Which resources are used is a configuration choice rather than part of the mechanism. The knowledge resources examined in this thesis and the effect of each are reported in \autoref{chap:experiment}. When none of the enabled resources returns anything for a word, the bare word itself is used as the single entry in its pool, so that every word is represented.
+
+Once each word is represented by a pool of vectors, a single similarity still has to be produced from two pools. Every meaning of one word is compared with every meaning of the other, and the highest of those cosine similarities is taken as $\text{sim}[i,j]$. Maximum is used here to identify the specific pairing of meanings under which the two words are closest, and that pairing might be the evidence of what the puzzle intends.
+
+\section{Partition Search}
+\label{sec:partition-search}
+
+With all $\binom{16}{4} = 1820$ candidate groups scored by \autoref{eq:group-score}, what remains is to solve \autoref{eq:weighted-csp} directly, searching the $|\mathcal{H}| = 2{,}627{,}625$ valid partitions (\autoref{sec:hypothesis-space}) for the one with the highest total score. Two search algorithms are compared.
+
+The first is greedy. The highest-scoring group among all 1820 candidates is fixed as the first group. Its four words are removed, and the highest-scoring group among the candidates formed from the remaining twelve is fixed as the second. The same is done for the remaining eight words, and the last four words form the fourth group by default. Each choice is made from what scores best at that point and is never revisited.
+
+The greedy procedure never reconsiders an earlier choice, even if it turns out to leave the remaining words in a bad position. The second algorithm avoids this by searching every possible order of choices instead of committing to one, using dynamic programming.
+
+Dynamic programming solves a problem by breaking it into smaller subproblems and reusing the solution to each subproblem wherever it reappears \cite{DynamicProgramming2026}. Connections fits this directly. Since a partition's score is the sum of its four group scores, the best partition of a set of words is simply the best last group plus the best partition of the words left over, so solving the full puzzle reduces to solving the same kind of problem on smaller sets of words. Because many different choices of groups lead back to the same smaller set, solving each subset once and reusing the result is enough to find the exact best partition, and the small number of reachable subsets keeps this cheap enough to run on every puzzle.
+
+For any $M \subseteq W$, represented as a 16-bit mask, let $\text{best}(M)$ denote the highest total score obtainable by partitioning $M$ into groups of four, with $\text{best}(\emptyset) = 0$. Any such partition contains some group $g \subseteq M$, and the rest of $M$ must then be partitioned on its own, which gives
+\begin{equation}
+\text{best}(M) = \max_{\substack{g \subseteq M \\ |g| = 4}} \Big( s(g) + \text{best}(M \setminus g) \Big).
+\label{eq:dp-recurrence}
+\end{equation}
+Evaluating $\text{best}$ on $W$ itself considers every way of choosing a first group, and for each of them every way of partitioning what is left, so no valid partition is left out. Since the same subset is reached along many different paths, results are cached and each subset is solved once. $\text{best}(W)$ gives the score of $P^*$ in \autoref{eq:weighted-csp}. The partition $P^*$ itself is recovered by recording, for every mask, which group $g$ attained the maximum, and following those choices backward from $W$ to the empty mask.
+
+The two differ in what they take into account. The greedy procedure judges a group by its own score alone. The recursion judges it by $s(g) + \text{best}(M \setminus g)$, so a group is only chosen if what remains after removing its words can still be partitioned well. A group that scores highly on its own can therefore be rejected, and a group scoring less can be preferred, if the rest of the board resolves better that way. Whether this changes the outcome in practice is reported in \autoref{chap:experiment}.
