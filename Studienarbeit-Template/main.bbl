@@ -1065,6 +1065,44 @@
       \verb https://en.wikipedia.org/w/index.php?title=Dynamic_programming&oldid=1365153484
       \endverb
     \endentry
+    \entry{heldkarpDynamicProgrammingApproach1962}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=7270cd7f9e9b61fa9da8f48cc795cd39}{%
+           family={Held},
+           familyi={H\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+        {{hash=5290385c419686f6312edeb3578dc9cf}{%
+           family={Karp},
+           familyi={K\bibinitperiod},
+           given={Richard\bibnamedelima M.},
+           giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{b66ac2ce1dd288a9211b490f708575bb}
+      \strng{fullhash}{b66ac2ce1dd288a9211b490f708575bb}
+      \strng{fullhashraw}{b66ac2ce1dd288a9211b490f708575bb}
+      \strng{bibnamehash}{b66ac2ce1dd288a9211b490f708575bb}
+      \strng{authorbibnamehash}{b66ac2ce1dd288a9211b490f708575bb}
+      \strng{authornamehash}{b66ac2ce1dd288a9211b490f708575bb}
+      \strng{authorfullhash}{b66ac2ce1dd288a9211b490f708575bb}
+      \strng{authorfullhashraw}{b66ac2ce1dd288a9211b490f708575bb}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of the Society for Industrial and Applied Mathematics}
+      \field{month}{3}
+      \field{number}{1}
+      \field{title}{A Dynamic Programming Approach to Sequencing Problems}
+      \field{volume}{10}
+      \field{year}{1962}
+      \field{dateera}{ce}
+      \field{pages}{196\bibrangedash 210}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1137/0110015
+      \endverb
+    \endentry
   \enddatalist
 \endrefsection
 \endinput

@@ -8,7 +8,7 @@ This thesis concentrates on the second approach. A scoring function can be taken
 
 The scoring function assigns a score to every partition, and works generally in two steps. A similarity is first computed for every pair of the sixteen words. These similarities are then assembled into scores for candidate groups, and from those into scores for partitions. Under the one-shot setting the partition with the highest score is returned as the answer. Under the interactive setting the scores are instead treated as a prior over all partitions and revised as responses come in.
 
-\autoref{sec:scoring-functions} describes the scoring function and the choices it involves. \autoref{sec:partition-search} describes the search. \autoref{sec:interactive-solving} describes what the interactive setting adds. Lastly, \autoref{sec:pipeline} assembles the components into a complete system.
+\autoref{sec:scoring-functions} describes the scoring function and the choices it involves. \autoref{sec:one-shot-solving} describes solving under the one-shot setting. \autoref{sec:interactive-solving} describes what the interactive setting adds. Lastly, \autoref{sec:pipeline} assembles the components into a complete system.
 
 \section{Scoring Functions}
 \label{sec:scoring-functions}
@@ -60,22 +60,72 @@ The texts themselves come from external lexical and encyclopedic resources. Whic
 
 Once each word is represented by a pool of vectors, a single similarity still has to be produced from two pools. Every meaning of one word is compared with every meaning of the other, and the highest of those cosine similarities is taken as $\text{sim}[i,j]$. Maximum is used here to identify the specific pairing of meanings under which the two words are closest, and that pairing might be the evidence of what the puzzle intends.
 
-\section{Partition Search}
-\label{sec:partition-search}
+\section{Solving under the One-Shot Setting}
+\label{sec:one-shot-solving}
 
-With all $\binom{16}{4} = 1820$ candidate groups scored by \autoref{eq:group-score}, what remains is to solve \autoref{eq:weighted-csp} directly, searching the $|\mathcal{H}| = 2{,}627{,}625$ valid partitions (\autoref{sec:hypothesis-space}) for the one with the highest total score. Two search algorithms are compared.
+Under the one-shot setting, the solver submits a single partition without receiving any feedback, so the task is to identify that one partition directly. With all $\binom{16}{4} = 1820$ candidate groups scored by \autoref{eq:group-score}, what remains is to solve \autoref{eq:weighted-csp} directly, searching the $|\mathcal{H}| = 2{,}627{,}625$ valid partitions (\autoref{sec:hypothesis-space}) for the one with the highest total score. The highest score can be pursued in two different ways. A local approach picks the highest-scoring group at each step, then repeats the process on the words that remain until a partition is formed. A global approach instead searches for the partition whose four groups have the highest score when summed together, even if no single group in it is the highest-scoring one on its own. Two search algorithms, one for each approach, are compared in this thesis.
 
 The first is greedy. The highest-scoring group among all 1820 candidates is fixed as the first group. Its four words are removed, and the highest-scoring group among the candidates formed from the remaining twelve is fixed as the second. The same is done for the remaining eight words, and the last four words form the fourth group by default. Each choice is made from what scores best at that point and is never revisited.
 
-The greedy procedure never reconsiders an earlier choice, even if it turns out to leave the remaining words in a bad position. The second algorithm avoids this by searching every possible order of choices instead of committing to one, using dynamic programming.
+The greedy procedure never reconsiders an earlier choice, even if it turns out to leave the remaining words in a bad position. The second algorithm instead achieves the global approach directly, using dynamic programming as the method that makes this possible.
 
-Dynamic programming solves a problem by breaking it into smaller subproblems and reusing the solution to each subproblem wherever it reappears \cite{DynamicProgramming2026}. Connections fits this directly. Since a partition's score is the sum of its four group scores, the best partition of a set of words is simply the best last group plus the best partition of the words left over, so solving the full puzzle reduces to solving the same kind of problem on smaller sets of words. Because many different choices of groups lead back to the same smaller set, solving each subset once and reusing the result is enough to find the exact best partition, and the small number of reachable subsets keeps this cheap enough to run on every puzzle.
+Dynamic programming solves a problem by considering every possible subproblem and reusing each one's solution wherever it reappears, rather than committing to a single path through it \cite{DynamicProgramming2026}. Considering every subproblem this way is what guarantees the best score found is the global best, matching the global approach described above, while reusing solutions instead of recomputing them is what keeps this exhaustive search efficient. Connections can be solved with dynamic programming. Since a partition's score is the sum of its four group scores, the best partition of a set of words is simply the best last group plus the best partition of the words left over, so solving the full puzzle reduces to solving the same kind of problem on smaller sets of words. Because many different choices of groups lead back to the same smaller set, solving each subset once is enough, and the small number of reachable subsets keeps this cheap enough to run on every puzzle.
 
-For any $M \subseteq W$, represented as a 16-bit mask, let $\text{best}(M)$ denote the highest total score obtainable by partitioning $M$ into groups of four, with $\text{best}(\emptyset) = 0$. Any such partition contains some group $g \subseteq M$, and the rest of $M$ must then be partitioned on its own, which gives
+Recall that $W$ denotes the sixteen puzzle words. Let $M$ denote a subset of these words. In practice, $M$ is represented as a 16-bit mask, an integer whose $i$-th bit is $1$ if the $i$-th word is included in $M$ and $0$ otherwise, so that every subset of $W$ corresponds to exactly one such integer. This representation is used in this thesis's implementation because it makes $\text{best}(M)$ cheap to store and look up for every subset, since $M$ itself can serve directly as an index, and because operations such as removing a group from $M$ reduce to fast bitwise arithmetic rather than manipulating an explicit list of words. Let $\emptyset$ denote the empty subset containing no words at all, corresponding to the mask with every bit set to $0$. For any such $M \subseteq W$, let $\text{best}(M)$ denote the highest score obtainable by partitioning $M$ alone into groups of four. When $M$ is empty there are no words left to group, so nothing is scored, and $\text{best}(\emptyset) = 0$. This is the starting point the rest of the computation builds on.
+
+For a non-empty $M$, imagine one specific group $g$ is part of the eventual solution. The remaining words, $M \setminus g$, still need to be partitioned as well as possible. The best achievable score for them is by definition $\text{best}(M \setminus g)$. Committing to $g$ therefore contributes a total of $s(g) + \text{best}(M \setminus g)$. It is not known in advance which group actually belongs to the best solution. Every possible $g$ is therefore tried, and the highest resulting total is kept. This defines $\text{best}(M)$ recursively, in terms of $\text{best}$ evaluated on strictly smaller subsets. It follows the same subset-enumeration technique used for exact dynamic programming over subsets \cite{heldkarpDynamicProgrammingApproach1962},
 \begin{equation}
 \text{best}(M) = \max_{\substack{g \subseteq M \\ |g| = 4}} \Big( s(g) + \text{best}(M \setminus g) \Big).
 \label{eq:dp-recurrence}
 \end{equation}
-Evaluating $\text{best}$ on $W$ itself considers every way of choosing a first group, and for each of them every way of partitioning what is left, so no valid partition is left out. Since the same subset is reached along many different paths, results are cached and each subset is solved once. $\text{best}(W)$ gives the score of $P^*$ in \autoref{eq:weighted-csp}. The partition $P^*$ itself is recovered by recording, for every mask, which group $g$ attained the maximum, and following those choices backward from $W$ to the empty mask.
+This recurrence does not run in circles. Each step removes a group of four words, so $M \setminus g$ is always four words smaller than $M$. Every subproblem therefore eventually reduces to the base case $\text{best}(\emptyset) = 0$. This thesis evaluates \autoref{eq:dp-recurrence} bottom-up. Masks are processed in order of increasing size, starting from $\text{best}(\emptyset) = 0$. By the time $\text{best}(M)$ is computed for any given $M$, every smaller $\text{best}(M \setminus g)$ it needs has already been computed and stored. No value is therefore ever recomputed. The last mask processed is $W$ itself, giving $\text{best}(W)$, the score of $P^*$ in \autoref{eq:weighted-csp}.
+
+The score alone is not the answer. To recover the four groups that make up $P^*$, whichever group $g$ achieves the maximum in \autoref{eq:dp-recurrence} is recorded for every $M$ along the way. Starting from $W$, this recorded group is read off, removed, and the same lookup is repeated on what remains, until all sixteen words have been assigned.
 
 The two differ in what they take into account. The greedy procedure judges a group by its own score alone. The recursion judges it by $s(g) + \text{best}(M \setminus g)$, so a group is only chosen if what remains after removing its words can still be partitioned well. A group that scores highly on its own can therefore be rejected, and a group scoring less can be preferred, if the rest of the board resolves better that way. Whether this changes the outcome in practice is reported in \autoref{chap:experiment}.
+
+% \section{Solving under the Interactive Setting}
+% \label{sec:interactive-solving}
+
+% TODO: content to be written. Outline below, structure only for now.
+
+% Under the interactive setting, a single best partition is not enough. The scores
+% of ALL valid partitions are needed, because a distribution over partitions has
+% to be maintained and updated as feedback arrives after each submission. This is
+% why dynamic programming does not apply here: DP only ever recovers the single
+% best-scoring partition, not the scores of every partition. Full enumeration with
+% a lookup table is used instead.
+
+% \subsection{From Scores to Probabilities}
+% - full enumeration of all valid partitions, scores stored in a lookup table
+% - softmax converts partition scores into a probability distribution
+% - temperature T controls how peaked/flat the resulting distribution is
+% - the problem with T (needs elaboration)
+
+% \subsection{Updating Beliefs from Feedback}
+% - Bayesian update: condition the distribution on the game's response after each
+%   guess (correct / one-away / wrong)
+% - the next group submitted is the one with the highest marginal probability
+%   under the (still uncertain) distribution
+
+
+
+\section{Solving under the Interactive Setting}
+\label{sec:interactive-solving}
+
+Under the one-shot setting the highest-scoring partition is the answer, so nothing beyond it is needed. Under the interactive setting it is not. A response can rule out the partition currently believed to be best, and the solver then has to fall back on what else was possible. Committing to one partition at the outset leaves nothing to fall back on, so the solver instead keeps a degree of belief in every partition and revises it as responses come in. This requires a score for each of the 2,627,625 partitions, not only for the highest one.
+
+The search of \autoref{sec:partition-search} cannot supply this. Its recursion takes a maximum at every step, keeping the best branch and discarding the rest, and the discarded branches are exactly what is needed here. The scores are therefore computed directly. Each partition consists of four groups, each group has a score already stored from \autoref{eq:group-score}, and a partition score is the sum of those four values. Looking up four numbers and adding them is done for all 2,627,625 partitions at once, without recursion or caching.
+
+Scores are not probabilities, and a distribution over partitions is what the solver has to maintain. The scores are converted using a softmax,
+\begin{equation}
+P_0(h) = \frac{\exp\big(\text{score}(h)/T\big)}{\sum_{h'} \exp\big(\text{score}(h')/T\big)},
+\label{eq:softmax-prior}
+\end{equation}
+where $h$ ranges over all partitions and $T$ controls how concentrated the result is. A large $T$ flattens the differences between scores and spreads the probability evenly; a small $T$ concentrates it on the highest-scoring partitions. The default choice $T = 1$ is not usable here: it gives a prior with an entropy of 21.2 bits against the maximum of 21.32 from \autoref{eq:prior-entropy}, meaning that the distribution is almost uniform and nearly all of the ordering produced by the scoring function is lost in the conversion. $T$ is therefore set separately, and how is described in \autoref{chap:experiments}.
+
+Once a group has been submitted and a response received, the belief is revised. For any partition and any submitted group, the response that would follow is fully determined by the rules in \autoref{sec:problem-setting}, so it can be computed for every partition still under consideration. Those whose predicted response differs from the one actually received are ruled out, and the probability mass is renormalised over the rest. No approximation is involved, since every partition can be checked individually.
+
+A response of \emph{correct} is handled in the same way rather than as a special case. The set of partitions is never rebuilt: it remains the original 2,627,625, indexed by the original sixteen words, throughout the game. What a \emph{correct} response rules out is every partition that does not contain the confirmed group, and the belief is renormalised over those that do. Only the set of candidate groups shrinks, since submissions are drawn from the words not yet resolved. This keeps one property intact for the whole game: the true partition is consistent with every response received, so it is never ruled out, and the belief always retains it.
+
+What remains is choosing which group to submit. Every group of four still-unresolved words is a candidate, and each is scored by its marginal probability: the total belief held by those surviving partitions that contain this exact group as one of their four. The candidate with the highest marginal is submitted. This is not the same as taking the most probable partition and submitting one of its groups. A group can hold the largest share of belief across many partitions without appearing in the single most probable one, and the two criteria can therefore disagree.
