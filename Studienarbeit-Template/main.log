@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  25 AUG 2026 11:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  26 AUG 2026 17:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1552,7 +1552,7 @@ Overfull \hbox (5.79327pt too wide) in paragraph at lines 27--43
 [11]
 
 [12]
-<img/connections-example20230612.png, id=298, 2057.6875pt x 1619.04875pt>
+<img/connections-example20230612.png, id=302, 2057.6875pt x 1619.04875pt>
 File: img/connections-example20230612.png Graphic file (type png)
 <use img/connections-example20230612.png>
 Package pdftex.def Info: img/connections-example20230612.png  used on input line 66.
@@ -1578,7 +1578,7 @@ LaTeX Warning: Reference `sec:pipeline' on page 18 undefined on input line 11.
 
 
 ]
-<img/connections-score-function.png, id=354, 670.505pt x 554.07pt>
+<img/connections-score-function.png, id=358, 670.505pt x 554.07pt>
 File: img/connections-score-function.png Graphic file (type png)
 <use img/connections-score-function.png>
 Package pdftex.def Info: img/connections-score-function.png  used on input line 29.
@@ -1588,27 +1588,34 @@ Package pdftex.def Info: img/connections-score-function.png  used on input line 
 [19]
 
 [20 <./img/connections-score-function.png>]
+<img/connections-one-shot.png, id=378, 403.5075pt x 463.7325pt>
+File: img/connections-one-shot.png Graphic file (type png)
+<use img/connections-one-shot.png>
+Package pdftex.def Info: img/connections-one-shot.png  used on input line 70.
+(pdftex.def)             Requested size: 273.14923pt x 313.91872pt.
+
 
 [21]
 
-[22]
+[22 <./img/connections-one-shot.png>]
 
 [23]
-
-LaTeX Warning: Reference `sec:partition-search' on page 24 undefined on input line 124.
-
-
-LaTeX Warning: Reference `chap:experiments' on page 24 undefined on input line 131.
-
+<img/connections-interactive.png, id=403, 400.49625pt x 1387.1825pt>
+File: img/connections-interactive.png Graphic file (type png)
+<use img/connections-interactive.png>
+Package pdftex.def Info: img/connections-interactive.png  used on input line 155.
+(pdftex.def)             Requested size: 142.02744pt x 491.93465pt.
 
 
 [24]) (./chapters/chap5_experiment.tex
 
 [25]
+
+[26 <./img/connections-interactive.png>]
 chapter 6.
 )
 
-[26
+[27
 
 
 ]
@@ -1665,7 +1672,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.VI}) has 
                    \relax 
 l.115 \end{document}
                      [6]
-runsystem(latexminted cleantemp  --timestamp 20260825115211 FAD58DE7366495DB4650CFEFAC2FCD61)...executed safely (allowed).
+runsystem(latexminted cleantemp  --timestamp 20260826175433 FAD58DE7366495DB4650CFEFAC2FCD61)...executed safely (allowed).
 
  (./main.aux (./chapters/chap0_abstract.aux))
  ***********
@@ -1683,18 +1690,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 57994 strings out of 473190
- 1351140 string characters out of 5715801
- 2583634 words of memory out of 5000000
- 80258 multiletter control sequences out of 15000+600000
+ 58019 strings out of 473190
+ 1351967 string characters out of 5715801
+ 2583823 words of memory out of 5000000
+ 80280 multiletter control sequences out of 15000+600000
  578147 words of font info for 74 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  113i,12n,110p,11002b,2371s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsl1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on main.pdf (36 pages, 2952687 bytes).
+Output written on main.pdf (37 pages, 3009251 bytes).
 PDF statistics:
- 660 PDF objects out of 1000 (max. 8388607)
- 546 compressed objects within 6 object streams
- 109 named destinations out of 1000 (max. 500000)
- 324 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 675 PDF objects out of 1000 (max. 8388607)
+ 556 compressed objects within 6 object streams
+ 112 named destinations out of 1000 (max. 500000)
+ 334 words of extra memory for PDF output out of 10000 (max. 10000000)
 

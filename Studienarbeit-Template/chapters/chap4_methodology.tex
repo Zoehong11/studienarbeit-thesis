@@ -63,7 +63,14 @@ Once each word is represented by a pool of vectors, a single similarity still ha
 \section{Solving under the One-Shot Setting}
 \label{sec:one-shot-solving}
 
-Under the one-shot setting, the solver submits a single partition without receiving any feedback, so the task is to identify that one partition directly. With all $\binom{16}{4} = 1820$ candidate groups scored by \autoref{eq:group-score}, what remains is to solve \autoref{eq:weighted-csp} directly, searching the $|\mathcal{H}| = 2{,}627{,}625$ valid partitions (\autoref{sec:hypothesis-space}) for the one with the highest total score. The highest score can be pursued in two different ways. A local approach picks the highest-scoring group at each step, then repeats the process on the words that remain until a partition is formed. A global approach instead searches for the partition whose four groups have the highest score when summed together, even if no single group in it is the highest-scoring one on its own. Two search algorithms, one for each approach, are compared in this thesis.
+Under the one-shot setting, the solver submits a single partition without receiving any feedback, so the task is to identify that one partition directly. With all $\binom{16}{4} = 1820$ candidate groups scored by \autoref{eq:group-score}, what remains is to solve \autoref{eq:weighted-csp} directly, searching the $|\mathcal{H}| = 2{,}627{,}625$ valid partitions (\autoref{sec:hypothesis-space}) for the one with the highest total score. The highest score can be pursued in two different ways. A local approach picks the highest-scoring group at each step, then repeats the process on the words that remain until a partition is formed. A global approach instead searches for the partition whose four groups have the highest score when summed together, even if no single group in it is the highest-scoring one on its own. Two search algorithms, one for each approach, are compared in this thesis, and \autoref{fig:one-shot-pipeline} gives an overview.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.6\linewidth]{img/connections-one-shot}
+    \caption{Pipeline for solving Connections under the one-shot setting.}
+    \label{fig:one-shot-pipeline}
+\end{figure}
 
 The first is greedy. The highest-scoring group among all 1820 candidates is fixed as the first group. Its four words are removed, and the highest-scoring group among the candidates formed from the remaining twelve is fixed as the second. The same is done for the remaining eight words, and the last four words form the fourth group by default. Each choice is made from what scores best at that point and is never revisited.
 
@@ -110,28 +117,83 @@ The two differ in what they take into account. The greedy procedure judges a gro
 
 
 
+% \section{Solving under the Interactive Setting}
+% \label{sec:interactive-solving}
+
+% Under the one-shot setting, the highest-scoring partition is the answer, but under the interactive setting it needs to adapt. A response can rule out the partition currently believed to be best, and the solver then has to fall back on what else was possible.
+
+% The approach taken for the interactive setting follows the same idea that \autoref{sec:strategies} describes for solving Wordle, where a candidate set of possible solutions is narrowed down as feedback arrives. This thesis applies the same idea to the candidate set of possible partitions. Connections has 2,627,625 partitions and each submission returning a response that rules some of them out. What is borrowed is the elimination mechanism, not the valuations discussed in the pior work.
+% % What is borrowed is the elimination mechanism, not the valuations described in the pior work. Those valuations count candidates: how many remain in the worst case, how many distinct responses a guess splits them into, how much the count is expected to shrink. Counting is the right thing to do when every candidate is equally likely, which is the situation in Wordle and Mastermind, where nothing distinguishes one secret from another before the first guess. Connections is not in that situation. The scoring function ranks the partitions before anything is submitted, and \autoref{chap:problem-formulation} showed that this ranking needs to carry most of the information available.
+% Becasue a candidate set treats every surviving candidate alike, whereas the scoring function of \autoref{sec:scoring-functions} already ranks the partitions before anything is submitted. Moreover, \autoref{chap:problem-formulation} showed that the scoring function is where most of the information has to come from. 
+
+% Thus, the ranking is kept by assigning each partition a numeric belief, a continuous measure of how likely it is to be correct. This belief is then revised as responses come in.
+
+% A belief for every partition requires the score of every partition, not just the highest one.
+% The recurrence in \autoref{eq:dp-recurrence} does not provide this. At each step it keeps only the best score reached so far and discards every other choice along the way. It recovers a single best partition, not the score of each one.
+% Under the interactive setting, every partition's score is instead computed directly. Each partition consists of four groups, and each group already has a score stored from \autoref{eq:group-score}. A partition's score is simply the sum of its four group scores. Looking up four numbers and adding them is done for all 2,627,625 partitions at once, without recursion or caching. These are exactly the scores the beliefs are computed from.
+
+% Scores are not probabilities, and a distribution over partitions is what the solver has to maintain. The scores are converted using a softmax,
+% \begin{equation}
+% P_0(h) = \frac{\exp\big(\text{score}(h)/T\big)}{\sum_{h'} \exp\big(\text{score}(h')/T\big)},
+% \label{eq:softmax-prior}
+% \end{equation}
+% where $h$ ranges over all partitions and $T$ controls how concentrated the result is. A large $T$ flattens the differences between scores and spreads the probability evenly; a small $T$ concentrates it on the highest-scoring partitions. The default choice $T = 1$ is not usable here: it gives a prior with an entropy of 21.2 bits against the maximum of 21.32 from \autoref{eq:prior-entropy}, meaning that the distribution is almost uniform and nearly all of the ordering produced by the scoring function is lost in the conversion. $T$ is therefore set separately, and how is described in \autoref{chap:experiments}.
+
+% Once a group has been submitted and a response received, the belief is revised. For any partition and any submitted group, the response that would follow is fully determined by the rules in \autoref{sec:problem-setting}, so it can be computed for every partition still under consideration. Those whose predicted response differs from the one actually received are ruled out, and the probability mass is renormalised over the rest. No approximation is involved, since every partition can be checked individually.
+
+% A response of \emph{correct} is handled in the same way rather than as a special case. The set of partitions is never rebuilt: it remains the original 2,627,625, indexed by the original sixteen words, throughout the game. What a \emph{correct} response rules out is every partition that does not contain the confirmed group, and the belief is renormalised over those that do. Only the set of candidate groups shrinks, since submissions are drawn from the words not yet resolved. This keeps one property intact for the whole game: the true partition is consistent with every response received, so it is never ruled out, and the belief always retains it.
+
+% What remains is choosing which group to submit. Every group of four still-unresolved words is a candidate, and each is scored by its marginal probability: the total belief held by those surviving partitions that contain this exact group as one of their four. The candidate with the highest marginal is submitted. This is not the same as taking the most probable partition and submitting one of its groups. A group can hold the largest share of belief across many partitions without appearing in the single most probable one, and the two criteria can therefore disagree.
+
+
 \section{Solving under the Interactive Setting}
 \label{sec:interactive-solving}
+The interactive setting allows only one group to be submitted at a time, so the solver must select the group it currently believes in the most. This choice cannot be made from a group's own score alone. As established in \autoref{sec:one-shot-solving}, a group should be picked when the remaining words can still form valid groups, so belief has to attach to whole partitions rather than to individual groups. \autoref{fig:interactive-pipeline} gives an overview of the resulting loop.
 
-Under the one-shot setting, the highest-scoring partition is the answer, but under the interactive setting it needs to adapt. A response can rule out the partition currently believed to be best, and the solver then has to fall back on what else was possible.
+\begin{figure}[t]
+    \centering
+    \includegraphics[height=0.7\textheight,width=0.4\linewidth,keepaspectratio]{img/connections-interactive}
+    \caption{Pipeline for solving Connections under the interactive setting.}
+    \label{fig:interactive-pipeline}
+\end{figure}
 
-The approach taken for the interactive setting follows the same idea that \autoref{sec:strategies} describes for solving Wordle, where a candidate set of possible solutions is narrowed down as feedback arrives. This thesis applies the same idea to the candidate set of possible partitions. Connections has 2,627,625 partitions and each submission returning a response that rules some of them out. What is borrowed is the elimination mechanism, not the valuations discussed in the pior work.
+A probability for every partition requires the score of every partition, not just the highest one. The recurrence used in \autoref{sec:one-shot-solving} does not provide this. At each step it keeps only the best score reached so far and discards every other choice along the way. Under the interactive setting, every partition's score is instead computed directly. A partition's score is the sum of its four group scores, looked up and added for all 2,627,625 partitions at once.
 
-% What is borrowed is the elimination mechanism, not the valuations described in the pior work. Those valuations count candidates: how many remain in the worst case, how many distinct responses a guess splits them into, how much the count is expected to shrink. Counting is the right thing to do when every candidate is equally likely, which is the situation in Wordle and Mastermind, where nothing distinguishes one secret from another before the first guess. Connections is not in that situation. The scoring function ranks the partitions before anything is submitted, and \autoref{chap:problem-formulation} showed that this ranking needs to carry most of the information available.
+% \subsection{Representing Partitions and Groups}
+% Each group of four words is represented as a 16-bit mask, the same representation
+% used for the subsets in \autoref{sec:one-shot-solving}. Bit $i$ is set to $1$ if the
+% $i$-th word belongs to the group. A complete partition is four such masks, one for
+% each of its groups.
+%
+% Every one of the 2,627,625 valid partitions is enumerated once, at the start of the
+% program, and stored as an array of four masks per partition. This structure depends
+% only on how sixteen positions can be split into four disjoint groups of four, not on
+% the words or the puzzle, so it is computed once and reused across every puzzle
+% solved. What changes from puzzle to puzzle is only the score, and later the
+% probability, attached to each partition.
+%
+% The role masks play here differs from their role in \autoref{sec:one-shot-solving}.
+% There, a mask represents how many words remain to be assigned, and it shrinks from
+% sixteen bits down to zero as the recursion in \autoref{eq:dp-recurrence} proceeds.
+% Here, there is no such recursion. Every partition is enumerated directly, and a mask
+% instead serves as an index into lookup tables and as an operand for bitwise
+% comparisons. The representation is the same, but what it is used for is not.
 
-A candidate set treats every surviving candidate alike, whereas the scoring function of \autoref{sec:scoring-functions} already ranks the partitions before anything is submitted. Moreover, \autoref{chap:problem-formulation} showed that the scoring function is where most of the information has to come from. The ranking is kept by assigning each partition a numeric belief, a continuous measure of how likely it is to be correct. This belief is then revised as responses come in.
+Thus, in this thesis, a group's belief is obtained by summing the probability of every partition that contains it. In order to do so, the solver needs to hold the probability for every partition. The probability distribution is transformed from the score of each partition by using softmax.
 
-The search of \autoref{sec:partition-search} cannot supply this. Its recursion takes a maximum at every step, keeping the best branch and discarding the rest, and the discarded branches are exactly what is needed here. The scores are therefore computed directly. Each partition consists of four groups, each group has a score already stored from \autoref{eq:group-score}, and a partition score is the sum of those four values. Looking up four numbers and adding them is done for all 2,627,625 partitions at once, without recursion or caching.
-
-Scores are not probabilities, and a distribution over partitions is what the solver has to maintain. The scores are converted using a softmax,
+Let $h$ range over the $|\mathcal{H}| = 2{,}627{,}625$ partitions established in \autoref{sec:hypothesis-space}. Before any feedback has been received, the probability assigned to partition $h$ is:
 \begin{equation}
-P_0(h) = \frac{\exp\big(\text{score}(h)/T\big)}{\sum_{h'} \exp\big(\text{score}(h')/T\big)},
+P_0(h) = \frac{\exp\big(\text{score}(h)/T\big)}{\sum_{h'} \exp\big(\text{score}(h')/T\big)}.
 \label{eq:softmax-prior}
 \end{equation}
-where $h$ ranges over all partitions and $T$ controls how concentrated the result is. A large $T$ flattens the differences between scores and spreads the probability evenly; a small $T$ concentrates it on the highest-scoring partitions. The default choice $T = 1$ is not usable here: it gives a prior with an entropy of 21.2 bits against the maximum of 21.32 from \autoref{eq:prior-entropy}, meaning that the distribution is almost uniform and nearly all of the ordering produced by the scoring function is lost in the conversion. $T$ is therefore set separately, and how is described in \autoref{chap:experiments}.
+The subscript $0$ marks this as the belief held before any response has been observed.
+% Exponentiating each partition's score in the numerator makes every value positive. Dividing by the sum of these values over every partition, in the denominator, makes the results add up to one. Together, these two steps turn the raw scores into a valid probability distribution.
+The choice of temperature $T$ affects the resulting distribution. The specific value used is determined experimentally and is discussed in \autoref{chap:experiment}.
 
-Once a group has been submitted and a response received, the belief is revised. For any partition and any submitted group, the response that would follow is fully determined by the rules in \autoref{sec:problem-setting}, so it can be computed for every partition still under consideration. Those whose predicted response differs from the one actually received are ruled out, and the probability mass is renormalised over the rest. No approximation is involved, since every partition can be checked individually.
+% Each candidate group's marginal probability, the quantity introduced above, is obtained by grouping the partition probabilities by the masks of the groups they contain and summing within each group. This bucketed summation is done once, in a single pass over all 2,627,625 partitions, producing a lookup table indexed by group mask. Looking up a candidate's marginal probability afterward costs nothing beyond a single table access. Only groups formed from words that remain unresolved are valid candidates, since every already-confirmed group has already been submitted. The group submitted each round is the one maximizing this marginal probability among candidates formed from the remaining words, not among all $\binom{16}{4}$ groups.
 
-A response of \emph{correct} is handled in the same way rather than as a special case. The set of partitions is never rebuilt: it remains the original 2,627,625, indexed by the original sixteen words, throughout the game. What a \emph{correct} response rules out is every partition that does not contain the confirmed group, and the belief is renormalised over those that do. Only the set of candidate groups shrinks, since submissions are drawn from the words not yet resolved. This keeps one property intact for the whole game: the true partition is consistent with every response received, so it is never ruled out, and the belief always retains it.
+Each candidate group's marginal probability is obtained by summing the probabilities of every partition that contains it. Only groups formed from words that remain unresolved are valid candidates. The group submitted each round is the one with the highest marginal probability among these candidates.
 
-What remains is choosing which group to submit. Every group of four still-unresolved words is a candidate, and each is scored by its marginal probability: the total belief held by those surviving partitions that contain this exact group as one of their four. The candidate with the highest marginal is submitted. This is not the same as taking the most probable partition and submitting one of its groups. A group can hold the largest share of belief across many partitions without appearing in the single most probable one, and the two criteria can therefore disagree.
+Once a group has been submitted and a response received, these probabilities are revised. The partition that contradict from the response are removed from the candidates. After that, the probabilities of the remaining partitions no longer add up to one. A normalization step is carried out, the possibilities of the remaining are scaled up by the same factor until they add up to one. This is an exact Bayesian update, made simple by the fact that responses are deterministic. From the remaining candidates, the new submission will be chosen.
+
+% Each response also changes what the solver should do next. A submission is chosen from the current probabilities, the response revises them, and the next submission is chosen from the revised ones. The solver makes a sequence of decisions under uncertainty, each informed by everything observed so far, rather than a single decision made once.
