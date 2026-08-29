@@ -23,11 +23,11 @@ s(g) = \sum_{\{i,j\} \subset g} \text{sim}[i,j].
 
 A partition is then scored by adding the scores of its four groups, which is the quantity maximized in \autoref{eq:weighted-csp}. Since the same group appears in many partitions, all $\binom{16}{4} = 1820$ group scores are computed once and stored, and partition scores are assembled from them by lookup.
 
-What varies is how $\text{sim}[i,j]$ is obtained, and \autoref{fig:scoring-function} shows the two configurations compared. The first embeds each word as it is, so that a word has one vector and the similarity between two words is the cosine similarity of those vectors. The second expands each word into a set of texts, one per meaning, and embeds each text separately, so that a word is represented by a pool of vectors. The similarity between two words is then the highest cosine similarity over all pairs of their meanings.
+What varies is how $\text{sim}[i,j]$ is obtained, and \autoref{fig:scoring-function} shows the two configurations compared. The first embeds each word as it is, so that a word has one vector and the similarity between two words is the cosine similarity of those vectors. The second expands each word into a set of texts, one per meaning, and embeds each text separately, so that a word is represented by a pool of vectors. The similarity between two words is then obtained by aggregating over the most similar pairings of their meanings, as detailed in \autoref{subsec:semantic-enrichment}.
 \begin{figure}[t]
     \centering
     \includegraphics[width=\linewidth]{img/connections-score-function}
-    \caption{The two configurations of the scoring function compared in this thesis. Dashed borders mark the points where configurations differ; solid borders mark stages that are the same throughout. Configuration (1) embeds each word directly. Configuration (2) expands each word into a pool of meanings first, and then take the maximum over all pairs of meanings as the single similarity.}
+    \caption{The two configurations of the scoring function compared in this thesis. Dashed borders mark the points where configurations differ; solid borders mark stages that are the same throughout. Configuration (1) embeds each word directly. Configuration (2) expands each word into a pool of meanings first, and then aggregates over the most similar pairings of meanings into the single similarity.}
     \label{fig:scoring-function}
 \end{figure}
 
@@ -58,7 +58,13 @@ Our solver supplies every candidate meaning of a word directly as a set of texts
 
 The texts themselves come from external lexical and encyclopedic resources. Which resources are used is a configuration choice rather than part of the mechanism. The knowledge resources examined in this thesis and the effect of each are reported in \autoref{chap:experiment}. When none of the enabled resources returns anything for a word, the bare word itself is used as the single entry in its pool, so that every word is represented.
 
-Once each word is represented by a pool of vectors, a single similarity still has to be produced from two pools. Every meaning of one word is compared with every meaning of the other, and the highest of those cosine similarities is taken as $\text{sim}[i,j]$. Maximum is used here to identify the specific pairing of meanings under which the two words are closest, and that pairing might be the evidence of what the puzzle intends.
+After enrichment, each word is represented by a pool of vectors rather than a single one. Comparing two words therefore produces not one similarity but many, one for every pairing of a meaning from the first word with a meaning from the second. A single value, $\text{sim}[i,j]$, still has to be produced from this collection.
+
+Both extremes raise a concern. Averaging over every pairing treats all of a word's meanings as equally relevant, even though a puzzle intends only one, which risks diluting the one match that actually matters. A word with many meanings would be diluted more than a word with few, simply because it contributes more irrelevant pairings to the average. Taking only the single highest similarity avoids this risk, but relies on one pairing alone, so a single coincidentally high similarity could decide the result with nothing to cushion it.
+
+This thesis takes the average similarity over the top-$k$ highest-similarity pairings. Small $k$ behaves like taking the maximum alone. Large $k$ approaches averaging over everything. $k$ is a parameter that interpolates between the two extremes, not a value that can be fixed in advance.
+
+The value of $k$ is determined experimentally rather than fixed here. A range of values is compared, and the one that performs best is adopted, as reported in \autoref{chap:experiments}.
 
 \section{Solving under the One-Shot Setting}
 \label{sec:one-shot-solving}
