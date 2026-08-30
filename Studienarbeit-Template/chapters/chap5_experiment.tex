@@ -1,2 +1,128 @@
-\chapter{Experiment Setup}
-\label{chap:experiment}
+\chapter{Experiments}
+\label{chap:experiments}
+
+\autoref{chap:method} left four choices open. The first is whether semantic enrichment improves the scoring function, and if so which resource or sources should supply the meanings. The second is how many meaning pairs should be averaged when comparing two words for the pairwise similarity. The third is whether a greedy selection of groups is sufficient, or whether the partition should be optimised as a whole. The fourth is the value of the softmax temperature that converts partition scores into a prior. This chapter reports the experiments that settle them.
+
+The experiments are presented in the order in which the choices arise. The search is examined first, since every later configuration depends on it. Knowledge sources follow, and then the aggregation rule. These three are evaluated under the one-shot setting, where no feedback is available and any difference in performance can therefore be attributed to the scoring function. The interactive setting is examined last, since its prior is derived from the scoring function established in the earlier sections. Each experiment takes as its starting point the configuration selected by the previous one.
+
+\section{Data}
+\label{sec:data}
+Before diving into the experiments, the data source for Connections puzzles is clarified. 
+The puzzles are drawn from a public github archive of NYT Connections answers\footnote{\url{https://github.com/Eyefyre/NYT-Connections-Answers}}, which updates daily. The puzzles used in this thesis covers however not all the puzzles so far, but starts from 2023-06-12 to 2026-01-06. The archive contains 939 puzzles for these 940 calendar days. The puzzle for 2025-10-31 is absent from the source for reason unknown.
+
+One further puzzle was excluded from the dataset. The one on 2025-04-01 was an April Fools' puzzle composed of emoji and symbols rather than words, and text extraction returned empty strings for all sixteen words. 
+
+The exclusion is handled by a validity check rather than by name. Every puzzle is checked as it is loaded, and any puzzle whose words or answer members are empty or consist only of whitespace is dropped, with the exclusion recorded above. The resulting pool contains 938 puzzles.
+
+% 针对大小写我们又做了一次实验
+The NYT Connections game displays words in upper case originally and so does the data used. Whitespace is preserved, since several answer members are multi-word phrases in which the spacing is meaningful.
+
+Two sample sizes are used. A fixed subset of 100 puzzles, drawn uniformly at random with a fixed seed, is used for exploratory comparisons. The full pool of 938 puzzles is used where a difference observed at the smaller scale was too small to be conclusive. The subset is contained in the full pool and there is no separate held-out set. No parameters are fitted to individual puzzles, so this does not constitute leakage of test data into training. 
+
+The limitations of the data are listed below. 
+% First, the two samples are not independent and results obtained from them are not treated as independent. Second, whether a comparison is escalated from the 100-puzzle subset to the full pool depends on how large the difference already looks at the smaller scale, so this decision is not made blind to the data. Third, the same 100-puzzle subset is also reused across every comparison in this thesis. A difference specific to this particular subset could therefore appear in more than one experiment, and only comparisons with an inconclusive result at that scale are checked against the full pool.
+First, the two samples are not independent, since the 100 puzzle subset is part of the full pool. Second, escalation from the subset to the full pool is decided after looking at the result on the subset. Third, the same 100-puzzle subset is reused across every comparison in this thesis.
+
+\section{Evaluation Metrics}
+\label{sec:metrics}
+
+Two measures are reported for every configuration. First, the average number of correct groups per puzzle ranges from zero to four and records how much of a puzzle was recovered. Second, the success rate is the proportion of puzzles solved completely, which is the game's own criterion for winning. Their meaning depends on the setting.
+
+Under the one-shot setting a single partition is submitted, and the two measures describe how many of its four groups are correct and whether all four are. This average is especially informative here. The one-shot success rate tends to be low, so it captures little variation between configurations on its own.
+
+Under the interactive setting, the game ends when the puzzle is solved or when the mistake budget is exhausted. In terms of the success rate, as long as the first three groups are grouped correctly, the fourth group is also determined, because there are no other possible ways to group the remaining four words. A puzzle is therefore counted as successfully solved once three groups are correct.
+% The two settings are not compared directly, for the reasons given in \autoref{sec:problem-setting}.
+
+Results are also broken down by difficulty levels. The four tiers, yellow through purple, are reported as the proportion of puzzles in which the group at that level was identified correctly.
+
+For the interactive setting, the average number of mistakes made per puzzle is reported alongside the two main measures.
+
+\section{Search Strategy}
+\label{sec:exp-search}
+
+The first question is whether a local approach is sufficient, or whether a global approach is needed. A local approach selects the four groups one at a time. A global approach searches for the partition with the highest total score. Both are described in \autoref{sec:one-shot-solving}. The greedy procedure takes the highest-scoring group among all candidates, removes its four words, and repeats on what remains. The global search returns the partition whose four groups have the highest total score.
+
+Everything else is held fixed. Neither configuration uses enrichment. Each word is embedded directly with BAAI/BGE-large-en-v1.5\footnote{\url{https://huggingface.co/BAAI/bge-large-en-v1.5}}, and the similarity between two words is the cosine similarity of their embeddings. Both configurations use the same group scoring rule. The only difference is how the four groups are selected. Both were run on the development subset of 100 puzzles.
+
+\begin{table}[t]
+\centering
+\caption{Greedy selection compared with global search, without enrichment, on 100 puzzles.}
+\label{tab:search}
+\begin{tabular}{lcccccc}
+\toprule
+& Avg.\ correct & Success & Yellow & Green & Blue & Purple \\
+\midrule
+Greedy & 0.51 & 2\% & 21\% & 16\% & 8\% & 6\% \\
+Global search & 0.60 & 3\% & 23\% & 15\% & 13\% & 9\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\autoref{tab:search} shows the results. Global search recovers slightly more groups per puzzle than greedy, 0.60 against 0.51. The difference across the four tiers is small and uneven. Yellow and green are close, 23\% against 21\% and 15\% against 16\%. Blue and purple favor global search by a few percentage points, 13\% against 8\% and 9\% against 6\%.
+
+The improvement observed here is modest, but global search fits the structure of the game more closely than greedy does, since a correct partition depends on all four groups jointly, not on any one group in isolation. Thus, global search is used in all subsequent one-shot experiments. These figures also serve as the baseline against which enrichment is measured in \autoref{sec:exp-sources}. The baseline is 0.60 correct groups per puzzle and a success rate of 3\%.
+
+\section{Knowledge Sources}
+\label{sec:exp-sources}
+
+The second question is whether enriching a word improves the scoring function, and which resource should supply the enrichment. Enrichment replaces a bare word with a set of texts, one for each of its candidate meanings, so that each meaning gets its own vector instead of being averaged into one, as described in \autoref{subsec:semantic-enrichment}. Four configurations were compared against the baseline established in \autoref{sec:exp-search}, each drawing its texts from a different resource or combination of resources. The three resources were chosen because each targets a different kind of relation identified in the taxonomy of \autoref{tab:connections_relation_taxonomy}.
+
+The first configuration uses WordNet \cite{millerWordNetLexicalDatabase1995}, queried locally through the Natural Language Toolkit (NLTK), a Python library for natural language processing. Every synset of a word is retrieved, and each synset's gloss is used as one of its texts. It is chosen to target the semantic similarity and semantic relatedness categories, where shared meaning or theme drives the grouping.
+
+The second configuration draw the meanings from Wikipedia\footnote{\url{https://en.wikipedia.org/api/rest_v1/}}. For each word, the Wikimedia REST API's page summary endpoint is queried live, and the article's title, description, and opening extract are used as its text. Wikipedia is chosen to target the referential categories, which require knowledge of named entities and other real-world facts that a dictionary does not provide.
+
+The third configuration is tested with Datamuse\footnote{\url{https://www.datamuse.com/api/}}, a free word-association API queried live for each word. Three relation types are used, namely semantically similar words, synonyms, and words that commonly co-occur with it. Datamuse targets the form- or rule-based categories, where membership depends on spelling or sound rather than meaning.
+
+The fourth configuration combines the texts from all three resources.
+
+Global search is the search strategy used, and each word pair is scored by the single highest similarity over all pairs of meanings. Since Wikipedia and Datamuse are queried live over the network for every word, which adds latency and risks rate limiting, all four configurations were run on the development subset of 100 puzzles rather than the full pool.
+
+\begin{table}[t]
+\centering
+\caption{Knowledge sources compared on 100 puzzles, using global search and $k = 1$.}
+\label{tab:sources}
+\begin{tabular}{lcccccc}
+\toprule
+& Avg.\ correct & Success & Yellow & Green & Blue & Purple \\
+\midrule
+No enrichment & 0.60 & 3\% & 23\% & 15\% & 13\% & 9\% \\
+WordNet & 0.97 & 8\% & 38\% & 30\% & 17\% & 12\% \\
+Wikipedia & 0.53 & 2\% & 20\% & 17\% & 10\% & 6\% \\
+Datamuse & 0.64 & 3\% & 24\% & 25\% & 8\% & 7\% \\
+All three & 0.82 & 4\% & 34\% & 29\% & 9\% & 10\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\autoref{tab:sources} shows that only WordNet improves on the baseline. It recovers 0.97 correct groups per puzzle against 0.60, and solves 8\% of puzzles completely against 3\%. Wikipedia performs below the baseline at 0.53, and Datamuse is close to it at 0.64.
+
+Combining all three does not help. The combined configuration reaches 0.82, below WordNet on its own, and its success rate of 4\% is half that of WordNet alone. The two weaker resources do not add to what WordNet provides.
+
+The gain from WordNet is concentrated in the easier levels. Yellow rises from 23\% to 38\% and green from 15\% to 30\%, while blue rises from 13\% to 17\% and purple from 9\% to 12\%. This result shows that Wordnet mainly improves performance on semantic relations, which appear in yellow and green levels more often.
+
+Judging from the results shown above, WordNet alone is used as the knowledge source in all subsequent experiments.
+
+\section{Aggregation Rule}
+\label{sec:exp-aggregation}
+
+The third question is whether the single highest similarity between two words' meanings is the right measure to use. The enrichment experiment above has used the single highest similarity, as described in \autoref{subsec:semantic-enrichment}. It leaves no margin for error. A single accidental match between two unrelated meanings determines the result on its own. This thesis therefore also tests averaging over more than one pair of meanings. Under this rule, the $k$ pairs with the highest similarity are selected. Their similarities are averaged into a single value. Taking only the highest similarity is the special case $k = 1$ of this more general rule. A small range of $k$ values is tested, and the value that performs best is adopted.
+
+Values of $k = 1$, $k = 2$ and $k = 3$ were compared, using WordNet and global search throughout. On the development subset of 100 puzzles the three configurations produced the same success rate of 8\%, since a difference of one or two puzzles is below what a sample of that size can distinguish. The comparison was therefore repeated on the full pool of 938 puzzles.
+
+\begin{table}[t]
+\centering
+\caption{Aggregation rule compared on all 938 puzzles, using WordNet and global search.}
+\label{tab:aggregation}
+\begin{tabular}{lcccccc}
+\toprule
+$k$ & Avg.\ correct & Success & Yellow & Green & Blue & Purple \\
+\midrule
+1 & 0.995 & 6.61\% & 41.15\% & 30.92\% & 17.48\% & 9.91\% \\
+2 & 1.039 & 7.89\% & 42.64\% & 32.41\% & 17.70\% & 11.19\% \\
+3 & 1.024 & 7.14\% & 42.43\% & 31.98\% & 17.80\% & 10.13\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\autoref{tab:aggregation} shows the result peaks at $k = 2$. It leads with 1.039 correct groups and a success rate of 7.89\% against 6.61\%. The same pattern holds across the difficulty tiers. Since performance rises from $k = 1$ to $k = 2$ and falls again at $k = 3$, larger values were not examined. All subsequent experiments use $k = 2$.
+

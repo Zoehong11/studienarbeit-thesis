@@ -1103,6 +1103,57 @@
       \verb 10.1137/0110015
       \endverb
     \endentry
+    \entry{millerWordNetLexicalDatabase1995}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=52cf88006a41a8cd9aab3bcb5e428b80}{%
+           family={Miller},
+           familyi={M\bibinitperiod},
+           given={George\bibnamedelima A.},
+           giveni={G\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \strng{namehash}{52cf88006a41a8cd9aab3bcb5e428b80}
+      \strng{fullhash}{52cf88006a41a8cd9aab3bcb5e428b80}
+      \strng{fullhashraw}{52cf88006a41a8cd9aab3bcb5e428b80}
+      \strng{bibnamehash}{52cf88006a41a8cd9aab3bcb5e428b80}
+      \strng{authorbibnamehash}{52cf88006a41a8cd9aab3bcb5e428b80}
+      \strng{authornamehash}{52cf88006a41a8cd9aab3bcb5e428b80}
+      \strng{authorfullhash}{52cf88006a41a8cd9aab3bcb5e428b80}
+      \strng{authorfullhashraw}{52cf88006a41a8cd9aab3bcb5e428b80}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
+      \field{abstract}{Because meaningful sentences are composed of meaningful words, any system that hopes to process natural languages as people do must have information about words and their meanings. This information is traditionally provided through dictionaries, and machine-readable dictionaries are now widely available. But dictionary entries evolved for the convenience of human readers, not for machines. WordNet1 provides a more effective combination of traditional lexicographic information and modern computing. WordNet is an online lexical database designed for use under program control. English nouns, verbs, adjectives, and adverbs are organized into sets of synonyms, each representing a lexicalized concept. Semantic relations link the synonym sets [4].}
+      \field{day}{1}
+      \field{issn}{0001-0782}
+      \field{journaltitle}{Communications of the ACM}
+      \field{month}{11}
+      \field{number}{11}
+      \field{shortjournal}{Commun. ACM}
+      \field{shorttitle}{{{WordNet}}}
+      \field{title}{{{WordNet}}: A Lexical Database for {{English}}}
+      \field{urlday}{31}
+      \field{urlmonth}{7}
+      \field{urlyear}{2026}
+      \field{volume}{38}
+      \field{year}{1995}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \field{pages}{39\bibrangedash 41}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1145/219717.219748
+      \endverb
+      \verb{file}
+      \verb /Users/hong/Zotero/storage/WFLUQAJ9/Miller - 1995 - WordNet a lexical database for English.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://dl.acm.org/doi/10.1145/219717.219748
+      \endverb
+      \verb{url}
+      \verb https://dl.acm.org/doi/10.1145/219717.219748
+      \endverb
+    \endentry
   \enddatalist
 \endrefsection
 \endinput
