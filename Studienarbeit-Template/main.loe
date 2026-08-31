@@ -1,0 +1,13 @@
+\contentsline {equations}{\numberline {2.1}Entropy, $H(\mathrm {X}) = \DOTSB \sum@ \slimits@ _{x \in \mathcal {X}} p(x) \log _2 \frac {1}{p(x)}$}{8}{equation.2.1}%
+\contentsline {equations}{\numberline {2.2}Maximum entropy, $H_{\text {max}}(\mathcal {X}) = \log _2 |\mathcal {X}|$}{8}{equation.2.2}%
+\contentsline {equations}{\numberline {2.3}Expected information gain, $IG(\text {guess}) = H(\mathrm {X}) - \mathbb {E}\big [H(\mathrm {X} \mid \text {feedback})\big ]$}{8}{equation.2.3}%
+\contentsline {equations}{\numberline {3.1}Group membership, $G_k = \{w_i : x_i = k\}$}{14}{equation.3.1}%
+\contentsline {equations}{\numberline {3.2}Group size constraint, $|G_k| = 4$ for every $k$}{14}{equation.3.2}%
+\contentsline {equations}{\numberline {3.3}Weighted CSP objective, $x^* = \argmax _x \DOTSB \sum@ \slimits@ _{k=1}^{4} s(G_k)$}{14}{equation.3.3}%
+\contentsline {equations}{\numberline {3.4}Number of valid partitions, $|\mathcal {H}| = \frac {16!}{(4!)^4 \cdot 4!} = 2{,}627{,}625$}{16}{equation.3.4}%
+\contentsline {equations}{\numberline {3.5}Prior entropy over all partitions, $H_{\text {max}}(\mathcal {H}) = \log _2 |\mathcal {H}| \approx 21.3$ bits}{16}{equation.3.5}%
+\contentsline {equations}{\numberline {3.6}Information per feedback response, $\log _2 3 \approx 1.58$ bits}{16}{equation.3.6}%
+\contentsline {equations}{\numberline {3.7}Maximum information obtainable from feedback, $4 \log _2 3 \approx 6.34$ bits}{17}{equation.3.7}%
+\contentsline {equations}{\numberline {4.1}Group score, $s(g) = \DOTSB \sum@ \slimits@ _{\{i,j\} \subset g} \text {sim}[i,j]$}{19}{equation.4.1}%
+\contentsline {equations}{\numberline {4.2}DP recurrence, $\text {best}(M) = \max _{g \subseteq M, |g| = 4} \big ( s(g) + \text {best}(M \setminus g) \big )$}{24}{equation.4.2}%
+\contentsline {equations}{\numberline {4.3}Softmax prior, $P_0(h) = \exp \big (\text {score}(h)/T\big ) \big / \DOTSB \sum@ \slimits@ _{h'} \exp \big (\text {score}(h')/T\big )$}{25}{equation.4.3}%

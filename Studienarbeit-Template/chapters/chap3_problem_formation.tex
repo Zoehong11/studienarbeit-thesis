@@ -75,13 +75,15 @@ Let $k$ be a group number, so $k \in \{1,2,3,4\}$, and write $G_k$ for the set o
 G_k = \{w_i : x_i = k\}.
 \label{eq:group-def}
 \end{equation}
-The condition $x_i = k$ selects those indices $i$ whose word was placed in group $k$, and $G_k$ collects the corresponding words. In the assignment described above, $x_1 = 2$ and $x_3 = 2$, so BUCKS and HEAT both belong to $G_2$. Every assignment $x$ determines all four sets $G_1, \dots, G_4$ in this way. The two notations describe the same thing from different directions: $x$ records, for each word, which group it went to, while $G_k$ records, for each group, which words it received.
+\eqcaption{Group membership, $G_k = \{w_i : x_i = k\}$}
+The condition $x_i = k$ selects those indices $i$ whose word was placed in group $k$, and $G_k$ collects the corresponding words. In the assignment described above, $x_1 = 2$ and $x_3 = 2$, so BUCKS and HEAT both belong to $G_2$. Every assignment $x$ determines all four sets $G_1, \dots, G_4$ in this way. The two notations describe the same thing from different directions: $x$ records for each word which group it went to, while $G_k$ records for each group which words it received.
 
 The constraint set $C$ then requires each group to hold exactly four words:
 \begin{equation}
 C: \quad |G_k| = 4 \quad \text{for every } k \in \{1,2,3,4\}.
 \label{eq:csp-constraint}
 \end{equation}
+\eqcaption{Group size constraint, $|G_k| = 4$ for every $k$}
 
 Satisfying \autoref{eq:csp-constraint} is not difficult, but only one partition recovers the puzzle's intended grouping. The constraint treats all valid partitions as equally acceptable and we need something to distinguish the correct one, and that role is filled by a scoring function.
 
@@ -90,6 +92,7 @@ Let $s(g)$ be a function that takes a group of four words $g \subset W$ and retu
 x^* = \argmax_x \sum_{k=1}^{4} s(G_k) \quad \text{subject to } |G_k| = 4 \text{ for all } k.
 \label{eq:weighted-csp}
 \end{equation}
+\eqcaption{Weighted CSP objective, $x^* = \argmax_x \sum_{k=1}^{4} s(G_k)$}
 The assignment $x^*$ is the one scoring highest among all assignments satisfying the constraint. It is worth being explicit that $x^*$ is not by definition the correct answer, but the partition that $s$ ranks highest, and whether that coincides with the puzzle's intended grouping depends entirely on how well $s$ reflects the relations the puzzle is built on. Where $s$ is imperfect, the correct partition may score below an incorrect one, and no amount of searching will recover it, because the information needed to prefer it was never encoded in the score. Much of this thesis is concerned with how close $s$ can be brought to that standard, and with what happens when it falls short.
 
 The sum in \autoref{eq:weighted-csp} runs over all four groups, so an assignment is judged by the combined plausibility of the whole partition and not of any group on its own. The 12 June 2023 puzzle shows why this matters. HEAT sits naturally alongside HAIL, RAIN, SLEET and SNOW, and a solver scoring that group in isolation would find it convincing. The group is nonetheless wrong: HEAT belongs to NBA TEAMS, and committing to a weather group containing it leaves BUCKS, JAZZ and NETS without a fourth member. A locally plausible group can only be accepted if the twelve words it leaves behind can still form three groups that score well, and the summation over all four groups is what enforces that condition.
@@ -113,12 +116,14 @@ The size of $\mathcal{H}$ is calculated using permutations and combinations. Arr
 |\mathcal{H}| = \frac{16!}{(4!)^4 \cdot 4!} = 2{,}627{,}625.
 \label{eq:hypothesis-count}
 \end{equation}
+\eqcaption{Number of valid partitions, $|\mathcal{H}| = \frac{16!}{(4!)^4 \cdot 4!} = 2{,}627{,}625$}
 
 A solver that knows nothing about a particular puzzle has no reason to favour any element of $\mathcal{H}$ over another. Applying the entropy formula \autoref{eq:maxentropy} to a uniform distribution over $\mathcal{H}$ and entropy is at its largest in this case. It gives
 \begin{equation}
 H_{\text{max}}(\mathcal{H}) = \log_2 |\mathcal{H}| = \log_2 (2{,}627{,}625) \approx 21.3 \text{ bits}.
 \label{eq:prior-entropy}
 \end{equation}
+\eqcaption{Prior entropy over all partitions, $H_{\text{max}}(\mathcal{H}) = \log_2 |\mathcal{H}| \approx 21.3$ bits}
 This is the total amount of information required to identify the correct partition with certainty, starting from no knowledge at all. The information a solver gets, no matter it's from the feedback or encoded in the scoring function, needs to reach this figure before it can be guaranteed to find the correct answer.
 
 \section{Information from Feedback}
@@ -130,6 +135,7 @@ The response set has three elements (correct, one away, wrong), so by \autoref{e
 \log_2 3 \approx 1.58 \text{ bits}.
 \label{eq:single-feedback}
 \end{equation}
+\eqcaption{Information per feedback response, $\log_2 3 \approx 1.58$ bits}
 
 This is the maximum amount of information that can be obtained from a single feedback response, regardless of the submission strategy and is attained only when all three are equally likely. So it is the ideally maximum information gain. In real Connections, the distribution of feedback outcomes is not uniform. Of the $\binom{16}{4} = 1820$ groups that can be submitted, four are correct and 192 are one away, leaving 1624 that return wrong. A submission chosen at random therefore returns wrong with probability $1624/1820 \approx 0.89$, and the entropy of the response under that distribution is about 0.55 bits, roughly a third of the ceiling.
 
@@ -138,5 +144,6 @@ The game allows four mistakes. Since correct submissions do not consume the budg
 4 \log_2 3 \approx 6.34 \text{ bits}.
 \label{eq:feedback-bound}
 \end{equation}
+\eqcaption{Maximum information obtainable from feedback, $4 \log_2 3 \approx 6.34$ bits}
 
 \autoref{eq:prior-entropy} gives the information required to identify the correct partition as roughly 21.3 bits. Feedback supplies at most 6.34 of them and the remaining 15 bits must come from somewhere else. In this thesis, it is the scoring function that we mentioned in \autoref{sec:connections-csp}, which will be introduced in \autoref{chap:method}.

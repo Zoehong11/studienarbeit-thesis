@@ -267,6 +267,12 @@
 % \counterwithout{table}{chapter}
 % \counterwithout{figure}{chapter}
 
+%% List of Equations
+\newcommand{\listequationname}{List of Equations}
+\newlistof{equations}{loe}{\listequationname}
+\cftsetindents{equations}{0pt}{2.3em}
+\newcommand{\eqcaption}[1]{\addcontentsline{loe}{equations}{\protect\numberline{\theequation}#1}}
+
 %% TikZ / Plots
 % \usepackage{tikzit}
 % \usepackage[edges]{forest}

@@ -20,6 +20,7 @@ A candidate group is any four of the sixteen words, and each contains $\binom{4}
 s(g) = \sum_{\{i,j\} \subset g} \text{sim}[i,j].
 \label{eq:group-score}
 \end{equation}
+\eqcaption{Group score, $s(g) = \sum_{\{i,j\} \subset g} \text{sim}[i,j]$}
 
 A partition is then scored by adding the scores of its four groups, which is the quantity maximized in \autoref{eq:weighted-csp}. Since the same group appears in many partitions, all $\binom{16}{4} = 1820$ group scores are computed once and stored, and partition scores are assembled from them by lookup.
 
@@ -91,6 +92,7 @@ For a non-empty $M$, imagine one specific group $g$ is part of the eventual solu
 \text{best}(M) = \max_{\substack{g \subseteq M \\ |g| = 4}} \Big( s(g) + \text{best}(M \setminus g) \Big).
 \label{eq:dp-recurrence}
 \end{equation}
+\eqcaption{DP recurrence, $\text{best}(M) = \max_{g \subseteq M, |g| = 4} \big( s(g) + \text{best}(M \setminus g) \big)$}
 This recurrence does not run in circles. Each step removes a group of four words, so $M \setminus g$ is always four words smaller than $M$. Every subproblem therefore eventually reduces to the base case $\text{best}(\emptyset) = 0$. This thesis evaluates \autoref{eq:dp-recurrence} bottom-up. Masks are processed in order of increasing size, starting from $\text{best}(\emptyset) = 0$. By the time $\text{best}(M)$ is computed for any given $M$, every smaller $\text{best}(M \setminus g)$ it needs has already been computed and stored. No value is therefore ever recomputed. The last mask processed is $W$ itself, giving $\text{best}(W)$, the score of $P^*$ in \autoref{eq:weighted-csp}.
 
 The score alone is not the answer. To recover the four groups that make up $P^*$, whichever group $g$ achieves the maximum in \autoref{eq:dp-recurrence} is recorded for every $M$ along the way. Starting from $W$, this recorded group is read off, removed, and the same lookup is repeated on what remains, until all sixteen words have been assigned.
@@ -192,6 +194,7 @@ Let $h$ range over the $|\mathcal{H}| = 2{,}627{,}625$ partitions established in
 P_0(h) = \frac{\exp\big(\text{score}(h)/T\big)}{\sum_{h'} \exp\big(\text{score}(h')/T\big)}.
 \label{eq:softmax-prior}
 \end{equation}
+\eqcaption{Softmax prior, $P_0(h) = \exp\big(\text{score}(h)/T\big) \big/ \sum_{h'} \exp\big(\text{score}(h')/T\big)$}
 The subscript $0$ marks this as the belief held before any response has been observed.
 % Exponentiating each partition's score in the numerator makes every value positive. Dividing by the sum of these values over every partition, in the denominator, makes the results add up to one. Together, these two steps turn the raw scores into a valid probability distribution.
 The choice of temperature $T$ affects the resulting distribution. The specific value used is determined experimentally and is discussed in \autoref{chap:experiments}.

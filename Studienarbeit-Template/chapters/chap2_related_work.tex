@@ -89,11 +89,13 @@ The probability-weighted average of this information across all outcomes is the 
 H(\mathrm{X}) = \sum_{x \in \mathcal{X}} p(x) \log_2 \frac{1}{p(x)}.
 \label{eq:entropy}
 \end{equation}
+\eqcaption{Entropy, $H(\mathrm{X}) = \sum_{x \in \mathcal{X}} p(x) \log_2 \frac{1}{p(x)}$}
 Entropy serves as the connection between probability and information content. It measures how uncertain a random event is on average. Higher entropy means more uncertainty to begin with, so more information must be acquired to become certain about the outcome. Entropy is maximized when probability is spread evenly over all outcomes. In that case it reduces to
 \begin{equation}
 H_{\text{max}}(\mathcal{X}) = \log_2 |\mathcal{X}|,
 \label{eq:maxentropy}
 \end{equation}
+\eqcaption{Maximum entropy, $H_{\text{max}}(\mathcal{X}) = \log_2 |\mathcal{X}|$}
 where $|\mathcal{X}|$ is the number of possible outcomes \cite{pinkardVisualIntroductionInformation2026}.
 
 Conditional entropy, $H(\mathrm{X} \mid y)$, measures how much uncertainty about $\mathrm{X}$ remains after observing an outcome $y$. The reduction in entropy achieved by an observation is the information gain. Taken in expectation over all possible outcomes of an observation, before that observation is actually made, this gives the expected information gain of an action:
@@ -101,6 +103,7 @@ Conditional entropy, $H(\mathrm{X} \mid y)$, measures how much uncertainty about
 IG(\text{guess}) = H(\mathrm{X}) - \mathbb{E}\big[H(\mathrm{X} \mid \text{feedback})\big].
 \label{eq:infogain}
 \end{equation}
+\eqcaption{Expected information gain, $IG(\text{guess}) = H(\mathrm{X}) - \mathbb{E}\big[H(\mathrm{X} \mid \text{feedback})\big]$}
 This quantity is what solvers use to decide which action is most useful before knowing what the feedback will be. An action with higher expected information gain is expected to narrow down the remaining candidates more, regardless of which specific feedback is eventually returned.
 
 \subsectionnotoc{Solving Wordle with Information Theory}

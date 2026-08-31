@@ -1,71 +1,54 @@
 % !TEX root = ../main.tex
-\chapter{Conclusion and Future Work}
+\chapter{Discussion and Conclusion}
 \label{chap:conclusion}
 
-% TODO
-% 这是个非常好的问题——你的直觉"这里面是不是有问题"值得认真对待，但我先得做一件事：读Dr.Fill的原文，而不是凭我对它的印象回答你。你把文件放进项目了，我先看。读到了核心内容。让我再看一下后面关于知识源合并和value selection的部分，这是你问题的关键。我读完了Dr.Fill的核心。你的直觉——"这里面是不是有问题"——**方向对了一半**，但真正的答案比"我们设计出错"深刻得多，而且它恰恰是你论文最强的一个论点。让我把Dr.Fill为什么成功、你为什么"失败"讲清楚，你会发现这两件事根本不矛盾，反而互相印证。
+This thesis asked how far Connections can be solved by scoring candidate groups and searching over partitions instead of prompting a language model for the answer, and where the boundary lies between what an algorithm can settle and what has to come from linguistic knowledge. This chapter discusses the results reported in \autoref{chap:experiments}, states the limitations of this evaluation, concludes the thesis and outlines the future work.
 
-% ## 首先纠正一个前提：你没有"失败"，Dr.Fill也没有做你以为它做的事
+\section{Discussion}
+\label{sec:discussion}
 
-% 你说"Dr.Fill合并多个知识源给候选打分很成功，我们的enriching却失败了"——这个对比里有个隐藏的误解。读了原文，Dr.Fill的成功**不是来自"合并知识源打分"**。它明确说了两件对你极其重要的事：
+The results are discussed here from three angles: how they compare to the closest prior work, which difficulty levels the improvements concentrate on, and what the interactive feedback contributes.
 
-% **第一，Dr.Fill明说：复杂的约束传播在这个领域行不通。**
-% 原文原话（我转述）：*"sophisticated propagation techniques appear not to be suitable in this domain"*、*"propagation beyond a simple one-level lookahead to be of negative practical value"*。它甚至**放弃了branch-and-bound**（"Branch-and-bound is not used... determined experimentally to be of little practical value"）。
+\subsection*{Comparison with Prior Work}
 
-% **这是什么意思？Dr.Fill自己就发现：在这类问题里，很多"更聪明的信息注入/传播"技术反而是负价值的。** 这和你的发现——"往局部注入更多知识系统性失败"——**是同一个现象**。你不是特例，你是重新发现了Dr.Fill早就承认的东西。
+The closest point of comparison is the heuristic baseline of \citeauthor{loredolopezNYTConnectionsDeceptivelySimple2025}, which also scores candidate groups from embeddings without involving a language model \cite{loredolopezNYTConnectionsDeceptivelySimple2025}. Under their single-attempt configuration it solves 1.0\% of puzzles, against the 7.89\% established in \autoref{sec:exp-aggregation}.
 
-% ## Dr.Fill真正成功的原因，恰恰是你论文的核心论点
+Two differences in setup should be noted. Their evaluation uses 100 puzzles selected around the median difficulty rating, while the 938 puzzles used in this thesis span the full range. Their heuristic solution also uses a smaller embedding model.
 
-% 读原文，Dr.Fill成功的关键机制是这句话：
+Their interactive configurations cannot be compared in the same way, since under No Hints setting and Full Hints setting they report the average proportion of groups found rather than the proportion of puzzles solved.
 
-% > *"For Dr.Fill, complete domain knowledge is impractical and much greater use is made of the crossing words, as the csp solver exploits the hard constraints in the problem to restrict the set of candidate solutions."*
+\subsection*{Limitation of Enrichment}
 
-% **翻译：Dr.Fill不靠"知识足够好"，它靠"利用硬约束（交叉字母）来大幅缩小候选空间"。** 它明确承认单个clue的知识（p(f|c)）经常是不够的、有歧义的——**它靠的是"交叉词共享字母"这个全局约束，来消解单个clue的不确定性。**
+Every configuration tested improves the easier levels more than the harder ones. Enrichment with WordNet raises the yellow level from 23\% to 38\% and the green level from 15\% to 30\%, while blue moves from 13\% to 17\% and purple from 9\% to 12\%. The interactive setting improves all four levels and the ordering is unchanged.
+ 
+It can be explained by what the resources contain. WordNet organises words by their meanings, so it supplies exactly the kind of knowledge that the semantic categories rely on. It lacks the knowledge of the spelling patterns, homophones, and lists of named entities, which is where the harder levels concentrate. Adding Wikipedia and Datamuse to cover the gap did not work as expected and performed below the baseline as a single source.
 
-% **这不就是你的核心论点吗？** 你一路证明的是：局部信息（单个词的语义）不够，**全局约束满足**才是解决问题的关键。Dr.Fill用的正是这个——它不是"合并知识源把每个clue打分打准"，它是**用全局约束（字母交叉）来弥补单个clue知识的不足**。
+\subsection*{What Feedback Contributes}
 
-% ## 那关键区别来了：为什么Dr.Fill的约束能救它，你的约束救不了你？
+The interactive setting raises the success rate from 7.89\% to 26.65\% with the same scoring function, so the improvement comes entirely from being able to process responses and revise.
+ 
+This result is consistent with \autoref{chap:problem-formulation}. Feedback can supply at most 6.34 bits against a hypothesis space of 21.3. The remaining information has to come from the scoring function. It contributes a substantial share nonetheless.
 
-% 这才是问题的核心，而且这个区别正是你论文最深刻的洞察所在——**两个问题的约束"信息量"天差地别**：
+\section{Limitations}
+\label{sec:limitations}
 
-% **Dr.Fill的约束（字母交叉）是极强的、局部可传播的：**
-% - 如果1-Down是"R_ _ _AR"，字典里只有RAW BAR符合 → 这个约束**立刻确定了好几个字母**
-% - 每个交叉点都是一个硬约束，一个词填对，**立刻通过共享字母约束了所有与它交叉的词**
-% - 约束**密集、局部、可链式传播**：填一个词，字母约束像涟漪一样传播出去，大幅缩小邻居的候选
+There are four main limitations. First, the development subset of 100 puzzles is contained in the full pool of 938 and is not a held-out set. No parameters are fitted to individual puzzles, so this is not leakage in the usual sense, but results on the two are not independent.
 
-% **你的约束（16词分4组4个）是极弱的、不可局部传播的：**
-% - "每组4个、不重不漏"这个约束，**不告诉你任何两个具体的词该不该在一起**
-% - 它只在**全部16个词都被分配后**才能验证，中途无法用它排除任何局部选择
-% - 你确定了SUB属于某组，这个约束**不会**像字母交叉那样告诉你"那另一个词必须是X"——它只是减少了一个名额
+Second, the archive used here ends on 2026-01-06, and puzzles published after that date could serve as a held-out set, but were not available when these experiments were run.
 
-% **这就是根本差异：Dr.Fill的约束是"信息丰富、局部可传播"的（一个字母确定就约束一大片），你的约束是"信息贫瘠、只能全局验证"的（只有分配完才知道对不对）。**
+Third, the comparison of knowledge sources in \autoref{sec:exp-sources} was carried out on the development subset only, because Wikipedia and Datamuse require a network request for every word. The differences observed there are large, with WordNet at four times the success rate of Wikipedia, but they have not been confirmed at scale.
 
-% ## 这个差异，精确解释了你的所有实验结果
+Fourth, a single embedding model was used throughout. The relative ordering of the configurations may depend on it, and no comparison across models was attempted.
 
-% 现在把这个洞察套回你的实验，一切都通了：
+\section{Conclusion and Future Work}
+\label{sec:conclusion}
 
-% 1. **为什么Dr.Fill能用约束传播、你不能**：因为它的约束（字母）局部可传播，你的（组大小）不能。你只能用全局DP一次性求解，因为你的约束没法像它那样一步步传播缩小空间。
+Much of Connections can be settled without any linguistic knowledge beyond a dictionary. Choosing the four groups together rather than one at a time, expanding each word into its WordNet meanings, and revising the solver's probabilities after each response together take the success rate from 3\% to 26.65\%. Grouping judgement is left to a scoring rule and a search, both of which can be inspected and replaced.
 
-% 2. **为什么你enriching失败、WordNet反而最好**：Dr.Fill的知识（p(f|c)）只是提供候选，**真正的heavy-lifting是字母约束做的**。所以它的知识源"够用就行"，不需要多精准——因为强约束会兜底。而你的约束太弱，兜不了底，**所有的重担都压在了语义分数上**——于是你的语义分数必须极其精准，任何噪声（Datamuse假阳性、LLM幻觉）都会直接变成错误，因为没有强约束来纠正它。WordNet之所以最好，正因为它虽然窄，但**干净、零幻觉**——在一个"约束帮不上忙、全靠分数"的问题里，分数的干净比覆盖广更重要。
+What this approach does not reach is bounded in two ways. Feedback is limited to 6.34 bits per puzzle against a hypothesis space of 21.3, so most of what is needed must already be in the scoring function before the first submission. And the scoring function is limited by the resource it draws on. WordNet describes what words mean, so the levels built on spelling, sound, or named entities remain largely out of reach, which is where the results are weakest.
 
-% 3. **为什么你的bit分析成立**：Dr.Fill的字母约束提供了海量信息（每个交叉点都是bits），而你的"组大小"约束几乎不提供信息——这就是为什么你需要交互式反馈来补充约束信息，而反馈带宽又只有6.3 bits。**你的问题天生"约束贫瘠"，这是Connections比crossword难的根本原因。**
+Both boundaries suggest the directions for future work. The first concerns how the feedback budget is spent. In this thesis, the solver submits the group with the highest marginal probability. An alternative can be submitting the group that yields the most information, even where it is unlikely to be correct in itself. If its three possible responses divide the surviving partitions more evenly, more candidates are eliminated whichever response arrives. This is the criterion used by solvers for Mastermind and Wordle, as described in \autoref{sec:strategies}. The quantities it requires are already established in \autoref{chap:problem-formulation}, and implementing it as a decision rule was not expermimented for lack of time.
 
-% ## 所以你从Dr.Fill学到的，是你论文的一块重量级论证
+The second is about improving the scoring function. WordNet's glosses are fixed and cannot capture a relation that is not meaning-based at all, such as a shared spelling pattern or a named entity. A language model could be used as a further enrichment source instead. It can be prompted to describe a word's possible meanings while shown the full set of sixteen words, rather than serving as the solver itself. Seeing the whole puzzle in this way could let it surface an association that WordNet's context-free glosses miss. Its output would still be embedded and scored by the same mechanism already used for the other resources, rather than trusted as a decision on its own.
 
-% **你没有设计错。你发现的是：Connections和crossword虽然都是CSP，但它们的约束结构根本不同，而这个不同决定了什么方法有效。**
-
-% 这可以写成你论文里极有分量的一段（放在related work或discussion）：
-
-% > Dr.Fill (Ginsberg 2011) 在crossword上的成功，常被理解为"合并多知识源打分"的成功。但细读其方法，Dr.Fill 明确指出：单个clue的知识 p(f|c) 往往不足且有歧义，真正消解不确定性的是**交叉字母这一硬约束**——solver 通过 exploiting 字母交叉来大幅缩小候选空间，甚至发现复杂的约束传播和branch-and-bound在该领域是负价值的。
-% >
-% > 这揭示了 crossword 与 Connections 的一个根本差异：**crossword 的约束（字母交叉）信息丰富且局部可传播**——一个字母确定即约束一大片交叉词；而 **Connections 的约束（"4组4个不重不漏"）信息贫瘠且只能全局验证**——它不告诉任何两个词是否同组，只有全部分配后才可验证。
-% >
-% > 这个差异解释了我们的核心发现：在 Dr.Fill 中，强约束承担了主要工作，知识源"够用即可"；而在 Connections 中，弱约束无法兜底，全部重担压在语义分数上——因此分数的**纯净度**（零幻觉）比**覆盖广度**更重要，这正是干净的 WordNet 击败覆盖更广但带噪声的 enrichment 与 LLM 的原因。约束贫瘠也解释了为何我们必须引入交互式反馈来补充约束信息。
-
-% ## 一句话回答你的问题
-
-% **你不是设计错了，你是撞上了一个真问题：Connections的约束结构比crossword弱得多，所以对它而言，"知识源合并"这条Dr.Fill都不主要依赖的路，更加走不通——因为你连Dr.Fill用来兜底的那个强约束都没有。** 于是分数必须极其干净，WordNet的"窄但纯净"就赢了"广但带噪"的一切。
-
-% 这个对比不是你论文的尴尬，是你论文的**亮点**——它让你能站在一篇经典论文的肩膀上，精确地说清"为什么同样是CSP，我的问题需要不同的方法、也解释了我为什么会得到这些反直觉的结果"。这是本科thesis里非常成熟的一种论证：不是"我失败了"，而是"我理解了我的问题和经典问题的结构性差异，并用它解释了我的全部实验"。
-
-% 要我把这段Dr.Fill对比整理进你的实验总账和论文蓝图（放进related work或discussion）吗？这是一块值得固定下来的重要论证。
+At last, the knowledge sources compared here have also only been evaluated at development scale, and confirming them on the full set would settle whether the gaps observed there hold. Moreover, using the puzzles after 2026-01-06 to evaluate the final configuration would offer a more convincing check and result.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  31 AUG 2026 21:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  1 SEP 2026 00:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1162,40 +1162,48 @@ Package tocloft Info: The document has chapter divisions on input line 51.
 \cftbeforetabskip=\skip150
 \cfttabindent=\skip151
 \cfttabnumwidth=\skip152
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/pgfplots/pgfplots.sty (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+)
+\c@equations=\count517
+\cftbeforeequationsskip=\skip153
+\cftequationsindent=\skip154
+\cftequationsnumwidth=\skip155
+\c@loedepth=\count518
+\cftbeforeloetitleskip=\skip156
+\cftafterloetitleskip=\skip157
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/pgfplots/pgfplots.sty (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
 Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
  (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
 \t@pgfplots@toka=\toks53
 \t@pgfplots@tokb=\toks54
 \t@pgfplots@tokc=\toks55
 \pgfplots@tmpa=\dimen319
-\c@pgfplots@coordindex=\count517
-\c@pgfplots@scanlineindex=\count518
+\c@pgfplots@coordindex=\count519
+\c@pgfplots@scanlineindex=\count520
  (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)
 Package pgfplots: loading complementary utilities for your pgf version...
 \t@pgf@toka=\toks56
 \t@pgf@tokb=\toks57
 \t@pgf@tokc=\toks58
 (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_pgfutil-common-lists.tex)) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructure.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructureext.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
-\c@pgfplotsarray@tmp=\count519
+\c@pgfplotsarray@tmp=\count521
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
-\c@pgfplotstable@counta=\count520
+\c@pgfplotstable@counta=\count522
 \t@pgfplotstable@a=\toks59
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
-\c@pgfplotslibrarysurf@no=\count521
+\c@pgfplotslibrarysurf@no=\count523
  (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def))) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
 \pgfdecoratedcompleteddistance=\dimen320
 \pgfdecoratedremainingdistance=\dimen321
 \pgfdecoratedinputsegmentcompleteddistance=\dimen322
 \pgfdecoratedinputsegmentremainingdistance=\dimen323
 \pgf@decorate@distancetomove=\dimen324
-\pgf@decorate@repeatstate=\count522
+\pgf@decorate@repeatstate=\count524
 \pgfdecorationsegmentamplitude=\dimen325
 \pgfdecorationsegmentlength=\dimen326
 )
 \tikz@lib@dec@box=\box100
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex)) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex)) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplots.contourlua.code.tex)
-\pgfplots@numplots=\count523
+\pgfplots@numplots=\count525
 \pgfplots@xmin@reg=\dimen327
 \pgfplots@xmax@reg=\dimen328
 \pgfplots@ymin@reg=\dimen329
@@ -1219,11 +1227,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count524
+\c@section@level=\count526
 )
 \@linkdim=\dimen333
-\Hy@linkcounter=\count525
-\Hy@pagecounter=\count526
+\Hy@linkcounter=\count527
+\Hy@pagecounter=\count528
  (/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2024-11-05 v7.01l Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -1231,7 +1239,7 @@ Now handling font encoding PD1 ...
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count527
+\Hy@SavedSpaceFactor=\count529
  (/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2024-11-05 v7.01l Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -1250,7 +1258,7 @@ Package hyperref Info: Plain pages OFF on input line 4172.
 Package hyperref Info: Backreferencing OFF on input line 4177.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4424.
-\c@Hy@tempcnt=\count528
+\c@Hy@tempcnt=\count530
 LaTeX Info: Redefining \url on input line 4763.
 \XeTeXLinkMargin=\dimen334
  (/usr/local/texlive/2025/texmf-dist/tex/generic/bitset/bitset.sty
@@ -1258,7 +1266,7 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  (/usr/local/texlive/2025/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count529
+\Fld@menulength=\count531
 \Field@Width=\dimen335
 \Fld@charsize=\dimen336
 Package hyperref Info: Hyper figures OFF on input line 6042.
@@ -1272,9 +1280,9 @@ Package hyperref Info: PDF/A mode OFF on input line 6072.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count530
-\c@Item=\count531
-\c@Hfootnote=\count532
+\Hy@abspage=\count532
+\c@Item=\count533
+\c@Hfootnote=\count534
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/hyperref/hpdftex.def
@@ -1283,8 +1291,8 @@ File: hpdftex.def 2024-11-05 v7.01l Hyperref driver for pdfTeX
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
 )
-\Fld@listcount=\count533
-\c@bookmark@seq@number=\count534
+\Fld@listcount=\count535
+\c@bookmark@seq@number=\count536
  (/usr/local/texlive/2025/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
  (/usr/local/texlive/2025/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
@@ -1292,7 +1300,7 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
-\Hy@SectionHShift=\skip153
+\Hy@SectionHShift=\skip158
 ))
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
@@ -1366,16 +1374,16 @@ Package scrbase Info: activating english \indexname on input line 56.
 
 (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count535
+\scratchcounter=\count537
 \scratchdimen=\dimen337
 \scratchbox=\box101
-\nofMPsegments=\count536
-\nofMParguments=\count537
+\nofMPsegments=\count538
+\nofMParguments=\count539
 \everyMPshowfont=\toks60
-\MPscratchCnt=\count538
+\MPscratchCnt=\count540
 \MPscratchDim=\dimen338
-\MPnumerator=\count539
-\makeMPintoPDFobject=\count540
+\MPnumerator=\count541
+\makeMPintoPDFobject=\count542
 \everyMPtoPDFconversion=\toks61
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1417,10 +1425,10 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count541
+\c@lstlisting=\count543
 Package tocbasic Info: omitting babel extension for `lol'
 (tocbasic)             because it is already in \BabelContentsFiles on input line 56.
-\scr@dte@lstlisting@maxnumwidth=\skip154
+\scr@dte@lstlisting@maxnumwidth=\skip159
 
 Package pgfplots notification 'compat/show suggested version=true': document has been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
@@ -1441,7 +1449,7 @@ Class scrbook Info: loading recommended package `bookmark'.
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
  (/usr/local/texlive/2025/texmf-dist/tex/latex/bookmark/bkm-pdftex.def
 File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO)
-\BKM@id=\count542
+\BKM@id=\count544
 )) (./template/dhbw_coverpage_study_en.tex
 LaTeX Font Info:    Trying to load font information for U+msa on input line 50.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -1508,6 +1516,17 @@ Package pdftex.def Info: template/figures/DHBW.png  used on input line 58.
 
 
 
+] (./main.loe)
+\tf@loe=\write10
+\openout10 = `main.loe'.
+
+
+
+[8
+
+
+
+
 ] (./chapters/chap1_introduction.tex
 chapter 1.
 
@@ -1519,12 +1538,14 @@ chapter 1.
 ]) (./chapters/chap2_related_work.tex
 
 [2]
+
+[3]
 chapter 2.
 Package acronym Info: Label `acro:CoT' newly defined as it shall be overridden
 although it is yet undefined on input line 12.
 
 
-[3
+[4
 
 
 ]
@@ -1532,19 +1553,19 @@ Package acronym Info: Label `acro:CSP' newly defined as it shall be overridden
 although it is yet undefined on input line 57.
 
 
-[4]
-
 [5]
 
 [6]
 
-[7]) (./chapters/chap3_problem_formation.tex
+[7]
 
-[8]
+[8]) (./chapters/chap3_problem_formation.tex
+
+[9]
 chapter 3.
 
 
-[9
+[10
 
 
 ]
@@ -1554,75 +1575,73 @@ Overfull \hbox (5.79327pt too wide) in paragraph at lines 27--43
 
 
 
-[10]
-
 [11]
-<img/connections-example20230612.png, id=343, 2057.6875pt x 1619.04875pt>
+
+[12]
+<img/connections-example20230612.png, id=386, 2057.6875pt x 1619.04875pt>
 File: img/connections-example20230612.png Graphic file (type png)
 <use img/connections-example20230612.png>
 Package pdftex.def Info: img/connections-example20230612.png  used on input line 66.
 (pdftex.def)             Requested size: 364.19667pt x 286.54938pt.
 
 
-[12 <./img/connections-example20230612.png>]
-
-[13]
+[13 <./img/connections-example20230612.png>]
 
 [14]
 
-[15]) (./chapters/chap4_methodology.tex
+[15]
 
-[16]
+[16]) (./chapters/chap4_methodology.tex
+
+[17]
 chapter 4.
 
 
-[17
+[18
 
 
 ]
-<img/connections-score-function.png, id=399, 670.505pt x 554.07pt>
+<img/connections-score-function.png, id=435, 670.505pt x 554.07pt>
 File: img/connections-score-function.png Graphic file (type png)
 <use img/connections-score-function.png>
-Package pdftex.def Info: img/connections-score-function.png  used on input line 29.
+Package pdftex.def Info: img/connections-score-function.png  used on input line 30.
 (pdftex.def)             Requested size: 455.24411pt x 376.18771pt.
 
 
-[18]
+[19]
 
-[19 <./img/connections-score-function.png>]
+[20 <./img/connections-score-function.png>]
 
-[20]
-<img/connections-one-shot.png, id=425, 403.5075pt x 463.7325pt>
+[21]
+<img/connections-one-shot.png, id=460, 403.5075pt x 463.7325pt>
 File: img/connections-one-shot.png Graphic file (type png)
 <use img/connections-one-shot.png>
-Package pdftex.def Info: img/connections-one-shot.png  used on input line 76.
+Package pdftex.def Info: img/connections-one-shot.png  used on input line 77.
 (pdftex.def)             Requested size: 273.14923pt x 313.91872pt.
 
 
-[21 <./img/connections-one-shot.png>]
+[22 <./img/connections-one-shot.png>]
 
-[22]
-<img/connections-interactive.png, id=445, 400.49625pt x 1387.1825pt>
+[23]
+<img/connections-interactive.png, id=480, 400.49625pt x 1387.1825pt>
 File: img/connections-interactive.png Graphic file (type png)
 <use img/connections-interactive.png>
-Package pdftex.def Info: img/connections-interactive.png  used on input line 161.
+Package pdftex.def Info: img/connections-interactive.png  used on input line 163.
 (pdftex.def)             Requested size: 142.02744pt x 491.93465pt.
 
 
-[23]) (./chapters/chap5_experiment.tex
+[24]) (./chapters/chap5_experiment.tex
 
-[24]
+[25]
 
-[25 <./img/connections-interactive.png>]
+[26 <./img/connections-interactive.png>]
 chapter 5.
 
 
-[26
+[27
 
 
 ]
-
-[27]
 
 [28]
 
@@ -1632,26 +1651,34 @@ chapter 5.
 
 [31]
 
-[32]) (./chapters/chap6_conclusion.tex
+[32]
 
-[33]
+[33]) (./chapters/chap6_conclusion.tex
 
 [34]
-chapter 6.
-)
 
-[35
+[35]
+chapter 6.
+
+
+[36
 
 
 ]
+
+[37])
+
+[38]
+
+[39]
 chapter without number
 
-Overfull \hbox (3.82458pt too wide) in paragraph at lines 113--113
+Overfull \hbox (3.82458pt too wide) in paragraph at lines 115--115
 []\T1/cmr/m/n/12 José En-rique Gal-lardo, Car-los Cotta, and An-to-nio José Fer-nán-dez. ^^P  Solv-ing Weighted
  []
 
 
-Overfull \hbox (2.36656pt too wide) in paragraph at lines 113--113
+Overfull \hbox (2.36656pt too wide) in paragraph at lines 115--115
 \T1/cmr/m/n/12 Con-straint Sat-is-fac-tion Prob-lems with Memet-ic/Ex-act Hy-brid Al-go-rithms^^Q. In: \T1/cmr/m/it/12 Jour-
  []
 
@@ -1661,7 +1688,7 @@ Overfull \hbox (2.36656pt too wide) in paragraph at lines 113--113
 pdfTeX warning (ext4): destination with the same identifier (name{page.IV}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.113 \printbibliography[notkeyword=online]
+l.115 \printbibliography[notkeyword=online]
                                             [4
 
 
@@ -1673,17 +1700,17 @@ l.113 \printbibliography[notkeyword=online]
 pdfTeX warning (ext4): destination with the same identifier (name{page.V}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.113 \printbibliography[notkeyword=online]
+l.115 \printbibliography[notkeyword=online]
                                             [5]
 
 Package biblatex Warning: No driver for 'video'.
-(biblatex)                Using fallback driver on input line 113.
+(biblatex)                Using fallback driver on input line 115.
 
 
-Package biblatex Warning: Keyword 'online' not found on input line 114.
+Package biblatex Warning: Keyword 'online' not found on input line 116.
 
 
-LaTeX Warning: Empty bibliography on input line 114.
+LaTeX Warning: Empty bibliography on input line 116.
 
 
 Package caption Warning: Unused \captionsetup[lstlisting] on input line 209.
@@ -1695,9 +1722,9 @@ See the caption package documentation for explanation.
 pdfTeX warning (ext4): destination with the same identifier (name{page.VI}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.116 \end{document}
+l.118 \end{document}
                      [6]
-runsystem(latexminted cleantemp  --timestamp 20260831215023 FAD58DE7366495DB4650CFEFAC2FCD61)...executed safely (allowed).
+runsystem(latexminted cleantemp  --timestamp 20260901003004 FAD58DE7366495DB4650CFEFAC2FCD61)...executed safely (allowed).
 
  (./main.aux (./chapters/chap0_abstract.aux))
  ***********
@@ -1711,18 +1738,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 58336 strings out of 473190
- 1357780 string characters out of 5715801
- 2590640 words of memory out of 5000000
- 80545 multiletter control sequences out of 15000+600000
+ 58401 strings out of 473190
+ 1358693 string characters out of 5715801
+ 2591527 words of memory out of 5000000
+ 80594 multiletter control sequences out of 15000+600000
  582475 words of font info for 90 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  113i,17n,110p,11002b,2410s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsl1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on main.pdf (45 pages, 3102568 bytes).
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsl1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
+Output written on main.pdf (50 pages, 3123300 bytes).
 PDF statistics:
- 836 PDF objects out of 1000 (max. 8388607)
- 700 compressed objects within 7 object streams
- 142 named destinations out of 1000 (max. 500000)
- 406 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 910 PDF objects out of 1000 (max. 8388607)
+ 766 compressed objects within 8 object streams
+ 155 named destinations out of 1000 (max. 500000)
+ 438 words of extra memory for PDF output out of 10000 (max. 10000000)
 

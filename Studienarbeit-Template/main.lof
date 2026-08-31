@@ -2,11 +2,11 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces The NYT Connections puzzle answer of 12 June 2023.}}{12}{figure.caption.10}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces The NYT Connections puzzle answer of 12 June 2023.}}{13}{figure.caption.12}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces The two configurations of the scoring function compared in this thesis. Dashed borders mark the points where configurations differ; solid borders mark stages that are the same throughout. Configuration (1) embeds each word directly. Configuration (2) expands each word into a pool of meanings first, and then aggregates over the most similar pairings of meanings into the single similarity.}}{19}{figure.caption.11}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Pipeline for solving Connections under the one-shot setting.}}{21}{figure.caption.12}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Pipeline for solving Connections under the interactive setting.}}{25}{figure.caption.13}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces The two configurations of the scoring function compared in this thesis. Dashed borders mark the points where configurations differ; solid borders mark stages that are the same throughout. Configuration (1) embeds each word directly. Configuration (2) expands each word into a pool of meanings first, and then aggregates over the most similar pairings of meanings into the single similarity.}}{20}{figure.caption.13}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Pipeline for solving Connections under the one-shot setting.}}{22}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Pipeline for solving Connections under the interactive setting.}}{26}{figure.caption.15}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

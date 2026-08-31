@@ -1,9 +1,4 @@
 % !TEX root = ../main.tex
 \chapter*{Abstract}
 
-% The abstract briefly explains what the thesis focuses on: the research
-% area, the specific problem, the approach, and the most interesting
-% insights gained. Keep it to roughly one paragraph, shorter than the
-% introduction.
-
-% TODO: write the abstract
+NYT Connections asks players to sort sixteen words into four groups of four, a task that combines lexical ambiguity with a global partitioning constraint. This thesis solves the puzzle without prompting a language model for the answer, treating it instead as a weighted constraint satisfaction problem solved by a scoring function and a search. Each word is compared against every other word using sentence embeddings, enriched with candidate meanings drawn from WordNet, which is found to help substantially where Wikipedia and Datamuse do not. Under the one-shot setting, an exact search over all four groups jointly outperforms a greedy search. Averaging over the two closest meaning pairs improves the scoring function further. Together they bring the success rate from 3\% to 7.89\%. Under the interactive setting, the same scoring function is converted into a probability distribution over partitions and revised after each response through an exact Bayesian update, raising the success rate to 26.65\%. The gains achieved throughout concentrate on the easier difficulty levels, The gains achieved throughout concentrate on the easier difficulty levels, since WordNet supplies knowledge about semantic relations between words.
