@@ -2402,15 +2402,43 @@
     <bcf:citekey order="26" intorder="1">knuthComputerMasterMind1976</bcf:citekey>
     <bcf:citekey order="27" intorder="1">cunananOptimalStrategiesWordle2023</bcf:citekey>
     <bcf:citekey order="28" intorder="1">cunananOptimalStrategiesWordle2023</bcf:citekey>
-    <bcf:citekey order="29" intorder="1">NYTConnTipsTricks-2023-11-06</bcf:citekey>
-    <bcf:citekey order="30" intorder="1">NYTConn-2026-01-05</bcf:citekey>
-    <bcf:citekey order="31" intorder="1">NYTConn-2026-01-05</bcf:citekey>
-    <bcf:citekey order="32" intorder="1">NYTConn-2026-01-05</bcf:citekey>
-    <bcf:citekey order="33" intorder="1">NYTConn-2026-01-03</bcf:citekey>
-    <bcf:citekey order="34" intorder="1">NYTConn-2025-12-29</bcf:citekey>
-    <bcf:citekey order="35" intorder="1">samadarshiConnectingDotsEvaluating2024</bcf:citekey>
-    <bcf:citekey order="36" intorder="1">samadarshiConnectingDotsEvaluating2024</bcf:citekey>
-    <bcf:citekey order="37" intorder="1">toddMissedConnectionsLateral2024</bcf:citekey>
-    <bcf:citekey order="38" intorder="1">toddMissedConnectionsLateral2024</bcf:citekey>
-    <bcf:citekey order="39" intorder="1">samadarshiConnectingDotsEvaluating2024</bcf:citekey>
-    <bcf:citekey order="40" intor
+    <bcf:citekey order="29" intorder="1">samadarshiConnectingDotsEvaluating2024</bcf:citekey>
+    <bcf:citekey order="30" intorder="1">samadarshiConnectingDotsEvaluating2024</bcf:citekey>
+    <bcf:citekey order="31" intorder="1">toddMissedConnectionsLateral2024</bcf:citekey>
+    <bcf:citekey order="32" intorder="1">toddMissedConnectionsLateral2024</bcf:citekey>
+    <bcf:citekey order="33" intorder="1">samadarshiConnectingDotsEvaluating2024</bcf:citekey>
+    <bcf:citekey order="34" intorder="1">samadarshiConnectingDotsEvaluating2024</bcf:citekey>
+    <bcf:citekey order="35" intorder="1">loredolopezNYTConnectionsDeceptivelySimple2025</bcf:citekey>
+    <bcf:citekey order="36" intorder="1">loredolopezNYTConnectionsDeceptivelySimple2025</bcf:citekey>
+    <bcf:citekey order="37" intorder="1">loredolopezNYTConnectionsDeceptivelySimple2025</bcf:citekey>
+    <bcf:citekey order="38" intorder="1">loredolopezNYTConnectionsDeceptivelySimple2025</bcf:citekey>
+    <bcf:citekey order="39" intorder="1">camacho-colladosWordSenseEmbeddings2018</bcf:citekey>
+    <bcf:citekey order="40" intorder="1">toddMissedConnectionsLateral2024</bcf:citekey>
+    <bcf:citekey order="41" intorder="1">toddMissedConnectionsLateral2024</bcf:citekey>
+    <bcf:citekey order="42" intorder="1">DynamicProgramming2026</bcf:citekey>
+    <bcf:citekey order="43" intorder="1">heldkarpDynamicProgrammingApproach1962</bcf:citekey>
+    <bcf:citekey order="44" intorder="1">millerWordNetLexicalDatabase1995</bcf:citekey>
+    <bcf:citekey order="45" intorder="1">guoCalibrationModernNeural2017</bcf:citekey>
+    <bcf:citekey order="46" intorder="1">guoCalibrationModernNeural2017</bcf:citekey>
+  </bcf:section>
+  <!-- SORTING TEMPLATES -->
+  <bcf:sortingtemplate name="none">
+    <bcf:sort order="1">
+      <bcf:sortitem order="1">citeorder</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="2">
+      <bcf:sortitem order="1">intciteorder</bcf:sortitem>
+    </bcf:sort>
+  </bcf:sortingtemplate>
+  <!-- DATALISTS -->
+  <bcf:datalist section="0"
+                name="none/global//global/global/global"
+                type="entry"
+                sortingtemplatename="none"
+                sortingnamekeytemplatename="global"
+                labelprefix=""
+                uniquenametemplatename="global"
+                labelalphanametemplatename="global"
+                namehashtemplatename="global">
+  </bcf:datalist>
+</bcf:controlfile>

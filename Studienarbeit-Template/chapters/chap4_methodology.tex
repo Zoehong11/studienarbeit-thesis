@@ -8,7 +8,7 @@ This thesis concentrates on the second approach. A scoring function can be taken
 
 The scoring function assigns a score to every partition, and works generally in two steps. A similarity is first computed for every pair of the sixteen words. These similarities are then assembled into scores for candidate groups, and from those into scores for partitions. Under the one-shot setting the partition with the highest score is returned as the answer. Under the interactive setting the scores are instead treated as a prior over all partitions and revised as responses come in.
 
-\autoref{sec:scoring-functions} describes the scoring function and the choices it involves. \autoref{sec:one-shot-solving} describes solving under the one-shot setting. \autoref{sec:interactive-solving} describes what the interactive setting adds. Lastly, \autoref{sec:pipeline} assembles the components into a complete system.
+\autoref{sec:scoring-functions} describes the scoring function and the choices it involves. \autoref{sec:one-shot-solving} describes solving under the one-shot setting. \autoref{sec:interactive-solving} describes what the interactive setting adds.
 
 \section{Scoring Functions}
 \label{sec:scoring-functions}
@@ -56,7 +56,7 @@ Our solver supplies every candidate meaning of a word directly as a set of texts
 
 % Where none of the enabled resources returns anything for a word, the bare word itself is used as the single entry in its pool. This rule applies to the combined output of whichever resources are enabled rather than to each of them separately, so a word falls back to its surface form only if every enabled resource fails to cover it.
 
-The texts themselves come from external lexical and encyclopedic resources. Which resources are used is a configuration choice rather than part of the mechanism. The knowledge resources examined in this thesis and the effect of each are reported in \autoref{chap:experiment}. When none of the enabled resources returns anything for a word, the bare word itself is used as the single entry in its pool, so that every word is represented.
+The texts themselves come from external lexical and encyclopedic resources. Which resources are used is a configuration choice rather than part of the mechanism. The knowledge resources examined in this thesis and the effect of each are reported in \autoref{chap:experiments}. When none of the enabled resources returns anything for a word, the bare word itself is used as the single entry in its pool, so that every word is represented.
 
 After enrichment, each word is represented by a pool of vectors rather than a single one. Comparing two words therefore produces not one similarity but many, one for every pairing of a meaning from the first word with a meaning from the second. A single value, $\text{sim}[i,j]$, still has to be produced from this collection.
 
@@ -95,7 +95,7 @@ This recurrence does not run in circles. Each step removes a group of four words
 
 The score alone is not the answer. To recover the four groups that make up $P^*$, whichever group $g$ achieves the maximum in \autoref{eq:dp-recurrence} is recorded for every $M$ along the way. Starting from $W$, this recorded group is read off, removed, and the same lookup is repeated on what remains, until all sixteen words have been assigned.
 
-The two differ in what they take into account. The greedy procedure judges a group by its own score alone. The recursion judges it by $s(g) + \text{best}(M \setminus g)$, so a group is only chosen if what remains after removing its words can still be partitioned well. A group that scores highly on its own can therefore be rejected, and a group scoring less can be preferred, if the rest of the board resolves better that way. Whether this changes the outcome in practice is reported in \autoref{chap:experiment}.
+The two differ in what they take into account. The greedy procedure judges a group by its own score alone. The recursion judges it by $s(g) + \text{best}(M \setminus g)$, so a group is only chosen if what remains after removing its words can still be partitioned well. A group that scores highly on its own can therefore be rejected, and a group scoring less can be preferred, if the rest of the board resolves better that way. Whether this changes the outcome in practice is reported in \autoref{chap:experiments}.
 
 % \section{Solving under the Interactive Setting}
 % \label{sec:interactive-solving}
@@ -194,7 +194,7 @@ P_0(h) = \frac{\exp\big(\text{score}(h)/T\big)}{\sum_{h'} \exp\big(\text{score}(
 \end{equation}
 The subscript $0$ marks this as the belief held before any response has been observed.
 % Exponentiating each partition's score in the numerator makes every value positive. Dividing by the sum of these values over every partition, in the denominator, makes the results add up to one. Together, these two steps turn the raw scores into a valid probability distribution.
-The choice of temperature $T$ affects the resulting distribution. The specific value used is determined experimentally and is discussed in \autoref{chap:experiment}.
+The choice of temperature $T$ affects the resulting distribution. The specific value used is determined experimentally and is discussed in \autoref{chap:experiments}.
 
 % Each candidate group's marginal probability, the quantity introduced above, is obtained by grouping the partition probabilities by the masks of the groups they contain and summing within each group. This bucketed summation is done once, in a single pass over all 2,627,625 partitions, producing a lookup table indexed by group mask. Looking up a candidate's marginal probability afterward costs nothing beyond a single table access. Only groups formed from words that remain unresolved are valid candidates, since every already-confirmed group has already been submitted. The group submitted each round is the one maximizing this marginal probability among candidates formed from the remaining words, not among all $\binom{16}{4}$ groups.
 

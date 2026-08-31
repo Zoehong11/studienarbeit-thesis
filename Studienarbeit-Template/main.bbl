@@ -897,87 +897,6 @@
       \verb http://colorcode.laebisch.com/links/Donald.E.Knuth.pdf
       \endverb
     \endentry
-    \entry{NYTConnTipsTricks-2023-11-06}{online}{}{}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Group words that share a common thread. A new puzzle is available each day.}
-      \field{langid}{american}
-      \field{title}{Connections - {{Group}} Words That Share a Common Thread}
-      \field{urlday}{8}
-      \field{urlmonth}{8}
-      \field{urlyear}{2026}
-      \field{urldateera}{ce}
-      \verb{file}
-      \verb /Users/hong/Zotero/storage/MLVRVAD7/connections.html
-      \endverb
-      \verb{urlraw}
-      \verb https://www.nytimes.com/games/connections
-      \endverb
-      \verb{url}
-      \verb https://www.nytimes.com/games/connections
-      \endverb
-    \endentry
-    \entry{NYTConn-2026-01-05}{online}{}{}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Group words that share a common thread. A new puzzle is available each day.}
-      \field{langid}{american}
-      \field{title}{Connections - {{Group}} Words That Share a Common Thread}
-      \field{urlday}{8}
-      \field{urlmonth}{8}
-      \field{urlyear}{2026}
-      \field{urldateera}{ce}
-      \verb{file}
-      \verb /Users/hong/Zotero/storage/NNPIUK66/connections.html
-      \endverb
-      \verb{urlraw}
-      \verb https://www.nytimes.com/games/connections
-      \endverb
-      \verb{url}
-      \verb https://www.nytimes.com/games/connections
-      \endverb
-    \endentry
-    \entry{NYTConn-2026-01-03}{online}{}{}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Group words that share a common thread. A new puzzle is available each day.}
-      \field{langid}{american}
-      \field{title}{Connections - {{Group}} Words That Share a Common Thread}
-      \field{urlday}{8}
-      \field{urlmonth}{8}
-      \field{urlyear}{2026}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://www.nytimes.com/games/connections
-      \endverb
-      \verb{url}
-      \verb https://www.nytimes.com/games/connections
-      \endverb
-    \endentry
-    \entry{NYTConn-2025-12-29}{online}{}{}
-      \field{sortinit}{3}
-      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Group words that share a common thread. A new puzzle is available each day.}
-      \field{langid}{american}
-      \field{title}{Connections - {{Group}} Words That Share a Common Thread}
-      \field{urlday}{8}
-      \field{urlmonth}{8}
-      \field{urlyear}{2026}
-      \field{urldateera}{ce}
-      \verb{file}
-      \verb /Users/hong/Zotero/storage/KLYS5MLU/connections.html
-      \endverb
-      \verb{urlraw}
-      \verb https://www.nytimes.com/games/connections
-      \endverb
-      \verb{url}
-      \verb https://www.nytimes.com/games/connections
-      \endverb
-    \endentry
     \entry{camacho-colladosWordSenseEmbeddings2018}{online}{}{}
       \name{author}{2}{}{%
         {{hash=5a2c6234f337c9ad9aa4745a4bfbb3ee}{%
@@ -999,8 +918,8 @@
       \strng{authornamehash}{7af70c0bc938f83d129b6fd842655ea5}
       \strng{authorfullhash}{7af70c0bc938f83d129b6fd842655ea5}
       \strng{authorfullhashraw}{7af70c0bc938f83d129b6fd842655ea5}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{Over the past years, distributed semantic representations have proved to be effective and flexible keepers of prior knowledge to be integrated into downstream applications. This survey focuses on the representation of meaning. We start from the theoretical background behind word vector space models and highlight one of their major limitations: the meaning conflation deficiency, which arises from representing a word with all its possible meanings as a single vector. Then, we explain how this deficiency can be addressed through a transition from the word level to the more fine-grained level of word senses (in its broader acceptation) as a method for modelling unambiguous lexical meaning. We present a comprehensive overview of the wide range of techniques in the two main branches of sense representation, i.e., unsupervised and knowledge-based. Finally, this survey covers the main evaluation procedures and applications for this type of representation, and provides an analysis of four of its important aspects: interpretability, sense granularity, adaptability to different domains and compositionality.}
@@ -1119,8 +1038,8 @@
       \strng{authornamehash}{52cf88006a41a8cd9aab3bcb5e428b80}
       \strng{authorfullhash}{52cf88006a41a8cd9aab3bcb5e428b80}
       \strng{authorfullhashraw}{52cf88006a41a8cd9aab3bcb5e428b80}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{Because meaningful sentences are composed of meaningful words, any system that hopes to process natural languages as people do must have information about words and their meanings. This information is traditionally provided through dictionaries, and machine-readable dictionaries are now widely available. But dictionary entries evolved for the convenience of human readers, not for machines. WordNet1 provides a more effective combination of traditional lexicographic information and modern computing. WordNet is an online lexical database designed for use under program control. English nouns, verbs, adjectives, and adverbs are organized into sets of synonyms, each representing a lexicalized concept. Semantic relations link the synonym sets [4].}
@@ -1153,6 +1072,71 @@
       \verb{url}
       \verb https://dl.acm.org/doi/10.1145/219717.219748
       \endverb
+    \endentry
+    \entry{guoCalibrationModernNeural2017}{online}{}{}
+      \name{author}{4}{}{%
+        {{hash=e053cf028522c39af65dd862da2d8ed1}{%
+           family={Guo},
+           familyi={G\bibinitperiod},
+           given={Chuan},
+           giveni={C\bibinitperiod}}}%
+        {{hash=373d04718ec0efd3786a0e2b6c0adf00}{%
+           family={Pleiss},
+           familyi={P\bibinitperiod},
+           given={Geoff},
+           giveni={G\bibinitperiod}}}%
+        {{hash=17b6a43f5598c7efd897f9d254090fdd}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Yu},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=68a0238356fbd88b34be8886f25938a7}{%
+           family={Weinberger},
+           familyi={W\bibinitperiod},
+           given={Kilian\bibnamedelima Q.},
+           giveni={K\bibinitperiod\bibinitdelim Q\bibinitperiod}}}%
+      }
+      \strng{namehash}{203b115999f73097be6ab32411fb1f42}
+      \strng{fullhash}{f3833eed8ef776fc6c89f407c7d66c34}
+      \strng{fullhashraw}{f3833eed8ef776fc6c89f407c7d66c34}
+      \strng{bibnamehash}{203b115999f73097be6ab32411fb1f42}
+      \strng{authorbibnamehash}{203b115999f73097be6ab32411fb1f42}
+      \strng{authornamehash}{203b115999f73097be6ab32411fb1f42}
+      \strng{authorfullhash}{f3833eed8ef776fc6c89f407c7d66c34}
+      \strng{authorfullhashraw}{f3833eed8ef776fc6c89f407c7d66c34}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Confidence calibration -- the problem of predicting probability estimates representative of the true correctness likelihood -- is important for classification models in many applications. We discover that modern neural networks, unlike those from a decade ago, are poorly calibrated. Through extensive experiments, we observe that depth, width, weight decay, and Batch Normalization are important factors influencing calibration. We evaluate the performance of various post-processing calibration methods on state-of-the-art architectures with image and document classification datasets. Our analysis and experiments not only offer insights into neural network learning, but also provide a simple and straightforward recipe for practical settings: on most datasets, temperature scaling -- a single-parameter variant of Platt Scaling -- is surprisingly effective at calibrating predictions.}
+      \field{day}{3}
+      \field{eprintclass}{cs.LG}
+      \field{eprinttype}{arXiv}
+      \field{month}{8}
+      \field{pubstate}{prepublished}
+      \field{title}{On {{Calibration}} of {{Modern Neural Networks}}}
+      \field{urlday}{31}
+      \field{urlmonth}{8}
+      \field{urlyear}{2026}
+      \field{year}{2017}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{doi}
+      \verb 10.48550/arXiv.1706.04599
+      \endverb
+      \verb{eprint}
+      \verb 1706.04599
+      \endverb
+      \verb{file}
+      \verb /Users/hong/Zotero/storage/7TGV9MP3/Guo et al. - 2017 - On Calibration of Modern Neural Networks.pdf;/Users/hong/Zotero/storage/CMYB4PE3/1706.html
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/1706.04599
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1706.04599
+      \endverb
+      \keyw{Computer Science - Machine Learning}
     \endentry
   \enddatalist
 \endrefsection

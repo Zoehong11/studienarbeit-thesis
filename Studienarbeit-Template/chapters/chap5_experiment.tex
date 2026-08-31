@@ -33,7 +33,7 @@ Under the one-shot setting a single partition is submitted, and the two measures
 Under the interactive setting, the game ends when the puzzle is solved or when the mistake budget is exhausted. In terms of the success rate, as long as the first three groups are grouped correctly, the fourth group is also determined, because there are no other possible ways to group the remaining four words. A puzzle is therefore counted as successfully solved once three groups are correct.
 % The two settings are not compared directly, for the reasons given in \autoref{sec:problem-setting}.
 
-Results are also broken down by difficulty levels. The four tiers, yellow through purple, are reported as the proportion of puzzles in which the group at that level was identified correctly.
+Results are also broken down by difficulty levels. The four levels, yellow through purple, are reported as the proportion of puzzles in which the group at that level was identified correctly.
 
 For the interactive setting, the average number of mistakes made per puzzle is reported alongside the two main measures.
 
@@ -58,7 +58,7 @@ Global search & 0.60 & 3\% & 23\% & 15\% & 13\% & 9\% \\
 \end{tabular}
 \end{table}
 
-\autoref{tab:search} shows the results. Global search recovers slightly more groups per puzzle than greedy, 0.60 against 0.51. The difference across the four tiers is small and uneven. Yellow and green are close, 23\% against 21\% and 15\% against 16\%. Blue and purple favor global search by a few percentage points, 13\% against 8\% and 9\% against 6\%.
+\autoref{tab:search} shows the results. Global search recovers slightly more groups per puzzle than greedy, 0.60 against 0.51. The difference across the four levels is small and uneven. Yellow and green are close, 23\% against 21\% and 15\% against 16\%. Blue and purple favor global search by a few percentage points, 13\% against 8\% and 9\% against 6\%.
 
 The improvement observed here is modest, but global search fits the structure of the game more closely than greedy does, since a correct partition depends on all four groups jointly, not on any one group in isolation. Thus, global search is used in all subsequent one-shot experiments. These figures also serve as the baseline against which enrichment is measured in \autoref{sec:exp-sources}. The baseline is 0.60 correct groups per puzzle and a success rate of 3\%.
 
@@ -124,5 +124,86 @@ $k$ & Avg.\ correct & Success & Yellow & Green & Blue & Purple \\
 \end{tabular}
 \end{table}
 
-\autoref{tab:aggregation} shows the result peaks at $k = 2$. It leads with 1.039 correct groups and a success rate of 7.89\% against 6.61\%. The same pattern holds across the difficulty tiers. Since performance rises from $k = 1$ to $k = 2$ and falls again at $k = 3$, larger values were not examined. All subsequent experiments use $k = 2$.
+\autoref{tab:aggregation} shows the result peaks at $k = 2$. It leads with 1.039 correct groups and a success rate of 7.89\% against 6.61\%. The same pattern holds across the different levels. Since performance rises from $k = 1$ to $k = 2$ and falls again at $k = 3$, larger values were not examined.
 
+\section{Interactive Solving}
+\label{sec:exp-interactive}
+The previous sections established the scoring function used under the one-shot setting. WordNet is used as the knowledge source, global search is used to select partitions, and $k = 2$ is used for the aggregation rule. This section applies scoring function to the interactive setting described in \autoref{sec:interactive-solving}, where a group is submitted one at a time and the response revises the probabilities over the remaining partitions. The scores are converted into a prior using softmax, which depends on a temperature $T$ that can be calibrated. Each puzzle ends either when all four groups have been found or when four mistakes have been made.
+
+\subsection{Temperature}
+\label{sec:exp-temperature}
+
+Converting scores into a prior requires a temperature. The default value is $T = 1$, but it is not obvious whether this choice or any other actually affects the outcome. Nine values were compared on all 938 puzzles, ranging from $T = 1.0$ down to $T = 0.005$.
+
+\autoref{tab:temperature-ece} demonstrates the result, which shows the success rate changes little across the range tested and stays between 26.44\% and 27.19\%. The difficulty levels also show a similar pattern.
+
+The experiment reveals something not considered beforehand. The temperature has far less influence on the outcome than expected because it is just a monotonic transformation of the scores in this experiment. Whatever $T$ is chosen, a partition scoring higher than another still receives a higher probability. The temperature only changes how far apart those probabilities are, not which partition ranks above which. It cannot add information that the scoring function did not already contain, and the scoring function is what determines how many puzzles can be solved.
+
+A value still has to be chosen when the success rate does not distinguish between them. Since the prior is used as a probability rather than as a ranking, it is reasonable to ask which value makes those probabilities most trustworthy. The method temperature scaling was proposed by \citeauthor{guoCalibrationModernNeural2017} \cite{guoCalibrationModernNeural2017} is adopted here. It chooses the value of $T$ with the mininal calibration error that makes the reported probability match the reliability the scoring function actually has. It is applied here to the softmax prior over partitions instead of a classifier's output layer.
+
+\begin{table}[t]
+\centering
+\caption{Nine temperature values compared on all 938 puzzles, using WordNet, global search and $k = 2$.}
+\label{tab:temperature-results}
+\begin{tabular}{lccccc}
+\toprule
+$T$ & Success & Yellow & Green & Blue & Purple \\
+\midrule
+1.0 & 26.44\% & 61.83\% & 49.15\% & 36.35\% & 29.00\% \\
+0.5 & 26.55\% & 62.69\% & 50.00\% & 36.78\% & 29.10\% \\
+0.3 & 26.65\% & 62.47\% & 50.00\% & 37.10\% & 29.42\% \\
+0.2 & 27.08\% & 63.43\% & 50.75\% & 37.10\% & 29.85\% \\
+0.1 & 26.65\% & 63.54\% & 51.28\% & 37.10\% & 29.64\% \\
+0.05 & 27.19\% & 62.79\% & 50.64\% & 37.95\% & 30.28\% \\
+0.02 & 26.76\% & 60.45\% & 48.72\% & 36.46\% & 29.85\% \\
+0.01 & 26.65\% & 59.81\% & 48.29\% & 36.35\% & 29.64\% \\
+0.005 & 26.97\% & 59.17\% & 48.40\% & 36.67\% & 29.96\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Expected calibration error for nine temperature values, on all 938 puzzles, $k = 2$.}
+\label{tab:temperature-ece}
+\begin{tabular}{lc}
+\toprule
+$T$ & ECE \\
+\midrule
+1.0 & 0.4864 \\
+0.5 & 0.4818 \\
+0.3 & 0.4583 \\
+0.2 & 0.3978 \\
+0.1 & \textbf{0.0991} \\
+0.05 & 0.2628 \\
+0.02 & 0.4588 \\
+0.01 & 0.5011 \\
+0.005 & 0.5365 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\autoref{tab:temperature-ece} shows a single sharp minimum. At $T = 0.1$ the calibration error is 0.0991, and the remaining values range between 0.40 and 0.54. A same scan under $k = 1$ produces a curve of the same shape with its minimum again at $T = 0.1$, so the choice does not depend on the aggregation rule.
+
+All interactive results in this thesis therefore use $T = 0.1$. Even though this choice has little effect on the success rate, it is the value at which the probabilities are calibrated.
+
+\subsection{Feedback}
+\label{sec:exp-feedback}
+
+\begin{table}[t]
+\centering
+\caption{The one-shot and interactive settings compared, using WordNet, global search and $k = 2$ on all 938 puzzles. The interactive setting uses $T = 0.1$.}
+\label{tab:interactive}
+\begin{tabular}{lccccc}
+\toprule
+& Success & Yellow & Green & Blue & Purple \\
+\midrule
+One-shot & 7.89\% & 42.64\% & 32.41\% & 17.70\% & 11.19\% \\
+Interactive & 26.65\% & 63.54\% & 51.28\% & 37.10\% & 29.64\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+This subsection summarizes the results of the interactive setting and one-shot setting to answer the question that whether the feedback in the interactive mechanism actually improves performance.
+
+Judging from \autoref{tab:interactive}, the success rate rises from 7.89\% to 26.65\%. Every difficulty level improves. Yellow rises from 42.64\% to 63.54\%, green from 32.41\% to 51.28\%, blue from 17.70\% to 37.10\%, and purple from 11.19\% to 29.64\%. The solver makes 3.32 mistakes per puzzle on average, against a budget of four. The scoring function is the same in both settings and the rise is what the feedback provides.

@@ -1,0 +1,15 @@
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces Relation category for NYT Connections with illustrative examples.}}{10}{table.caption.9}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces Greedy selection compared with global search, without enrichment, on 100 puzzles.}}{28}{table.caption.14}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Knowledge sources compared on 100 puzzles, using global search and $k = 1$.}}{30}{table.caption.15}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Aggregation rule compared on all 938 puzzles, using WordNet and global search.}}{31}{table.caption.16}%
+\contentsline {table}{\numberline {5.4}{\ignorespaces Nine temperature values compared on all 938 puzzles, using WordNet, global search and $k = 2$.}}{33}{table.caption.17}%
+\contentsline {table}{\numberline {5.5}{\ignorespaces Expected calibration error for nine temperature values, on all 938 puzzles, $k = 2$.}}{34}{table.caption.18}%
+\contentsline {table}{\numberline {5.6}{\ignorespaces The one-shot and interactive settings compared, using WordNet, global search and $k = 2$ on all 938 puzzles. The interactive setting uses $T = 0.1$.}}{34}{table.caption.19}%
+\addvspace {10\p@ }
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
