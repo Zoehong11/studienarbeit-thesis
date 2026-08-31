@@ -2,51 +2,30 @@
 \chapter{Introduction}
 \label{chap:introduction}
 
-% - Background
-% - Motivation
-% - Goals
-% - Tasks
-% - General description of the project
-% - What is this thesis about?
-% - Who initiated the work and for what purpose?
-% - Who should benefit from the results?
-% - What problem is being solved? Why?
-% - Under what circumstances is an improvement needed?
-% - What is the state of the art?
-% - What open problems remain?
-% - How does my approach differ from existing ones?
-% - What are the goals of the thesis?
-% - How do I intend to reach these goals?
-% - What exactly is planned?
+NYT Connections asks players to sort sixteen words into four groups of four. Each group carries one of four difficulty levels, ranging from yellow (easiest) to purple (hardest). The puzzle has become a popular benchmark for testing the reasoning abilities of language models. Two challenges make Connections difficult to solve.
 
-% TODO: to be continued
-% 1.1"Large, cloud-hosted language models already achieve strong results..." → 引loredolopez2025 / toddetal2024
-% 1.2整个"Prior work on Connections solvers..."段落 → 引toddetal2024 / loredolopez2025 / zhangetal-connections
-% 1.3"it reproduces the group-scoring baseline of Loredo Lopez..." → 引loredolopez2025
-
-% Existing solvers for NYT Connections from fromer works rely heavily on large LLMs (see Section \autoref{related-work}). They are limited by the cost or resources required to run large LLMs. 
-
-% This thesis instead focuses on small language models that can run locally. Small language models are more accessible and cost-effective, but they also struggle with reasoning tasks that require tracking global constraints across multiple words, such as solving Connections. This thesis investigates whether this reasoning gap can be narrowed not by scaling up the model, but by giving a small model additional, task-specific support.
-
-% NYT Connections asks players to sort sixteen words into four groups of four. Each group carries one of four difficulty labels, ranging from yellow (easiest) to purple (hardest). The puzzle is published daily and has become a popular benchmark for testing the ability of thinking and reasoning of language models. There are two main challenges of connections.
-
-% The puzzle is deliberately constructed so that several words could plausibly belong to more than one candidate group under a superficial reading, which is called "red herring". Solving Connections well requires several distinct kinds of language understanding at once. Some groups rest on straightforward synonymy. Others depend on shared themes, wordplay, or knowledge of pop culture and named entities. A single puzzle typically mixes several of these relation types and deliberately includes words that fit more than one plausible group. 
-
-% Because a word cannot be reused across groups, correctly identifying even one group depends not only on recognizing a plausible shared category among four words in isolation, but also on the arrangement of the remaining words. A locally plausible grouping can still be wrong if it leaves the remaining words unable to form additional valid groups of four.
-
-% This thesis treats global constraint satisfaction as the algorithmic core of solving Connections, and asks how far it can be pushed, and where attempts to supplement it with additional linguistic or semantic knowledge, including large language models, succeed or fail.
-
-NYT Connections asks players to sort sixteen words into four groups of four. Each group carries one of four difficulty tiers, ranging from yellow (easiest) to purple (hardest). Published daily, the puzzle has become a popular benchmark for testing the reasoning abilities of language models. Two challenges make Connections difficult to solve.
-
-The first challenge is lexical or semantical. Solving Connections requires several distinct kinds of language understanding at once. Some groups rest on straightforward synonymy. Others depend on shared themes, wordplay, or knowledge of pop culture and named entities. For the taxonomy defined in this thesis, see \autoref{tab:connections_relation_taxonomy}. A single puzzle typically mixes several of these relation types, and is deliberately constructed so that some words could plausibly belong to more than one candidate group, an effect commonly referred to as a red herring.
+The first challenge is lexical or semantical. Solving Connections requires several distinct kinds of language understanding at once. Some groups rest on straightforward synonymy. Others depend on shared themes, wordplay, or knowledge of pop culture and named entities. The taxonomy defined in this thesis can be found in \autoref{tab:connections_relation_taxonomy}. A single puzzle typically mixes several of these relation types, and is deliberately constructed so that some words could plausibly belong to more than one candidate group, an effect commonly referred to as a red herring.
 
 The second challenge is structural. Because a word cannot be reused across groups, correctly identifying even one group depends not only on recognizing a plausible shared category among four words in isolation, but also on the arrangement of the remaining words. A locally plausible grouping can still be wrong if it leaves the remaining words unable to form additional valid groups of four.
 
-% TODO: fill in "(Sections [X], [X])" below once the corresponding chap3/chap4 subsections exist and have labels
-In previous studies, the first challenge has been widely discussed and mainly through embedding-based clustering or large language models to propose or judge candidate groupings (see \autoref{sec:prior-work-connections}). 
+In previous studies, the first challenge has been widely discussed and mainly through embedding-based clustering or large language models to propose or judge candidate groupings (see \autoref{sec:prior-work-connections}). An LLM-based approach was explored initially, but a language model is a black box, and it is hard to attribute a specific output to a specific cause. Running a large language model repeatedly across many puzzles and configurations also carries a real cost, whether in paid API usage or in the hardware required to run one locally. This thesis instead takes a different approach. Instead of using LLM to directly suggest groups, several forms of knowledge injections from different sources (see \autoref{sec:exp-sources}) are tested, and utilize a scoring function to suggest candidate groups.
 
-This thesis take the same idea but different apporach. Instead of using LLM to directly suggest groups, we try several forms of knowledge injection from different sources (see \autoref{chap:method}), and utilize a scoring function to suggest candidate groups. The results find that knowledge injection consistently fall short in similar ways (note: to be written, do the reference later!!!). The second challenge, ensuring that all sixteen words are partitioned exclusively, has received comparatively little attention on its own. Taking inspiration from solving Wordle algorithmically with information theory \cite{3blue1brownSolvingWordleUsing2022}, this thesis treats the puzzle's interactive mechanism: submitting a guess, observing feedback, and revising, as central to addressing this second challenge, and asks how much of the puzzle's difficulty it can resolve by algorithm.
+The second challenge, ensuring that all sixteen words are partitioned exclusively, has received comparatively little attention on its own. This thesis treats the puzzle's interactive mechanism (submitting a guess, observing feedback, and revising) as central to address this second challenge. It is inspired by the sequential candidate-elimination strategies used for games such as Wordle and Mastermind, reviewed in \autoref{sec:strategies}. An information-theoretic bound on how much of the puzzle's difficulty feedback alone can resolve is also established, motivating a design in which most of the solving power comes from the scoring function rather than from feedback.
+
+\section{Contributions}
+
+This thesis makes the following empirical contributions, established through the experiments reported in \autoref{chap:experiments}.
+
+First, comparing a greedy selection of groups against an exact global search shows a small improvement in favor of global search.
+
+Second, comparing several sources of semantic enrichment shows that WordNet substantially improves the scoring function, while Wikipedia and Datamuse do not. The improvement is concentrated on puzzles whose categories rest on semantic relations between words.
+
+Third, testing how many pairs of meanings should be averaged when comparing two words shows a further, smaller improvement. Averaging over the two closest pairs performs somewhat better than relying on the single closest pair alone.
+
+Fourth, comparing the one-shot and interactive settings shows that feedback substantially improves solving performance, more than tripling the success rate over the one-shot setting.
+
+Fifth, comparing nine values of the softmax temperature used in the interactive setting shows that it has little effect on the success rate.
 
 \section{Structure}
 The structure of this thesis is as follows.
-\autoref{chap:related_work} gives an overview of the prior work relevant to solving Connections. \autoref{chap:method} describes the proposed methodology for solving Connections.
+\autoref{chap:related_work} gives an overview of the prior work relevant to solving Connections. \autoref{chap:problem-formulation} formalizes the puzzle as a weighted constraint satisfaction problem. \autoref{chap:method} describes the proposed methodology for solving Connections under both the one-shot and interactive settings. \autoref{chap:experiments} reports the experiments that evaluate this methodology and presents their results. \autoref{chap:conclusion} concludes the thesis and discusses directions for future work.

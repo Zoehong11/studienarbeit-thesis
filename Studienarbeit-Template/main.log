@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  31 AUG 2026 21:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  31 AUG 2026 21:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1471,26 +1471,28 @@ Package pdftex.def Info: template/figures/DHBW.png  used on input line 58.
 
 
 
-] (./main.toc)
-\tf@toc=\write7
-\openout7 = `main.toc'.
-
-
+] (./main.toc
 
 [3
 
 
 
 
-] (./etc/acronyms.tex)
+])
+\tf@toc=\write7
+\openout7 = `main.toc'.
 
-[4] (./main.lof)
+
+
+[4] (./etc/acronyms.tex)
+
+[5] (./main.lof)
 \tf@lof=\write8
 \openout8 = `main.lof'.
 
 
 
-[5
+[6
 
 
 
@@ -1501,20 +1503,20 @@ Package pdftex.def Info: template/figures/DHBW.png  used on input line 58.
 
 
 
-[6
+[7
 
 
 
 
 ] (./chapters/chap1_introduction.tex
 chapter 1.
-) (./chapters/chap2_related_work.tex
+
 
 [1
 
 
 
-]
+]) (./chapters/chap2_related_work.tex
 
 [2]
 chapter 2.
@@ -1555,7 +1557,7 @@ Overfull \hbox (5.79327pt too wide) in paragraph at lines 27--43
 [10]
 
 [11]
-<img/connections-example20230612.png, id=331, 2057.6875pt x 1619.04875pt>
+<img/connections-example20230612.png, id=343, 2057.6875pt x 1619.04875pt>
 File: img/connections-example20230612.png Graphic file (type png)
 <use img/connections-example20230612.png>
 Package pdftex.def Info: img/connections-example20230612.png  used on input line 66.
@@ -1578,7 +1580,7 @@ chapter 4.
 
 
 ]
-<img/connections-score-function.png, id=387, 670.505pt x 554.07pt>
+<img/connections-score-function.png, id=399, 670.505pt x 554.07pt>
 File: img/connections-score-function.png Graphic file (type png)
 <use img/connections-score-function.png>
 Package pdftex.def Info: img/connections-score-function.png  used on input line 29.
@@ -1590,7 +1592,7 @@ Package pdftex.def Info: img/connections-score-function.png  used on input line 
 [19 <./img/connections-score-function.png>]
 
 [20]
-<img/connections-one-shot.png, id=413, 403.5075pt x 463.7325pt>
+<img/connections-one-shot.png, id=425, 403.5075pt x 463.7325pt>
 File: img/connections-one-shot.png Graphic file (type png)
 <use img/connections-one-shot.png>
 Package pdftex.def Info: img/connections-one-shot.png  used on input line 76.
@@ -1600,7 +1602,7 @@ Package pdftex.def Info: img/connections-one-shot.png  used on input line 76.
 [21 <./img/connections-one-shot.png>]
 
 [22]
-<img/connections-interactive.png, id=432, 400.49625pt x 1387.1825pt>
+<img/connections-interactive.png, id=445, 400.49625pt x 1387.1825pt>
 File: img/connections-interactive.png Graphic file (type png)
 <use img/connections-interactive.png>
 Package pdftex.def Info: img/connections-interactive.png  used on input line 161.
@@ -1630,23 +1632,26 @@ chapter 5.
 
 [31]
 
-[32])
+[32]) (./chapters/chap6_conclusion.tex
 
 [33]
 
 [34]
+chapter 6.
+)
+
+[35
+
+
+]
 chapter without number
 
-Package biblatex Warning: No driver for 'video'.
-(biblatex)                Using fallback driver on input line 112.
-
-
-Overfull \hbox (3.82458pt too wide) in paragraph at lines 112--112
+Overfull \hbox (3.82458pt too wide) in paragraph at lines 113--113
 []\T1/cmr/m/n/12 José En-rique Gal-lardo, Car-los Cotta, and An-to-nio José Fer-nán-dez. ^^P  Solv-ing Weighted
  []
 
 
-Overfull \hbox (2.36656pt too wide) in paragraph at lines 112--112
+Overfull \hbox (2.36656pt too wide) in paragraph at lines 113--113
 \T1/cmr/m/n/12 Con-straint Sat-is-fac-tion Prob-lems with Memet-ic/Ex-act Hy-brid Al-go-rithms^^Q. In: \T1/cmr/m/it/12 Jour-
  []
 
@@ -1656,7 +1661,7 @@ Overfull \hbox (2.36656pt too wide) in paragraph at lines 112--112
 pdfTeX warning (ext4): destination with the same identifier (name{page.IV}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.112 \printbibliography[notkeyword=online]
+l.113 \printbibliography[notkeyword=online]
                                             [4
 
 
@@ -1668,13 +1673,17 @@ l.112 \printbibliography[notkeyword=online]
 pdfTeX warning (ext4): destination with the same identifier (name{page.V}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.112 \printbibliography[notkeyword=online]
+l.113 \printbibliography[notkeyword=online]
                                             [5]
 
-Package biblatex Warning: Keyword 'online' not found on input line 113.
+Package biblatex Warning: No driver for 'video'.
+(biblatex)                Using fallback driver on input line 113.
 
 
-LaTeX Warning: Empty bibliography on input line 113.
+Package biblatex Warning: Keyword 'online' not found on input line 114.
+
+
+LaTeX Warning: Empty bibliography on input line 114.
 
 
 Package caption Warning: Unused \captionsetup[lstlisting] on input line 209.
@@ -1686,9 +1695,9 @@ See the caption package documentation for explanation.
 pdfTeX warning (ext4): destination with the same identifier (name{page.VI}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.115 \end{document}
+l.116 \end{document}
                      [6]
-runsystem(latexminted cleantemp  --timestamp 20260831210046 FAD58DE7366495DB4650CFEFAC2FCD61)...executed safely (allowed).
+runsystem(latexminted cleantemp  --timestamp 20260831215023 FAD58DE7366495DB4650CFEFAC2FCD61)...executed safely (allowed).
 
  (./main.aux (./chapters/chap0_abstract.aux))
  ***********
@@ -1702,18 +1711,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 58323 strings out of 473190
- 1357528 string characters out of 5715801
- 2590590 words of memory out of 5000000
- 80539 multiletter control sequences out of 15000+600000
+ 58336 strings out of 473190
+ 1357780 string characters out of 5715801
+ 2590640 words of memory out of 5000000
+ 80545 multiletter control sequences out of 15000+600000
  582475 words of font info for 90 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 113i,17n,110p,11002b,2371s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 113i,17n,110p,11002b,2410s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsl1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on main.pdf (43 pages, 3100023 bytes).
+Output written on main.pdf (45 pages, 3102568 bytes).
 PDF statistics:
- 813 PDF objects out of 1000 (max. 8388607)
- 679 compressed objects within 7 object streams
- 138 named destinations out of 1000 (max. 500000)
- 390 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 836 PDF objects out of 1000 (max. 8388607)
+ 700 compressed objects within 7 object streams
+ 142 named destinations out of 1000 (max. 500000)
+ 406 words of extra memory for PDF output out of 10000 (max. 10000000)
 

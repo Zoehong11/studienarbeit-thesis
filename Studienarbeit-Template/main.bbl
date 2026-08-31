@@ -19,38 +19,6 @@
 
 \refsection{0}
   \datalist[entry]{none/global//global/global/global}
-    \entry{3blue1brownSolvingWordleUsing2022}{video}{}{}
-      \name{namea}{1}{}{%
-        {{hash=682352d7b7d88f46edac62cd97b58db1}{%
-           family={{3Blue1Brown}},
-           familyi={3\bibinitperiod}}}%
-      }
-      \strng{nameabibnamehash}{682352d7b7d88f46edac62cd97b58db1}
-      \strng{nameanamehash}{682352d7b7d88f46edac62cd97b58db1}
-      \strng{nameafullhash}{682352d7b7d88f46edac62cd97b58db1}
-      \strng{nameafullhashraw}{682352d7b7d88f46edac62cd97b58db1}
-      \field{sortinit}{1}
-      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
-      \field{labeltitlesource}{title}
-      \field{abstract}{An excuse to teach a lesson on information theory and entropy. These lessons are funded by viewers: ~~/~3blue1brown~~ Special thanks to these supporters: https://3b1b.co/lessons/wordle\#thanks}
-      \field{day}{6}
-      \field{entrysubtype}{video}
-      \field{month}{2}
-      \field{nameatype}{collaborator}
-      \field{title}{Solving {{Wordle}} Using Information Theory}
-      \field{urlday}{30}
-      \field{urlmonth}{7}
-      \field{urlyear}{2026}
-      \field{year}{2022}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://www.youtube.com/watch?v=v68zYyaEmEA
-      \endverb
-      \verb{url}
-      \verb https://www.youtube.com/watch?v=v68zYyaEmEA
-      \endverb
-    \endentry
     \entry{toddMissedConnectionsLateral2024}{inproceedings}{}{}
       \name{author}{4}{}{%
         {{hash=fc9c46cc0807547b221e93ef062030a4}{%
@@ -82,8 +50,8 @@
       \strng{authornamehash}{9a7628e4f40411cca901fb740339ef73}
       \strng{authorfullhash}{f038d49bc5b63c5a40c7ced74f52ab61}
       \strng{authorfullhashraw}{f038d49bc5b63c5a40c7ced74f52ab61}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{The Connections puzzle published each day by the New York Times tasks players with dividing a bank of sixteen words into four groups of four words that each relate to a common theme. Solving the puzzle requires both common linguistic knowledge (i.e. definitions and typical usage) as well as, in many cases, lateral or abstract thinking. This is because the four categories ascend in complexity, with the most challenging category often requiring thinking about words in uncommon ways or as parts of larger phrases. We investigate the capacity for automated AI systems to play Connections and explore the game’s potential as an automated benchmark for abstract reasoning and a way to measure the semantic information encoded by data-driven linguistic systems. In particular, we study both a sentence-embedding baseline and modern large language models (LLMs). We report their accuracy on the task, measure the impacts of chain-of-thought prompting, and discuss their failure modes. Overall, we find that the Connections task is challenging yet feasible, and a strong test-bed for future work.}
@@ -156,8 +124,8 @@
       \strng{authornamehash}{83f9f7ee58d43fbb5106be968684f898}
       \strng{authorfullhash}{eafa11943c91320fa07ad4b2234f8814}
       \strng{authorfullhashraw}{eafa11943c91320fa07ad4b2234f8814}
-      \field{sortinit}{4}
-      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{The New York Times Connections game has emerged as a popular and challenging pursuit for word puzzle enthusiasts. We collect 438 Connections games to evaluate the performance of state-of-the-art large language models (LLMs) against expert and novice human players. Our results show that even the best performing LLM, Claude 3.5 Sonnet, which has otherwise shown impressive reasoning abilities on a wide variety of benchmarks, can only fully solve 18\% of the games. Novice and expert players perform better than Claude 3.5 Sonnet, with expert human players significantly outperforming it. We create a taxonomy of the knowledge types required to successfully cluster and categorize words in the Connections game. We find that while LLMs perform relatively well on categorizing words based on semantic relations they struggle with other types of knowledge such as Encyclopedic Knowledge, Multiword Expressions or knowledge that combines both Word Form and Meaning. Our results establish the New York Times Connections game as a challenging benchmark for evaluating abstract reasoning capabilities in AI systems.}
@@ -259,8 +227,8 @@
       \strng{editornamehash}{5c4cb696904ac98f403b04594891ef70}
       \strng{editorfullhash}{6475404b12259beb64e8893b0ff8a24c}
       \strng{editorfullhashraw}{6475404b12259beb64e8893b0ff8a24c}
-      \field{sortinit}{5}
-      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{Large Language Models (LLMs) have shown impressive performance on various benchmarks, yet their ability to engage in deliberate reasoning remains questionable. We present NYT-Connections, a collection of 358 simple word classification puzzles derived from the New York Times Connections game. This benchmark is designed to penalize quick, intuitive “System 1” thinking, isolating fundamental reasoning skills. We evaluated six recent LLMs, a simple machine learning heuristic, and humans across three configurations: single-attempt, multiple attempts without hints, and multiple attempts with contextual hints. Our findings reveal a significant performance gap: even top-performing LLMs like GPT-4 fall short of human performance by nearly 30\%. Notably, advanced prompting techniques such as Chain-of-Thought and Self-Consistency show diminishing returns as task difficulty increases. NYT-Connections uniquely combines linguistic isolation, resistance to intuitive shortcuts, and regular updates to mitigate data leakage, offering a novel tool for assessing LLM reasoning capabilities.}
@@ -313,8 +281,8 @@
       \strng{authornamehash}{6f6b3d2a6e89759fae2bf6a36e371508}
       \strng{authorfullhash}{6f6b3d2a6e89759fae2bf6a36e371508}
       \strng{authorfullhashraw}{6f6b3d2a6e89759fae2bf6a36e371508}
-      \field{sortinit}{6}
-      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{While modern NLP models are adept at handling syntactically rich prose and sentence structure, they still struggle with the flexible problem solving and general reasoning ability that humans exhibit. In this paper, we apply diverse NLP methods to one example of a semantically complex reasoning task, The New York Times Connections game. We explore baseline methods that are specific to the semantic grouping task, such as K-Means clustering on various word embeddings. Then, we benchmark in-context learning on a large LLM as well as finetune a smaller LLM using existing examples of solved puzzles. We also explore unique methods of introducing complex linguistic and metalinguistic reasoning capabilities of a larger LLM into a smaller LLM, through methods like fine-tuning with distilled rationales and Verbal Reinforcement Learning. We found promising results with Verbal RL, as the smaller model was able to absorb critique from a larger language model and improve on previous answers, similar to how human solvers approach language puzzles.}
@@ -331,8 +299,8 @@
       \endverb
     \endentry
     \entry{ConstraintSatisfactionProblem2026}{inreference}{}{}
-      \field{sortinit}{8}
-      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
       \field{labeltitlesource}{title}
       \field{abstract}{Constraint satisfaction problems (CSPs) are mathematical questions defined as a set of objects whose state must satisfy a number of constraints or limitations. CSPs represent the entities in a problem as a homogeneous collection of finite constraints over variables, which is solved by constraint satisfaction methods. CSPs are the subject of research in both artificial intelligence and operations research, since the regularity in their formulation provides a common basis to analyze and solve problems of many seemingly unrelated families. CSPs often exhibit high complexity, requiring a combination of heuristics and combinatorial search methods to be solved in a reasonable time. Constraint programming (CP) is the field of research that specifically focuses on tackling these kinds of problems. Additionally, the Boolean satisfiability problem (SAT), satisfiability modulo theories (SMT), mixed integer programming (MIP) and answer set programming (ASP) are all fields of research focusing on the resolution of particular forms of the constraint satisfaction problem. Examples of problems that can be modeled as a constraint satisfaction problem include: Type inference Eight queens puzzle Map coloring problem Maximum cut problem Sudoku, crosswords, futoshiki, Kakuro (Cross Sums), Numbrix/Hidato, Zebra Puzzle, and many other logic puzzles These are often provided with tutorials of CP, ASP, Boolean SAT and SMT solvers. In the general case, constraint problems can be much harder, and may not be expressible in some of these simpler systems. "Real life" examples include automated planning, lexical disambiguation, musicology, product configuration and resource allocation. The existence of a solution to a CSP can be viewed as a decision problem. This can be decided by finding a solution, or failing to find a solution after exhaustive search (stochastic algorithms typically never reach an exhaustive conclusion, while directed searches often do, on sufficiently small problems). In some cases the CSP might be known to have solutions beforehand, through some other mathematical inference process.}
       \field{annotation}{Page Version ID: 1334133666}
@@ -387,8 +355,8 @@
       \strng{authornamehash}{b3b61a6ca5cb4d53eba04f7b78c53e26}
       \strng{authorfullhash}{b3b61a6ca5cb4d53eba04f7b78c53e26}
       \strng{authorfullhashraw}{b3b61a6ca5cb4d53eba04f7b78c53e26}
-      \field{sortinit}{9}
-      \field{sortinithash}{0a5ebc79d83c96b6579069544c73c7d4}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{shorttitle}
       \field{abstract}{A constraint satisfaction problem (CSP) requires a value, selected from a given finite domain, to be assigned to each variable in the problem, so that all constraints relating the variables are satisfied. Many combinatorial problems in operational research, such as scheduling and timetabling, can be formulated as CSPs. Researchers in artificial intelligence (AI) usually adopt a constraint satisfaction approach as their preferred method when tackling such problems. However, constraint satisfaction approaches are not widely known amongst operational researchers. The aim of this paper is to introduce constraint satisfaction to the operational researcher. We start by defining CSPs, and describing the basic techniques for solving them. We then show how various combinatorial optimization problems are solved using a constraint satisfaction approach. Based on computational experience in the literature, constraint satisfaction approaches are compared with well-known operational research (OR) techniques such as integer programming, branch and bound, and simulated annealing.}
@@ -777,8 +745,8 @@
       \strng{authornamehash}{081df5a30962175e4a378a90364aacef}
       \strng{authorfullhash}{9d8d9ad393d179912180b1b8fe77b76f}
       \strng{authorfullhashraw}{9d8d9ad393d179912180b1b8fe77b76f}
-      \field{sortinit}{2}
-      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{day}{6}
@@ -801,6 +769,38 @@
       \endverb
       \verb{url}
       \verb https://orb.binghamton.edu/nejcs/vol8/iss1/6
+      \endverb
+    \endentry
+    \entry{3blue1brownSolvingWordleUsing2022}{video}{}{}
+      \name{namea}{1}{}{%
+        {{hash=682352d7b7d88f46edac62cd97b58db1}{%
+           family={{3Blue1Brown}},
+           familyi={3\bibinitperiod}}}%
+      }
+      \strng{nameabibnamehash}{682352d7b7d88f46edac62cd97b58db1}
+      \strng{nameanamehash}{682352d7b7d88f46edac62cd97b58db1}
+      \strng{nameafullhash}{682352d7b7d88f46edac62cd97b58db1}
+      \strng{nameafullhashraw}{682352d7b7d88f46edac62cd97b58db1}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labeltitlesource}{title}
+      \field{abstract}{An excuse to teach a lesson on information theory and entropy. These lessons are funded by viewers: ~~/~3blue1brown~~ Special thanks to these supporters: https://3b1b.co/lessons/wordle\#thanks}
+      \field{day}{6}
+      \field{entrysubtype}{video}
+      \field{month}{2}
+      \field{nameatype}{collaborator}
+      \field{title}{Solving {{Wordle}} Using Information Theory}
+      \field{urlday}{30}
+      \field{urlmonth}{7}
+      \field{urlyear}{2026}
+      \field{year}{2022}
+      \field{dateera}{ce}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=v68zYyaEmEA
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=v68zYyaEmEA
       \endverb
     \endentry
     \entry{cunananOptimalStrategiesWordle2023}{online}{}{}
